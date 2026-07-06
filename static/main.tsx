@@ -9,9 +9,10 @@ import "../src/styles.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { Presell } from "../src/presell";
+import { QuizThenPresell } from "../src/quiz";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <Presell />
+    <QuizThenPresell Presell={Presell} />
   </React.StrictMode>,
 );
