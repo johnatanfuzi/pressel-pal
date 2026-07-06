@@ -1,8 +1,5 @@
 import { useState } from "react";
-
-const CTA_LINK =
-  (typeof window !== "undefined" && (window as any).CTA_LINK) || "#";
-
+import { CTA_LINK } from "./links";
 
 type Question = {
   title: string;
@@ -42,7 +39,7 @@ const QUESTIONS: Question[] = [
   },
 ];
 
-export function Quiz({ onComplete }: { onComplete: () => void }) {
+export function Quiz() {
   const [step, setStep] = useState(0);
   const [finished, setFinished] = useState(false);
 
@@ -146,7 +143,6 @@ export function Quiz({ onComplete }: { onComplete: () => void }) {
 
             <a
               href={CTA_LINK}
-              onClick={onComplete}
               className="group relative mt-8 block w-full overflow-hidden rounded-2xl bg-cta px-6 py-5 text-center text-base sm:text-xl font-bold uppercase tracking-wide text-cta-foreground shadow-cta transition-all duration-200 hover:-translate-y-0.5 hover:bg-cta-hover active:translate-y-0"
             >
               <span className="relative z-10">Quero o meu devocional ✅</span>
@@ -174,16 +170,7 @@ export function Quiz({ onComplete }: { onComplete: () => void }) {
 export function QuizThenPresell({ Presell }: { Presell: React.ComponentType }) {
   const [done, setDone] = useState(false);
   if (!done) {
-    return (
-      <Quiz
-        onComplete={() => {
-          setDone(true);
-          if (typeof window !== "undefined") {
-            window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
-          }
-        }}
-      />
-    );
+    return <Quiz />;
   }
   return <Presell />;
 }

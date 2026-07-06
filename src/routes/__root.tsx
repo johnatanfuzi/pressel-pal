@@ -86,16 +86,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Ore por 21 dias e veja seu filho transformado por Deus" },
       { name: "description", content: "Descubra como orar com direção por 21 dias pode tocar o coração do seu filho e transformar sua família através da oração e do jejum." },
-      { name: "author", content: "Lovable" },
       { property: "og:title", content: "Ore por 21 dias e veja seu filho transformado por Deus" },
       { property: "og:description", content: "Descubra como orar com direção por 21 dias pode tocar o coração do seu filho e transformar sua família através da oração e do jejum." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
       { name: "twitter:title", content: "Ore por 21 dias e veja seu filho transformado por Deus" },
       { name: "twitter:description", content: "Descubra como orar com direção por 21 dias pode tocar o coração do seu filho e transformar sua família através da oração e do jejum." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/95639b54-004f-45fe-a35b-982d65218452/id-preview-376a4c94--7ffb02c1-0059-460f-a6f8-4a4763f50911.lovable.app-1783348180775.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/95639b54-004f-45fe-a35b-982d65218452/id-preview-376a4c94--7ffb02c1-0059-460f-a6f8-4a4763f50911.lovable.app-1783348180775.png" },
     ],
     links: [
       {
@@ -103,7 +99,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: appCss,
       },
     ],
-    scripts: [{ src: "/config.js" }],
 
   }),
   shellComponent: RootShell,

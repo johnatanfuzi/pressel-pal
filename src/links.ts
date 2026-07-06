@@ -1,0 +1,1 @@
+export const CTA_LINK = "https://pay.cakto.com.br/ijyaz5g_968217";
