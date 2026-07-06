@@ -1,5 +1,9 @@
 import { useState } from "react";
 
+const CTA_LINK =
+  (typeof window !== "undefined" && (window as any).CTA_LINK) || "#";
+
+
 type Question = {
   title: string;
   subtitle?: string;
