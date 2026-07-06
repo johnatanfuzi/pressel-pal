@@ -1,7 +1,5 @@
 import antesDepois from "@/assets/antes-depois.jpg";
-
-const CTA_LINK =
-  (typeof window !== "undefined" && (window as any).CTA_LINK) || "#";
+import { CTA_LINK } from "./links";
 
 function CtaButton({ label }: { label: string }) {
   return (
