@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Presell } from "@/presell";
+import { QuizThenPresell } from "@/quiz";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -20,5 +21,9 @@ export const Route = createFileRoute("/")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  component: Presell,
+  component: HomePage,
 });
+
+function HomePage() {
+  return <QuizThenPresell Presell={Presell} />;
+}
