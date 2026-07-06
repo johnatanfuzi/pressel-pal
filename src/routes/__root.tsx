@@ -99,6 +99,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: appCss,
       },
     ],
+    scripts: [{ src: "/config.js" }],
+
   }),
   shellComponent: RootShell,
   component: RootComponent,

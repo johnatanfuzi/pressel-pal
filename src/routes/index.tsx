@@ -23,7 +23,9 @@ export const Route = createFileRoute("/")({
   component: Presell,
 });
 
-const CTA_LINK = "#"; // TODO: trocar pelo link da oferta
+const CTA_LINK =
+  (typeof window !== "undefined" && (window as any).CTA_LINK) || "#";
+
 
 function CtaButton({ label }: { label: string }) {
   return (
