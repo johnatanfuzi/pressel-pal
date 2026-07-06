@@ -1,5 +1,9 @@
 import { useState } from "react";
 
+const CTA_LINK =
+  (typeof window !== "undefined" && (window as any).CTA_LINK) || "#";
+
+
 type Question = {
   title: string;
   subtitle?: string;
@@ -140,14 +144,15 @@ export function Quiz({ onComplete }: { onComplete: () => void }) {
               </p>
             </div>
 
-            <button
-              type="button"
+            <a
+              href={CTA_LINK}
               onClick={onComplete}
               className="group relative mt-8 block w-full overflow-hidden rounded-2xl bg-cta px-6 py-5 text-center text-base sm:text-xl font-bold uppercase tracking-wide text-cta-foreground shadow-cta transition-all duration-200 hover:-translate-y-0.5 hover:bg-cta-hover active:translate-y-0"
             >
-              <span className="relative z-10">Ver meu resultado completo ✅</span>
+              <span className="relative z-10">Quero o meu devocional ✅</span>
               <span className="absolute inset-y-0 -left-1/3 w-1/3 -skew-x-12 bg-white/20 blur-md transition-transform duration-700 group-hover:translate-x-[400%]" />
-            </button>
+            </a>
+
             <p className="mt-3 text-center text-xs text-foreground/60">
               🔒 Página segura • Acesso imediato
             </p>
