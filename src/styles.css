@@ -73,20 +73,22 @@
 }
 
 :root {
-  --highlight: oklch(0.52 0.14 155);
-  --cta: oklch(0.62 0.17 150);
-  --cta-hover: oklch(0.55 0.17 150);
-  --cta-foreground: oklch(0.99 0 0);
-  --gold: oklch(0.72 0.13 75);
+  --highlight: oklch(0.35 0.09 260);
+  --cta: oklch(0.78 0.14 85);
+  --cta-hover: oklch(0.72 0.14 85);
+  --cta-foreground: oklch(0.22 0.06 260);
+  --gold: oklch(0.78 0.14 85);
+  --navy: oklch(0.25 0.08 260);
+  --cream: oklch(0.98 0.015 85);
   --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
 }
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(0.985 0.008 85);
-  --foreground: oklch(0.20 0.02 60);
+  --background: oklch(0.985 0.012 85);
+  --foreground: oklch(0.25 0.05 260);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.20 0.02 60);
+  --card-foreground: oklch(0.25 0.05 260);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.20 0.02 60);
   --primary: oklch(0.30 0.03 60);
