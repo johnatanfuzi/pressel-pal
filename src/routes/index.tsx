@@ -19,7 +19,7 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    scripts: [{ src: "/config.js?v=2" }],
+    scripts: [{ src: "/config.js?v=3" }],
   }),
   component: HashApp,
 });
