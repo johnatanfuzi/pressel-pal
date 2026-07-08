@@ -1,10 +1,13 @@
 import antesDepois from "@/assets/antes-depois.jpg";
-import { CTA_LINK } from "./links";
+
+// A pressel encaminha o usuário para a página do produto.
+// Basta mudar aqui se o slug da oferta mudar.
+const OFFER_HREF = "#/filhodevolta";
 
 function CtaButton({ label }: { label: string }) {
   return (
     <a
-      href={CTA_LINK}
+      href={OFFER_HREF}
       className="group relative block w-full overflow-hidden rounded-2xl bg-cta px-6 py-5 text-center text-base sm:text-xl font-bold uppercase tracking-wide text-cta-foreground shadow-cta transition-all duration-200 hover:-translate-y-0.5 hover:bg-cta-hover active:translate-y-0"
     >
       <span className="relative z-10">{label} ✅</span>
@@ -60,7 +63,7 @@ export function Presell() {
         </figure>
 
         <div className="mt-8">
-          <CtaButton label="Clique para acessar" />
+          <CtaButton label="Ver o método completo" />
           <p className="mt-3 text-center text-xs text-foreground/60">
             🔒 Ambiente seguro • Acesso imediato
           </p>
@@ -73,55 +76,6 @@ export function Presell() {
           </footer>
         </blockquote>
 
-        <section className="mt-12">
-          <h2 className="text-center text-lg sm:text-2xl font-extrabold uppercase">
-            O que você vai receber:
-          </h2>
-          <ul className="mt-6 space-y-3">
-            {[
-              "Guia diário de oração com direção bíblica para os 21 dias",
-              "Orações específicas para o coração, mente e caminhos do seu filho",
-              "Método simples de jejum que qualquer mãe consegue seguir",
-              "Declarações proféticas para libertar seu filho de vícios e más companhias",
-              "Testemunhos reais de mães que viram seus filhos transformados",
-            ].map((item) => (
-              <li key={item} className="flex gap-3 rounded-xl bg-card p-4 shadow-sm ring-1 ring-black/5">
-                <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-highlight/15 text-highlight font-bold">
-                  ✓
-                </span>
-                <span className="text-[15px] sm:text-base leading-snug">{item}</span>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <section className="mt-12">
-          <h2 className="text-center text-lg sm:text-2xl font-extrabold uppercase">
-            Mães que já viveram o milagre:
-          </h2>
-          <div className="mt-6 space-y-4">
-            {[
-              { nome: "Marta, 54 anos", texto: "Meu filho estava afastado da igreja há 8 anos. No 17º dia de oração ele me ligou chorando pedindo pra voltar pra casa. Deus é fiel!" },
-              { nome: "Regina, 47 anos", texto: "Eu não sabia mais o que fazer. Comecei a orar do jeito que o guia ensina e em 3 semanas meu filho largou as drogas. Foi um milagre." },
-              { nome: "Cláudia, 61 anos", texto: "Achei que era só mais um material. Mas a forma de orar com direção me deu paz. Meu filho voltou a conversar comigo depois de 2 anos." },
-            ].map((d) => (
-              <blockquote key={d.nome} className="rounded-2xl bg-card p-5 shadow-sm ring-1 ring-black/5">
-                <div className="text-gold text-sm">★★★★★</div>
-                <p className="mt-2 font-serif text-lg italic leading-snug text-foreground/85">"{d.texto}"</p>
-                <footer className="mt-3 text-sm font-semibold text-foreground/70">— {d.nome}</footer>
-              </blockquote>
-            ))}
-          </div>
-        </section>
-
-        <section className="mt-12 rounded-2xl border-2 border-dashed border-gold/60 bg-gold/5 p-6 text-center">
-          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-gold/15 text-2xl">🛡️</div>
-          <h3 className="mt-3 text-lg font-extrabold uppercase">Garantia incondicional de 7 dias</h3>
-          <p className="mt-2 text-sm leading-relaxed text-foreground/75">
-            Se por qualquer motivo você não sentir que este material vai transformar sua oração, devolvemos 100% do seu investimento. Sem perguntas.
-          </p>
-        </section>
-
         <section className="mt-12 rounded-2xl bg-foreground p-6 text-background sm:p-8">
           <p className="text-center text-xs font-bold uppercase tracking-[0.2em] text-gold">
             ⏳ Últimas vagas com desconto
@@ -133,7 +87,7 @@ export function Presell() {
             Cada dia perdido é um dia a mais que o inimigo age. Comece agora.
           </p>
           <div className="mt-6">
-            <CtaButton label="Quero começar agora" />
+            <CtaButton label="Quero conhecer o método" />
           </div>
         </section>
 

@@ -8,10 +8,10 @@ import "../src/styles.css";
 
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { Presell } from "../src/presell";
+import { HashApp } from "../src/hash-app";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <Presell />
+    <HashApp />
   </React.StrictMode>,
 );
