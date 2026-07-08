@@ -356,7 +356,7 @@ function P10() {
 
 /* ─────────── roteador da presell ─────────── */
 
-const PAGES: Record<string, () => JSX.Element> = {
+const PAGES: Record<string, () => React.ReactElement> = {
   "/p1": P1, "/p2": P2, "/p3": P3, "/p4": P4, "/p5": P5,
   "/p6": P6, "/p7": P7, "/p8": P8, "/p9": P9, "/p10": P10,
 };
