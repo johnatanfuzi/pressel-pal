@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { CTA_LINK } from "./links";
 
 type Question = {
   title: string;
@@ -39,7 +38,7 @@ const QUESTIONS: Question[] = [
   },
 ];
 
-export function Quiz() {
+export function Quiz({ onDone }: { onDone: () => void }) {
   const [step, setStep] = useState(0);
   const [finished, setFinished] = useState(false);
 
@@ -52,6 +51,11 @@ export function Quiz() {
     } else {
       setFinished(true);
     }
+  }
+
+  function goToPresell() {
+    if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+    onDone();
   }
 
   return (
@@ -141,13 +145,14 @@ export function Quiz() {
               </p>
             </div>
 
-            <a
-              href={CTA_LINK}
+            <button
+              type="button"
+              onClick={goToPresell}
               className="group relative mt-8 block w-full overflow-hidden rounded-2xl bg-cta px-6 py-5 text-center text-base sm:text-xl font-bold uppercase tracking-wide text-cta-foreground shadow-cta transition-all duration-200 hover:-translate-y-0.5 hover:bg-cta-hover active:translate-y-0"
             >
-              <span className="relative z-10">Quero o meu devocional ✅</span>
+              <span className="relative z-10">Ver meu resultado completo ✅</span>
               <span className="absolute inset-y-0 -left-1/3 w-1/3 -skew-x-12 bg-white/20 blur-md transition-transform duration-700 group-hover:translate-x-[400%]" />
-            </a>
+            </button>
 
             <p className="mt-3 text-center text-xs text-foreground/60">
               🔒 Página segura • Acesso imediato
@@ -170,7 +175,7 @@ export function Quiz() {
 export function QuizThenPresell({ Presell }: { Presell: React.ComponentType }) {
   const [done, setDone] = useState(false);
   if (!done) {
-    return <Quiz />;
+    return <Quiz onDone={() => setDone(true)} />;
   }
   return <Presell />;
 }
