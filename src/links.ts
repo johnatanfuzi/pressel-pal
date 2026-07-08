@@ -1,7 +1,7 @@
 // Link do checkout. Editável em runtime através de /public/config.js
 // (window.CTA_LINK). Se por algum motivo o config.js não carregar,
 // usamos o fallback abaixo.
-const FALLBACK_CTA = "https://pay.cakto.com.br/ijyaz5g_968217";
+const FALLBACK_CTA = "https://igreja.space/pagina1";
 
 declare global {
   interface Window {
