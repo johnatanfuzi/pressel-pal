@@ -418,14 +418,45 @@ function P9() {
   );
 }
 
+const maeItems = [
+  { icon: "🚨", text: <>Está vendo <span className="text-[#e11d48] font-bold">a fé do seu filho esfriar</span> a cada dia.</> },
+  { icon: "🚨", text: <><span className="text-[#e11d48] font-bold">Está cansada de fingir que está tudo bem</span> e que isso vai passar.</> },
+  { icon: "🚨", text: <>Está frustrada por achar <span className="text-[#e11d48] font-bold">que falhou como mãe.</span></> },
+  { icon: "🚨", text: <>Quer <span className="text-[#e11d48] font-bold">guardar o seu filho das mãos do Inimigo.</span></> },
+];
+
+const maeItems2 = [
+  { icon: "🙏", text: <><span className="text-[#16a34a] font-bold">Resgatar o seu filho</span> para os caminhos de Deus.</> },
+  { icon: "🙏", text: <>Cumprir a <span className="text-[#16a34a] font-bold">sua missão como mãe.</span></> },
+];
+
 function P10() {
   return (
     <Page step={10}>
       <H2>
-        O <span className="text-[#16a34a]">Devocional do Filho Liberto</span> é para a mãe
-        que ⬇️
+        O <span className="text-[#16a34a]">Devocional do Filho Liberto</span> é para a mãe que ⬇️
       </H2>
-      <Figure src={img10} alt="Para qual mãe é o devocional" />
+      <ul className="mt-6 space-y-2.5">
+        {maeItems.map((it, i) => (
+          <li key={i} className="flex items-start gap-3 rounded-2xl bg-[#fee2e2]/60 border border-[#e11d48]/10 px-4 py-3.5">
+            <span className="text-xl leading-none pt-0.5" aria-hidden="true">{it.icon}</span>
+            <p className="text-[15px] sm:text-base font-semibold leading-snug">{it.text}</p>
+          </li>
+        ))}
+      </ul>
+      <div className="mt-6 flex justify-center">
+        <span className="inline-flex items-center gap-2 rounded-full bg-[#16a34a] px-4 py-1.5 text-xs sm:text-sm font-bold uppercase tracking-wider text-white shadow-[0_8px_20px_-10px_rgba(22,163,74,0.7)]">
+          👇 E para mães que… 👇
+        </span>
+      </div>
+      <ul className="mt-6 space-y-2.5">
+        {maeItems2.map((it, i) => (
+          <li key={i} className="flex items-start gap-3 rounded-2xl bg-[#dcfce7]/60 border border-[#16a34a]/15 px-4 py-3.5">
+            <span className="text-xl leading-none pt-0.5" aria-hidden="true">{it.icon}</span>
+            <p className="text-[15px] sm:text-base font-semibold leading-snug">{it.text}</p>
+          </li>
+        ))}
+      </ul>
       <div className="mt-8">
         <CTA label="Quero começar agora" onClick={() => goToStep(11)} />
       </div>
