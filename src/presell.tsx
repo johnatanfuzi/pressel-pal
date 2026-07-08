@@ -36,17 +36,19 @@ type CTAProps = {
 
 function CTA({ label, onClick, variant = "green" }: CTAProps) {
   const isRed = variant === "red";
-  const bg = isRed
-    ? `bg-[${RED}] hover:bg-[${RED_DARK}] focus-visible:ring-[${RED}]/40`
-    : `bg-[${GREEN}] hover:bg-[${GREEN_DARK}] focus-visible:ring-[${GREEN}]/40`;
+  const bg = isRed ? RED : GREEN;
+  const bgHover = isRed ? RED_DARK : GREEN_DARK;
   const glow = isRed
-    ? "shadow-[0_14px_40px_-12px_rgba(225,29,72,0.65),0_4px_10px_-4px_rgba(225,29,72,0.35)]"
-    : "shadow-[0_14px_40px_-12px_rgba(22,163,74,0.65),0_4px_10px_-4px_rgba(22,163,74,0.35)]";
+    ? "0 14px 40px -12px rgba(225,29,72,0.65), 0 4px 10px -4px rgba(225,29,72,0.35)"
+    : "0 14px 40px -12px rgba(22,163,74,0.65), 0 4px 10px -4px rgba(22,163,74,0.35)";
   return (
     <button
       type="button"
       onClick={onClick}
-      className={`group relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-2xl ${bg} ${glow} px-6 py-5 text-center text-base sm:text-lg font-bold uppercase tracking-wide text-white transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus-visible:ring-4 min-h-14`}
+      style={{ backgroundColor: bg, boxShadow: glow }}
+      onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = bgHover)}
+      onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = bg)}
+      className="group relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-2xl px-6 py-5 text-center text-base sm:text-lg font-bold uppercase tracking-wide text-white transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus-visible:ring-4 focus-visible:ring-white/40 min-h-14"
     >
       <span className="relative z-10 leading-none">{label}</span>
       <svg
