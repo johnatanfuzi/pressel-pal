@@ -7,7 +7,7 @@ import img06 from "@/assets/presell/06-passo2.jpg";
 import img07 from "@/assets/presell/07-passo3.jpg";
 import img08 from "@/assets/presell/08-protecao.jpg";
 import img09 from "@/assets/presell/09-amizades.jpg";
-import img10 from "@/assets/presell/10-mae.jpg";
+
 import { getCtaLink } from "./links";
 
 /* ─────────── design tokens ─────────── */
