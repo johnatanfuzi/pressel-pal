@@ -9,13 +9,6 @@ import {
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
-import "@fontsource/inter/400.css";
-import "@fontsource/inter/600.css";
-import "@fontsource/inter/700.css";
-import "@fontsource/inter/800.css";
-import "@fontsource/instrument-serif/400.css";
-import "@fontsource/instrument-serif/400-italic.css";
-
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
@@ -84,14 +77,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Ore por 21 dias e veja seu filho transformado por Deus" },
-      { name: "description", content: "Descubra como orar com direção por 21 dias pode tocar o coração do seu filho e transformar sua família através da oração e do jejum." },
-      { property: "og:title", content: "Ore por 21 dias e veja seu filho transformado por Deus" },
-      { property: "og:description", content: "Descubra como orar com direção por 21 dias pode tocar o coração do seu filho e transformar sua família através da oração e do jejum." },
+      { title: "Lovable App" },
+      { name: "description", content: "Lovable Generated Project" },
+      { name: "author", content: "Lovable" },
+      { property: "og:title", content: "Lovable App" },
+      { property: "og:description", content: "Lovable Generated Project" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:title", content: "Ore por 21 dias e veja seu filho transformado por Deus" },
-      { name: "twitter:description", content: "Descubra como orar com direção por 21 dias pode tocar o coração do seu filho e transformar sua família através da oração e do jejum." },
+      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
@@ -99,7 +92,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: appCss,
       },
     ],
-
   }),
   shellComponent: RootShell,
   component: RootComponent,

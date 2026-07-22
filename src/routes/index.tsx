@@ -1,163 +1,103 @@
 import { createFileRoute } from "@tanstack/react-router";
-import logo from "@/assets/logo-uniclinic.png";
+import antesDepois from "@/assets/antes-depois.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Entrar | UniClinic" },
+      { title: "Ore por 21 dias e veja seu filho transformado por Deus" },
       {
         name: "description",
         content:
-          "Acesse o painel da sua clínica no UniClinic: pacientes, agenda, contratos e financeiro em um único ambiente profissional.",
+          "Descubra como orar com direção por 21 dias pode tocar o coração do seu filho e transformar sua família através da oração e do jejum.",
       },
-      { property: "og:title", content: "Entrar | UniClinic" },
+      { property: "og:title", content: "Deus vai usar sua oração para tocar o coração do seu filho" },
       {
         property: "og:description",
         content:
-          "Painel profissional da clínica — organize pacientes, agenda, contratos e financeiro em um único lugar.",
+          "Ore com direção por 21 dias e veja seu filho transformado por Deus através da oração e do jejum.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  component: LoginPage,
+  component: Presell,
 });
 
-export function LoginPage() {
+function Presell() {
+  const cta = "#"; // TODO: trocar pelo link da oferta
+
   return (
-    <div className="min-h-screen flex flex-col text-[#101828] font-sans bg-[linear-gradient(180deg,#f8fafc_0%,#eef4ff_100%)]">
-      {/* Topbar */}
-      <header className="bg-white border-b border-[rgba(16,24,40,0.10)]">
-        <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between gap-3">
-          <a href="/" className="flex items-center gap-3 font-extrabold text-lg text-[#101828]">
-            <img src={logo} alt="UniClinic" className="w-[42px] h-[42px] rounded-xl" />
-            <span>UniClinic</span>
-          </a>
+    <main className="min-h-screen bg-background">
+      <div className="mx-auto max-w-2xl px-5 py-10 sm:py-14">
+        <h1 className="text-center text-[26px] sm:text-4xl font-extrabold uppercase leading-[1.15] tracking-tight text-foreground">
+          Deus vai usar sua oração{" "}
+          <span className="text-highlight underline decoration-2 underline-offset-[6px]">
+            para tocar o coração do seu filho
+          </span>
+        </h1>
+
+        <p className="mt-10 text-center text-[20px] sm:text-2xl font-extrabold uppercase leading-[1.25] text-foreground">
+          Ore com direção por 21 dias{" "}
+          <span className="text-highlight">
+            e veja o seu filho transformado por Deus
+          </span>{" "}
+          através da oração e do jejum
+        </p>
+
+        <div className="mt-8 overflow-hidden rounded-2xl shadow-soft">
+          <img
+            src={antesDepois}
+            alt="Antes e depois: mãe em oração pelo filho, reconciliação através da fé"
+            width={1280}
+            height={768}
+            className="block h-auto w-full"
+          />
+        </div>
+
+        <div className="mt-8">
           <a
-            href="/"
-            className="hidden sm:inline-flex items-center rounded-full border border-[#d0d5dd] px-4 py-2 text-sm font-semibold text-[#344054] hover:bg-slate-50 transition-colors"
+            href={cta}
+            className="block w-full rounded-2xl bg-cta px-6 py-6 text-center text-lg sm:text-xl font-bold uppercase tracking-wide text-cta-foreground shadow-cta transition-transform duration-150 hover:-translate-y-0.5 hover:bg-cta-hover active:translate-y-0"
           >
-            Conhecer a plataforma
+            Clique para acessar ✅
+          </a>
+          <p className="mt-4 text-center text-xs text-muted-foreground">
+            🔒 Acesso 100% seguro • Vagas limitadas
+          </p>
+        </div>
+
+        <ul className="mt-10 space-y-3 text-[15px] sm:text-base text-foreground/90">
+          <li className="flex gap-3">
+            <span className="text-highlight">✔</span>
+            Guia diário de oração com direção bíblica para os 21 dias
+          </li>
+          <li className="flex gap-3">
+            <span className="text-highlight">✔</span>
+            Orações específicas para o coração, mente e caminhos do seu filho
+          </li>
+          <li className="flex gap-3">
+            <span className="text-highlight">✔</span>
+            Método simples de jejum que qualquer mãe consegue seguir
+          </li>
+          <li className="flex gap-3">
+            <span className="text-highlight">✔</span>
+            Testemunhos reais de mães que viram seus filhos transformados
+          </li>
+        </ul>
+
+        <div className="mt-10">
+          <a
+            href={cta}
+            className="block w-full rounded-2xl bg-cta px-6 py-6 text-center text-lg sm:text-xl font-bold uppercase tracking-wide text-cta-foreground shadow-cta transition-transform duration-150 hover:-translate-y-0.5 hover:bg-cta-hover active:translate-y-0"
+          >
+            Quero começar agora ✅
           </a>
         </div>
-      </header>
 
-      {/* Shell */}
-      <main className="flex-1 flex items-center justify-center px-4 py-8">
-        <div className="w-full max-w-[960px] overflow-hidden rounded-[28px] border border-[rgba(16,24,40,0.10)] bg-white shadow-[0_20px_40px_rgba(16,24,40,0.08)]">
-          <div className="grid grid-cols-1 lg:grid-cols-12">
-            {/* Aside */}
-            <aside className="hidden lg:block lg:col-span-5 p-9 text-white bg-[linear-gradient(160deg,#0f6a37_0%,#175cd3_100%)]">
-              <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-2 text-xs font-bold tracking-wide">
-                Painel profissional da clínica
-              </span>
-              <h2 className="mt-5 text-3xl font-extrabold leading-tight">
-                Entre no painel da sua clínica com segurança.
-              </h2>
-              <p className="mt-3 opacity-90">
-                Organize pacientes, agenda, contratos e financeiro em um único ambiente com
-                aparência profissional e fluxo pronto para operação.
-              </p>
-              <ul className="mt-6 grid gap-3 list-none p-0">
-                {[
-                  "Trial rápido para demonstração comercial",
-                  "Onboarding simples para a clínica começar logo",
-                  "Base pronta para crescimento e upgrade",
-                ].map((t) => (
-                  <li
-                    key={t}
-                    className="rounded-2xl border border-white/15 bg-white/10 px-3.5 py-3 opacity-90"
-                  >
-                    {t}
-                  </li>
-                ))}
-              </ul>
-            </aside>
-
-            {/* Form */}
-            <section className="lg:col-span-7 p-6 sm:p-9">
-              <div className="text-xs font-semibold uppercase tracking-wide text-[#667085]">
-                Acesso
-              </div>
-              <h1 className="mt-2 text-2xl sm:text-3xl font-bold">Entrar no UniClinic</h1>
-              <p className="mt-2 text-[#667085]">
-                Use seu usuário e senha para acessar o painel da clínica.
-              </p>
-
-              <form
-                method="post"
-                action="/accounts/login/"
-                className="mt-6 flex flex-col gap-4"
-              >
-                <div>
-                  <label
-                    htmlFor="id_username"
-                    className="text-[13px] font-extrabold uppercase tracking-wide"
-                  >
-                    Usuário
-                  </label>
-                  <input
-                    id="id_username"
-                    name="username"
-                    type="text"
-                    autoFocus
-                    autoCapitalize="none"
-                    autoComplete="username"
-                    maxLength={150}
-                    required
-                    className="mt-1.5 w-full min-h-[54px] rounded-2xl border border-[#d0d5dd] bg-[#f8fbff] px-4 text-base outline-none focus:border-[#84adff] focus:bg-white focus:ring-4 focus:ring-[#175cd3]/15 transition-colors"
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="id_password"
-                    className="text-[13px] font-extrabold uppercase tracking-wide"
-                  >
-                    Senha
-                  </label>
-                  <input
-                    id="id_password"
-                    name="password"
-                    type="password"
-                    autoComplete="current-password"
-                    required
-                    className="mt-1.5 w-full min-h-[54px] rounded-2xl border border-[#d0d5dd] bg-[#f8fbff] px-4 text-base outline-none focus:border-[#84adff] focus:bg-white focus:ring-4 focus:ring-[#175cd3]/15 transition-colors"
-                  />
-                </div>
-
-                <input type="hidden" name="next" value="/clinic/" />
-
-                <div className="mt-2 grid gap-2">
-                  <button
-                    type="submit"
-                    className="min-h-[52px] rounded-full bg-[#0f6a37] px-6 font-bold text-white hover:bg-[#0c5a2f] transition-colors"
-                  >
-                    Entrar
-                  </button>
-                  <a
-                    href="/"
-                    className="min-h-[52px] flex items-center justify-center rounded-full border border-[#d0d5dd] px-6 font-bold text-[#344054] hover:bg-slate-50 transition-colors"
-                  >
-                    Criar clínica grátis
-                  </a>
-                </div>
-              </form>
-
-              <p className="mt-6 text-[15px] text-[#667085]">
-                Ao continuar, você concorda com a nossa{" "}
-                <a
-                  href="/politica-de-privacidade/"
-                  className="text-[#175cd3] font-semibold hover:underline"
-                >
-                  Política de Privacidade
-                </a>
-                .
-              </p>
-            </section>
-          </div>
-        </div>
-      </main>
-    </div>
+        <p className="mt-8 text-center text-xs text-muted-foreground">
+          Este site não é afiliado ao Facebook ou a qualquer entidade do Facebook.
+        </p>
+      </div>
+    </main>
   );
 }
