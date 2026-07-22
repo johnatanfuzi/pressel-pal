@@ -23,7 +23,7 @@ export const Route = createFileRoute("/")({
   component: LoginPage,
 });
 
-function LoginPage() {
+export function LoginPage() {
   return (
     <div className="min-h-screen flex flex-col text-[#101828] font-sans bg-[linear-gradient(180deg,#f8fafc_0%,#eef4ff_100%)]">
       {/* Topbar */}
