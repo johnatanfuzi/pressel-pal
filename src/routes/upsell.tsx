@@ -1,7 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { CalendarDays, Check, CheckCircle2, ListChecks, Snowflake, Timer } from "lucide-react";
 
+import { CaktoUpsellButton } from "@/components/CaktoUpsellButton";
 import { SiteFooter } from "@/components/SiteFooter";
+
 
 export const Route = createFileRoute("/upsell")({
   head: () => ({
@@ -113,8 +115,9 @@ function Upsell() {
           </div>
 
           <div className="mt-5">
-            {/* BOTAO CAKTO UPSELL - COLAR AQUI */}
+            <CaktoUpsellButton />
           </div>
+
 
           <div className="mt-4 flex items-center justify-center gap-2 text-xs font-semibold text-muted-foreground">
             <Check className="h-4 w-4" />7 dias de garantia, igual à sua compra anterior
