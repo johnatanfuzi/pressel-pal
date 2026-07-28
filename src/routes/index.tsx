@@ -4,7 +4,7 @@ import { QuizPage } from "@/components/quiz/QuizPage";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Quiz: descubra seu plano de receitas na Air Fryer" },
+      { title: "Descubra o que fazer na sua air fryer | Responda 7 perguntas" },
       {
         name: "description",
         content:

@@ -6,7 +6,7 @@ import { CONTACT_EMAIL } from "@/components/SiteFooter";
 export const Route = createFileRoute("/privacidade")({
   head: () => ({
     meta: [
-      { title: "Política de Privacidade — Receitas na Air Fryer" },
+      { title: "Política de Privacidade | Receitas na Air Fryer" },
       {
         name: "description",
         content:

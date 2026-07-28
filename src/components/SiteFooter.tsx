@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 
-export const CONTACT_EMAIL = "contato@SEUDOMINIO.com.br";
+export const CONTACT_EMAIL = "contato@saudebeleza.space";
 
 const LINKS = [
   { to: "/privacidade", label: "Privacidade" },

@@ -6,7 +6,7 @@ import { CONTACT_EMAIL } from "@/components/SiteFooter";
 export const Route = createFileRoute("/termos")({
   head: () => ({
     meta: [
-      { title: "Termos de Uso e de Compra — Receitas na Air Fryer" },
+      { title: "Termos de Uso e de Compra | Receitas na Air Fryer" },
       {
         name: "description",
         content:

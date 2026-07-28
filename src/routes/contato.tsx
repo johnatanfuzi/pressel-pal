@@ -6,7 +6,7 @@ import { CONTACT_EMAIL } from "@/components/SiteFooter";
 export const Route = createFileRoute("/contato")({
   head: () => ({
     meta: [
-      { title: "Contato e Suporte — Receitas na Air Fryer" },
+      { title: "Contato e Suporte | Receitas na Air Fryer" },
       {
         name: "description",
         content:

@@ -6,7 +6,7 @@ import { CONTACT_EMAIL } from "@/components/SiteFooter";
 export const Route = createFileRoute("/reembolso")({
   head: () => ({
     meta: [
-      { title: "Política de Reembolso — Receitas na Air Fryer" },
+      { title: "Política de Reembolso | Receitas na Air Fryer" },
       {
         name: "description",
         content:

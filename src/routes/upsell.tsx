@@ -6,7 +6,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 export const Route = createFileRoute("/upsell")({
   head: () => ({
     meta: [
-      { title: "Seu acesso está garantido — Plano de 30 dias na Air Fryer" },
+      { title: "Plano de 30 dias" },
       {
         name: "description",
         content:
