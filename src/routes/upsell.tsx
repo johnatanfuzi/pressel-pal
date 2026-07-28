@@ -23,7 +23,14 @@ export const Route = createFileRoute("/upsell")({
       { name: "twitter:card", content: "summary" },
       { name: "robots", content: "noindex" },
     ],
-  }),
+    scripts: [
+      {
+        children: `gtag('event', 'conversion', {
+  'send_to': 'AW-18347477174/SheICP-LitgcELaR4axE',
+  'transaction_id': ''
+});`,
+      },
+    ],
   component: Upsell,
 });
 
