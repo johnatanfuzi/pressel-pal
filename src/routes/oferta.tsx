@@ -53,8 +53,8 @@ const CHECKOUT_PREMIUM = "https://pay.cakto.com.br/v8ezh8p_1006418";
 // strings curtas antes de entrar no estado da rota.
 const MAX_PARAM = 60;
 
-function safeParam(value: unknown): string {
-  if (typeof value !== "string") return "";
+function safeParam(value: unknown): string | undefined {
+  if (typeof value !== "string" || value === "") return undefined;
   return value.replace(/[^\p{L}\p{N} ,._-]/gu, "").slice(0, MAX_PARAM);
 }
 
