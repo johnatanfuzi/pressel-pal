@@ -57,7 +57,7 @@ export const Route = createFileRoute("/oferta")({
         content:
           "Mais de 200 receitas práticas, doces e salgadas, para usar sua air fryer todos os dias. Acesso imediato, garantia de 15 dias e 6 bônus exclusivos.",
       },
-      { property: "og:title", content: "+200 Receitas Deliciosas na Air Fryer" },
+      { property: "og:title", content: "+200 Receitas na Air Fryer | Acesso imediato" },
       {
         property: "og:description",
         content:

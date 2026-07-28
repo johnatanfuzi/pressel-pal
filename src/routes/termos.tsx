@@ -28,7 +28,7 @@ function Termos() {
   return (
     <LegalPage title="Termos de Uso e de Compra" updated="28 de julho de 2026">
       <p>
-        Ao comprar ou utilizar o material oferecido neste site, você concorda com os termos abaixo.
+        Ao comprar ou utilizar o material oferecido neste site (saudebeleza.space), você concorda com os termos abaixo.
         A venda é realizada por pessoa física no Brasil e o pagamento é processado pela Cakto.
       </p>
 

@@ -29,7 +29,7 @@ function Reembolso() {
     <LegalPage title="Política de Reembolso" updated="28 de julho de 2026">
       <p>
         Esta política descreve como funciona o cancelamento da compra do material digital vendido
-        neste site, com pagamento processado pela Cakto.
+        neste site (saudebeleza.space), com pagamento processado pela Cakto.
       </p>
 
       <LegalSection title="1. Prazo de 7 dias">
