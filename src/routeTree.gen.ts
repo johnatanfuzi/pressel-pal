@@ -10,32 +10,42 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as OfertaRouteImport } from './routes/oferta'
+import { Route as IndexRouteImport } from './routes/index'
 
 const OfertaRoute = OfertaRouteImport.update({
   id: '/oferta',
   path: '/oferta',
   getParentRoute: () => rootRouteImport,
 } as any)
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
+  '/': typeof IndexRoute
   '/oferta': typeof OfertaRoute
 }
 export interface FileRoutesByTo {
+  '/': typeof IndexRoute
   '/oferta': typeof OfertaRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
+  '/': typeof IndexRoute
   '/oferta': typeof OfertaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/oferta'
+  fullPaths: '/' | '/oferta'
   fileRoutesByTo: FileRoutesByTo
-  to: '/oferta'
-  id: '__root__' | '/oferta'
+  to: '/' | '/oferta'
+  id: '__root__' | '/' | '/oferta'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
+  IndexRoute: typeof IndexRoute
   OfertaRoute: typeof OfertaRoute
 }
 
@@ -48,10 +58,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof OfertaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
+  IndexRoute: IndexRoute,
   OfertaRoute: OfertaRoute,
 }
 export const routeTree = rootRouteImport
