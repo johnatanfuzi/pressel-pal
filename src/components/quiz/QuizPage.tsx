@@ -7,6 +7,7 @@ import { QuestionCard } from "./QuestionCard";
 import { AnalyzingScreen } from "./AnalyzingScreen";
 import { ResultScreen } from "./ResultScreen";
 import { QUIZ_QUESTIONS, STORAGE_KEY, type QuizAnswers } from "./quizConfig";
+import { SiteFooter } from "@/components/SiteFooter";
 
 type Stage = "questions" | "analyzing" | "result";
 

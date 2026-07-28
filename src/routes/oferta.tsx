@@ -16,6 +16,7 @@ import {
   Gift,
 } from "lucide-react";
 
+import { SiteFooter } from "@/components/SiteFooter";
 import banner from "@/assets/banner-airfryer-v3.webp.asset.json";
 import showcase from "@/assets/recipes-showcase-airfryer-v2.webp.asset.json";
 import r01 from "@/assets/recipe-01.webp.asset.json";
