@@ -67,12 +67,7 @@ export const Route = createFileRoute("/oferta")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap",
-      },
+      { rel: "preload", as: "image", href: banner.url, fetchPriority: "high" },
     ],
   }),
   component: Landing,
@@ -378,6 +373,7 @@ function Landing() {
                   width={800}
                   height={600}
                   loading="lazy"
+                  decoding="async"
                   className="h-44 w-full rounded-xl object-cover shadow-soft md:h-64"
                 />
               ))}
@@ -397,6 +393,7 @@ function Landing() {
               width={1024}
               height={768}
               loading="lazy"
+                  decoding="async"
               className="mx-auto mt-6 w-full max-w-2xl rounded-xl"
             />
             <p className="mt-6 text-center font-bold text-foreground/80">
@@ -468,6 +465,7 @@ function Landing() {
                       width={400}
                       height={400}
                       loading="lazy"
+                  decoding="async"
                       className="absolute inset-0 h-full w-full object-cover"
                     />
                   </div>
@@ -647,6 +645,7 @@ function Landing() {
                     width={112}
                     height={112}
                     loading="lazy"
+                  decoding="async"
                     className="mt-3 h-28 w-28 rounded-xl object-cover"
                   />
                   <div className="mt-3 flex gap-2">
@@ -672,6 +671,7 @@ function Landing() {
               width={112}
               height={112}
               loading="lazy"
+                  decoding="async"
               className="h-28 w-28 shrink-0 object-contain"
             />
             <div className="flex-1 text-center sm:text-left">

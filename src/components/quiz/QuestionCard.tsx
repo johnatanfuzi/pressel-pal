@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { Check } from "lucide-react";
 import type { QuizQuestion } from "./quizConfig";
 
@@ -9,7 +10,7 @@ type Props = {
   visible: boolean;
 };
 
-export function QuestionCard({ question, selected, onSelect, onContinue, visible }: Props) {
+function QuestionCardBase({ question, selected, onSelect, onContinue, visible }: Props) {
   const multiple = !!question.multiple;
   const max = question.maxSelections ?? 3;
 
@@ -70,3 +71,5 @@ export function QuestionCard({ question, selected, onSelect, onContinue, visible
     </div>
   );
 }
+
+export const QuestionCard = memo(QuestionCardBase);
