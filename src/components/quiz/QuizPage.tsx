@@ -21,11 +21,11 @@ export function QuizPage() {
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const question = QUIZ_QUESTIONS[index];
-  const selected = (() => {
+  const selected = useMemo(() => {
     const value = answers[question?.id];
     if (!value) return [];
     return Array.isArray(value) ? value : [value];
-  })();
+  }, [answers, question?.id]);
 
   useEffect(() => {
     setVisible(false);
