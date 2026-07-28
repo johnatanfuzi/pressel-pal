@@ -51,13 +51,13 @@ const CHECKOUT_PREMIUM = "https://pay.wiapy.com/fiP8AXQDWIls";
 export const Route = createFileRoute("/oferta")({
   head: () => ({
     meta: [
-      { title: "+200 Receitas Deliciosas na Air Fryer | Chef Luana Queiroz" },
+      { title: "+200 Receitas na Air Fryer | Acesso imediato" },
       {
         name: "description",
         content:
           "Mais de 200 receitas práticas, doces e salgadas, para usar sua air fryer todos os dias. Acesso imediato, garantia de 15 dias e 6 bônus exclusivos.",
       },
-      { property: "og:title", content: "+200 Receitas Deliciosas na Air Fryer" },
+      { property: "og:title", content: "+200 Receitas na Air Fryer | Acesso imediato" },
       {
         property: "og:description",
         content:
@@ -93,10 +93,10 @@ const benefits = [
 const recipes = [r11, r12, r01, r02, r03, r04, r05, r06, r07, r08, r09, r10];
 
 const categories = [
-  "Café da Manhã Leve (50 receitas)",
+  "Café da Manhã Prático (50 receitas)",
   "Pães, Bolos e Massas Sem Glúten (55 receitas)",
   "Almoços e Jantares Práticos (70 receitas)",
-  "Lanches e Salgados Saudáveis (50 receitas)",
+  "Lanches e Salgados (50 receitas)",
   "Sobremesas Sem Açúcar (65 receitas)",
   "Receitas Sem Lactose Cremosas (35 receitas)",
   "Molhos, Cremes e Acompanhamentos (25 receitas)",
@@ -219,7 +219,7 @@ const reviews = [
 const faqs = [
   [
     "As receitas ficam gostosas de verdade?",
-    "Sim. As receitas foram pensadas especialmente para a air fryer, mantendo sabor, textura crocante e aparência irresistível, sem precisar de muito óleo. A ideia é comer melhor aproveitando ao máximo o seu equipamento.",
+    "Sim. As receitas foram pensadas especialmente para a air fryer, mantendo sabor, textura crocante e aparência irresistível, sem precisar de muito óleo. A ideia é aproveitar ao máximo o seu equipamento no dia a dia.",
   ],
   [
     "Funciona em qualquer modelo de air fryer?",
