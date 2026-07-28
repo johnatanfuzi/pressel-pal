@@ -48,7 +48,23 @@ import selo from "@/assets/JkRnpY1.png.asset.json";
 const CHECKOUT_BASIC = "https://pay.cakto.com.br/v8ezh8p_1006418";
 const CHECKOUT_PREMIUM = "https://pay.cakto.com.br/v8ezh8p_1006418";
 
+// Os parametros vindos do quiz sao dados nao confiaveis (o usuario pode
+// edita-los na URL). Aqui eles sao normalizados para um conjunto fechado de
+// strings curtas antes de entrar no estado da rota.
+const MAX_PARAM = 60;
+
+function safeParam(value: unknown): string | undefined {
+  if (typeof value !== "string" || value === "") return undefined;
+  return value.replace(/[^\p{L}\p{N} ,._-]/gu, "").slice(0, MAX_PARAM);
+}
+
 export const Route = createFileRoute("/oferta")({
+  validateSearch: (search: Record<string, unknown>) => ({
+    perfil: safeParam(search.perfil),
+    foco: safeParam(search.foco),
+    tempo: safeParam(search.tempo),
+    pessoas: safeParam(search.pessoas),
+  }),
   head: () => ({
     meta: [
       { title: "+200 Receitas na Air Fryer | Acesso imediato" },
