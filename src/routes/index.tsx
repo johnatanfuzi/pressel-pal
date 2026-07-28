@@ -461,14 +461,17 @@ function Landing() {
                   <span className="absolute left-2 top-2 rounded-md bg-orange px-2 py-0.5 text-[10px] font-black uppercase text-primary-foreground">
                     Bônus {b.n}
                   </span>
-                  <img
-                    src={b.img.url}
-                    alt={b.title}
-                    width={400}
-                    height={400}
-                    loading="lazy"
-                    className="h-full w-24 shrink-0 object-cover md:w-36"
-                  />
+                  <div className="relative w-24 shrink-0 md:w-36">
+                    <img
+                      src={b.img.url}
+                      alt={b.title}
+                      width={400}
+                      height={400}
+                      loading="lazy"
+                      className="absolute inset-0 h-full w-full object-cover"
+                    />
+                  </div>
+
                   <div className="p-4">
                     <h3 className="text-base font-black text-brand-dark sm:text-lg">{b.title}</h3>
                     <p className="mt-1 text-sm text-muted-foreground">{b.desc}</p>
