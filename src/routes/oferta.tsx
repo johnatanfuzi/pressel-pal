@@ -3,7 +3,7 @@ import { useState } from "react";
 import {
   Check,
   ShieldCheck,
-  Clock,
+  
   Smartphone,
   Monitor,
   Printer,
@@ -16,6 +16,7 @@ import {
   Gift,
 } from "lucide-react";
 
+import { SiteFooter } from "@/components/SiteFooter";
 import banner from "@/assets/banner-airfryer-v3.webp.asset.json";
 import showcase from "@/assets/recipes-showcase-airfryer-v2.webp.asset.json";
 import r01 from "@/assets/recipe-01.webp.asset.json";
@@ -281,14 +282,13 @@ function Stars() {
 
 function Landing() {
   const [open, setOpen] = useState<number | null>(0);
-  const deadline = new Date(Date.now() + 24 * 60 * 60 * 1000).toLocaleDateString("pt-BR");
 
   return (
     <div className="font-sans">
-      <div className="sticky top-0 z-50 bg-primary px-4 py-2.5 text-center text-sm font-bold text-primary-foreground">
-        <Clock className="mr-1 inline h-4 w-4 align-[-3px]" />A promoção dessa página acaba no dia{" "}
-        {deadline}
+      <div className="bg-primary px-4 py-2.5 text-center text-sm font-bold text-primary-foreground">
+        Acesso imediato após a compra
       </div>
+
 
       <main>
         {/* HERO */}
@@ -769,10 +769,8 @@ function Landing() {
         </section>
       </main>
 
-      <footer className="bg-brand-dark px-5 py-8 text-center text-sm text-white/70">
-        <p className="font-bold text-white">+200 Receitas Deliciosas na Air Fryer</p>
-        <p className="mt-1">© {new Date().getFullYear()} Todos os direitos reservados.</p>
-      </footer>
+      <SiteFooter />
+
     </div>
   );
 }
