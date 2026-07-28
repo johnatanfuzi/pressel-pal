@@ -122,15 +122,6 @@ function Upsell() {
           <div className="mt-4 flex items-center justify-center gap-2 text-xs font-semibold text-muted-foreground">
             <Check className="h-4 w-4" />7 dias de garantia, igual à sua compra anterior
           </div>
-
-          <p className="mt-5 text-center">
-            <a
-              href="#recusar"
-              className="text-xs text-muted-foreground underline underline-offset-2"
-            >
-              Não, prefiro decidir o que cozinhar todo dia
-            </a>
-          </p>
         </div>
       </main>
 
