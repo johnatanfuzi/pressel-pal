@@ -45,8 +45,8 @@ import reviewCoxinha from "@/assets/review-coxinha.png.asset.json";
 import reviewBrigadeiro from "@/assets/zGqQ3BH.png.asset.json";
 import selo from "@/assets/JkRnpY1.png.asset.json";
 
-const CHECKOUT_BASIC = "https://pay.wiapy.com/TsDvYn9f6CyS";
-const CHECKOUT_PREMIUM = "https://pay.wiapy.com/fiP8AXQDWIls";
+const CHECKOUT_BASIC = "https://pay.cakto.com.br/v8ezh8p_1006418";
+const CHECKOUT_PREMIUM = "https://pay.cakto.com.br/v8ezh8p_1006418";
 
 export const Route = createFileRoute("/oferta")({
   head: () => ({
