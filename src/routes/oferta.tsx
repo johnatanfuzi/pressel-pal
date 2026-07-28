@@ -3,7 +3,7 @@ import { useState } from "react";
 import {
   Check,
   ShieldCheck,
-  Clock,
+  
   Smartphone,
   Monitor,
   Printer,
@@ -281,14 +281,13 @@ function Stars() {
 
 function Landing() {
   const [open, setOpen] = useState<number | null>(0);
-  const deadline = new Date(Date.now() + 24 * 60 * 60 * 1000).toLocaleDateString("pt-BR");
 
   return (
     <div className="font-sans">
-      <div className="sticky top-0 z-50 bg-primary px-4 py-2.5 text-center text-sm font-bold text-primary-foreground">
-        <Clock className="mr-1 inline h-4 w-4 align-[-3px]" />A promoção dessa página acaba no dia{" "}
-        {deadline}
+      <div className="bg-primary px-4 py-2.5 text-center text-sm font-bold text-primary-foreground">
+        Acesso imediato após a compra
       </div>
+
 
       <main>
         {/* HERO */}
