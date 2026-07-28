@@ -9,12 +9,36 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TermosRouteImport } from './routes/termos'
+import { Route as ReembolsoRouteImport } from './routes/reembolso'
+import { Route as PrivacidadeRouteImport } from './routes/privacidade'
 import { Route as OfertaRouteImport } from './routes/oferta'
+import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as IndexRouteImport } from './routes/index'
 
+const TermosRoute = TermosRouteImport.update({
+  id: '/termos',
+  path: '/termos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReembolsoRoute = ReembolsoRouteImport.update({
+  id: '/reembolso',
+  path: '/reembolso',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacidadeRoute = PrivacidadeRouteImport.update({
+  id: '/privacidade',
+  path: '/privacidade',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const OfertaRoute = OfertaRouteImport.update({
   id: '/oferta',
   path: '/oferta',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContatoRoute = ContatoRouteImport.update({
+  id: '/contato',
+  path: '/contato',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -25,37 +49,94 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contato': typeof ContatoRoute
   '/oferta': typeof OfertaRoute
+  '/privacidade': typeof PrivacidadeRoute
+  '/reembolso': typeof ReembolsoRoute
+  '/termos': typeof TermosRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contato': typeof ContatoRoute
   '/oferta': typeof OfertaRoute
+  '/privacidade': typeof PrivacidadeRoute
+  '/reembolso': typeof ReembolsoRoute
+  '/termos': typeof TermosRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contato': typeof ContatoRoute
   '/oferta': typeof OfertaRoute
+  '/privacidade': typeof PrivacidadeRoute
+  '/reembolso': typeof ReembolsoRoute
+  '/termos': typeof TermosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/oferta'
+  fullPaths:
+    | '/'
+    | '/contato'
+    | '/oferta'
+    | '/privacidade'
+    | '/reembolso'
+    | '/termos'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/oferta'
-  id: '__root__' | '/' | '/oferta'
+  to: '/' | '/contato' | '/oferta' | '/privacidade' | '/reembolso' | '/termos'
+  id:
+    | '__root__'
+    | '/'
+    | '/contato'
+    | '/oferta'
+    | '/privacidade'
+    | '/reembolso'
+    | '/termos'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContatoRoute: typeof ContatoRoute
   OfertaRoute: typeof OfertaRoute
+  PrivacidadeRoute: typeof PrivacidadeRoute
+  ReembolsoRoute: typeof ReembolsoRoute
+  TermosRoute: typeof TermosRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/termos': {
+      id: '/termos'
+      path: '/termos'
+      fullPath: '/termos'
+      preLoaderRoute: typeof TermosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reembolso': {
+      id: '/reembolso'
+      path: '/reembolso'
+      fullPath: '/reembolso'
+      preLoaderRoute: typeof ReembolsoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacidade': {
+      id: '/privacidade'
+      path: '/privacidade'
+      fullPath: '/privacidade'
+      preLoaderRoute: typeof PrivacidadeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/oferta': {
       id: '/oferta'
       path: '/oferta'
       fullPath: '/oferta'
       preLoaderRoute: typeof OfertaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contato': {
+      id: '/contato'
+      path: '/contato'
+      fullPath: '/contato'
+      preLoaderRoute: typeof ContatoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -70,7 +151,11 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContatoRoute: ContatoRoute,
   OfertaRoute: OfertaRoute,
+  PrivacidadeRoute: PrivacidadeRoute,
+  ReembolsoRoute: ReembolsoRoute,
+  TermosRoute: TermosRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
