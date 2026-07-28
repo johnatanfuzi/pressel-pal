@@ -67,7 +67,7 @@ export const Route = createFileRoute("/oferta")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
-      { rel: "preload", as: "image", href: banner.url, fetchpriority: "high" },
+      { rel: "preload", as: "image", href: banner.url, fetchPriority: "high" },
     ],
   }),
   component: Landing,
