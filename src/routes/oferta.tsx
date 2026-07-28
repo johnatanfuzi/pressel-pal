@@ -47,7 +47,7 @@ import selo from "@/assets/JkRnpY1.png.asset.json";
 const CHECKOUT_BASIC = "https://pay.wiapy.com/TsDvYn9f6CyS";
 const CHECKOUT_PREMIUM = "https://pay.wiapy.com/fiP8AXQDWIls";
 
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute("/oferta")({
   head: () => ({
     meta: [
       { title: "+200 Receitas Deliciosas na Air Fryer | Chef Luana Queiroz" },
