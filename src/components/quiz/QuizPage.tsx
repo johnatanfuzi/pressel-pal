@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { useNavigate } from "@tanstack/react-router";
+import { useNavigate, useRouter } from "@tanstack/react-router";
 import { ChevronLeft } from "lucide-react";
 
 import { ProgressBar } from "./ProgressBar";
@@ -13,6 +13,7 @@ type Stage = "questions" | "analyzing" | "result";
 
 export function QuizPage() {
   const navigate = useNavigate();
+  const router = useRouter();
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState<QuizAnswers>({});
   const [stage, setStage] = useState<Stage>("questions");
@@ -54,11 +55,14 @@ export function QuizPage() {
       schedule(() => setIndex((i) => Math.min(i + 1, QUIZ_QUESTIONS.length - 1)), 180);
     } else {
       if (timer.current) clearTimeout(timer.current);
+      // Pré-carrega a rota da oferta enquanto a tela de análise roda (3s),
+      // para a transição final ser instantânea.
+      void router.preloadRoute({ to: "/oferta" }).catch(() => {});
       setStage("analyzing");
     }
-  }, [index, schedule]);
+  }, [index, schedule, router]);
 
-  const handleSelect = (option: string) => {
+  const handleSelect = useCallback((option: string) => {
     if (question.multiple) {
       const max = question.maxSelections ?? 3;
       const isSel = selected.includes(option);
@@ -76,13 +80,13 @@ export function QuizPage() {
     setAnswers(updated);
     persist(updated);
     schedule(advance, 250);
-  };
+  }, [answers, persist, question, schedule, selected, advance]);
 
-  const goBack = () => {
+  const goBack = useCallback(() => {
     if (index === 0) return;
     setVisible(false);
     schedule(() => setIndex((i) => Math.max(i - 1, 0)), 180);
-  };
+  }, [index, schedule]);
 
   const goToOffer = useCallback(() => {
     const foco = answers.foco;

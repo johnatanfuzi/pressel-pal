@@ -1,4 +1,5 @@
-export function ProgressBar({ current, total }: { current: number; total: number }) {
+import { memo } from "react";
+function ProgressBarBase({ current, total }: { current: number; total: number }) {
   const pct = Math.round((current / total) * 100);
   return (
     <div className="w-full">
@@ -23,3 +24,5 @@ export function ProgressBar({ current, total }: { current: number; total: number
     </div>
   );
 }
+
+export const ProgressBar = memo(ProgressBarBase);
