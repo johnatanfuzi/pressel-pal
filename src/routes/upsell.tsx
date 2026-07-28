@@ -31,6 +31,7 @@ export const Route = createFileRoute("/upsell")({
 });`,
       },
     ],
+  }),
   component: Upsell,
 });
 
