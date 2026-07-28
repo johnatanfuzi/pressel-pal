@@ -28,7 +28,7 @@ function Privacidade() {
   return (
     <LegalPage title="Política de Privacidade" updated="28 de julho de 2026">
       <p>
-        Esta política explica como os dados pessoais são tratados neste site (saudebeleza.space), em conformidade com a
+        Esta política explica como os dados pessoais são tratados neste site (meuairfryer.shop), em conformidade com a
         Lei Geral de Proteção de Dados (Lei nº 13.709/2018 — LGPD). A venda é feita por pessoa
         física, e o produto comercializado é um material digital.
       </p>
