@@ -458,7 +458,7 @@ function Landing() {
                   key={b.n}
                   className="relative flex overflow-hidden rounded-2xl bg-card shadow-soft"
                 >
-                  <span className="absolute left-2 top-2 rounded-md bg-orange px-2 py-0.5 text-[10px] font-black uppercase text-primary-foreground">
+                  <span className="absolute left-2 top-2 z-10 rounded-md bg-orange px-2 py-0.5 text-[10px] font-black uppercase text-primary-foreground">
                     Bônus {b.n}
                   </span>
                   <div className="relative w-24 shrink-0 md:w-36">
