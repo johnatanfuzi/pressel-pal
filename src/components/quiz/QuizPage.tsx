@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate, useRouter } from "@tanstack/react-router";
 import { ChevronLeft } from "lucide-react";
 
@@ -67,7 +67,7 @@ export function QuizPage() {
       const max = question.maxSelections ?? 3;
       const isSel = selected.includes(option);
       const next = isSel
-        ? selected.filter((o) => o !== option)
+        ? selected.filter((o: string) => o !== option)
         : selected.length >= max
           ? selected
           : [...selected, option];
