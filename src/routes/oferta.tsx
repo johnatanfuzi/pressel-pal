@@ -768,10 +768,8 @@ function Landing() {
         </section>
       </main>
 
-      <footer className="bg-brand-dark px-5 py-8 text-center text-sm text-white/70">
-        <p className="font-bold text-white">+200 Receitas Deliciosas na Air Fryer</p>
-        <p className="mt-1">© {new Date().getFullYear()} Todos os direitos reservados.</p>
-      </footer>
+      <SiteFooter />
+
     </div>
   );
 }

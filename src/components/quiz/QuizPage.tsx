@@ -92,43 +92,47 @@ export function QuizPage() {
   }, [answers, navigate]);
 
   return (
-    <main className="min-h-screen bg-background">
-      <div className="mx-auto flex min-h-screen w-full max-w-lg flex-col px-5 pb-10 pt-5">
-        {stage === "questions" && (
-          <>
-            <div className="grid grid-cols-[auto_minmax(0,1fr)] items-center gap-3">
-              <button
-                type="button"
-                onClick={goBack}
-                disabled={index === 0}
-                aria-label="Voltar para a pergunta anterior"
-                className="grid h-9 w-9 shrink-0 place-items-center rounded-full text-muted-foreground transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/40 disabled:opacity-0"
-              >
-                <ChevronLeft className="h-5 w-5" />
-              </button>
-              <ProgressBar current={index + 1} total={QUIZ_QUESTIONS.length} />
+    <div className="flex min-h-screen flex-col bg-background">
+      <main className="flex-1">
+        <div className="mx-auto flex w-full max-w-lg flex-col px-5 pb-10 pt-5">
+          {stage === "questions" && (
+            <>
+              <div className="grid grid-cols-[auto_minmax(0,1fr)] items-center gap-3">
+                <button
+                  type="button"
+                  onClick={goBack}
+                  disabled={index === 0}
+                  aria-label="Voltar para a pergunta anterior"
+                  className="grid h-9 w-9 shrink-0 place-items-center rounded-full text-muted-foreground transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/40 disabled:opacity-0"
+                >
+                  <ChevronLeft className="h-5 w-5" />
+                </button>
+                <ProgressBar current={index + 1} total={QUIZ_QUESTIONS.length} />
+              </div>
+
+              <div className="mt-8 flex-1">
+                <QuestionCard
+                  question={question}
+                  selected={selected}
+                  onSelect={handleSelect}
+                  onContinue={advance}
+                  visible={visible}
+                />
+              </div>
+            </>
+          )}
+
+          {stage === "analyzing" && <AnalyzingScreen onDone={() => setStage("result")} />}
+
+          {stage === "result" && (
+            <div className="flex-1 pt-6">
+              <ResultScreen answers={answers} onGo={goToOffer} />
             </div>
-
-            <div className="mt-8 flex-1">
-              <QuestionCard
-                question={question}
-                selected={selected}
-                onSelect={handleSelect}
-                onContinue={advance}
-                visible={visible}
-              />
-            </div>
-          </>
-        )}
-
-        {stage === "analyzing" && <AnalyzingScreen onDone={() => setStage("result")} />}
-
-        {stage === "result" && (
-          <div className="flex-1 pt-6">
-            <ResultScreen answers={answers} onGo={goToOffer} />
-          </div>
-        )}
-      </div>
-    </main>
+          )}
+        </div>
+      </main>
+      <SiteFooter />
+    </div>
   );
 }
+
