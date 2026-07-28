@@ -43,14 +43,20 @@ export function QuizPage() {
     }
   }, []);
 
+  const schedule = useCallback((fn: () => void, delay: number) => {
+    if (timer.current) clearTimeout(timer.current);
+    timer.current = setTimeout(fn, delay);
+  }, []);
+
   const advance = useCallback(() => {
     if (index < QUIZ_QUESTIONS.length - 1) {
       setVisible(false);
-      timer.current = setTimeout(() => setIndex((i) => i + 1), 180);
+      schedule(() => setIndex((i) => Math.min(i + 1, QUIZ_QUESTIONS.length - 1)), 180);
     } else {
+      if (timer.current) clearTimeout(timer.current);
       setStage("analyzing");
     }
-  }, [index]);
+  }, [index, schedule]);
 
   const handleSelect = (option: string) => {
     if (question.multiple) {
@@ -69,13 +75,13 @@ export function QuizPage() {
     const updated = { ...answers, [question.id]: option };
     setAnswers(updated);
     persist(updated);
-    timer.current = setTimeout(advance, 250);
+    schedule(advance, 250);
   };
 
   const goBack = () => {
     if (index === 0) return;
     setVisible(false);
-    timer.current = setTimeout(() => setIndex((i) => i - 1), 180);
+    schedule(() => setIndex((i) => Math.max(i - 1, 0)), 180);
   };
 
   const goToOffer = useCallback(() => {
