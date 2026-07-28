@@ -17,6 +17,9 @@ export function CaktoUpsellButton() {
       script.type = "text/javascript";
       script.src = SCRIPT_SRC;
       script.async = true;
+      // Nao envia a URL completa (com eventuais parametros) para o CDN de terceiros.
+      script.referrerPolicy = "no-referrer";
+      script.crossOrigin = "anonymous";
       document.body.appendChild(script);
     }
   }, []);
