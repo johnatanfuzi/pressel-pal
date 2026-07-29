@@ -587,7 +587,7 @@ function Landing() {
                 <p className="mt-6 text-center text-sm font-black text-destructive line-through">
                   De R$ 197,00 por apenas
                 </p>
-                <p className="text-center text-5xl font-black text-brand-dark">R$ 18</p>
+                <p className="text-center text-5xl font-black text-brand-dark">R$ 14,90</p>
                 <div className="mt-5">
                   <Cta href={CHECKOUT_PREMIUM}>Comprar agora</Cta>
                 </div>
