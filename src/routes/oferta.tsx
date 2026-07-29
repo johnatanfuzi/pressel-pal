@@ -77,7 +77,7 @@ export const Route = createFileRoute("/oferta")({
       {
         property: "og:description",
         content:
-          "Receitas simples e ilustradas para café, almoço, jantar e sobremesas na air fryer. Acesso imediato por apenas R$10.",
+          "Receitas simples e ilustradas para café, almoço, jantar e sobremesas na air fryer. Acesso imediato por apenas R$ 19,90.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -138,7 +138,7 @@ const bonuses = [
     img: bonusCardapio,
     title: "Cardápio Pronto de 30 Dias na Air Fryer",
     desc: "Plano completo com almoços, jantares, lanches e sobremesas pra nunca mais ficar na dúvida.",
-    price: "R$ 49,90",
+    price: "R$ 24,90",
   },
   {
     n: 3,
@@ -329,9 +329,9 @@ function Landing() {
             </p>
 
             <p className="mt-5 text-center text-lg font-bold text-muted-foreground">
-              <span className="text-destructive line-through">De R$97,00</span> por apenas
+              <span className="text-destructive line-through">De R$ 67,90</span> por apenas
             </p>
-            <p className="text-center text-6xl font-black text-brand">R$10</p>
+            <p className="text-center text-6xl font-black text-brand">R$ 19,90</p>
 
             <div className="mt-6">
               <Cta href={CHECKOUT_BASIC}>Quero as 200 receitas</Cta>
@@ -540,9 +540,9 @@ function Landing() {
                   ))}
                 </ul>
                 <p className="mt-6 text-center text-sm font-black text-destructive line-through">
-                  De R$ 97,00 por apenas
+                  De R$ 67,90 por apenas
                 </p>
-                <p className="text-center text-5xl font-black text-brand-dark">R$ 10</p>
+                <p className="text-center text-5xl font-black text-brand-dark">R$ 19,90</p>
                 <div className="mt-5">
                   <Cta href={CHECKOUT_BASIC}>Comprar agora</Cta>
                 </div>
