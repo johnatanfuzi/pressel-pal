@@ -329,9 +329,9 @@ function Landing() {
             </p>
 
             <p className="mt-5 text-center text-lg font-bold text-muted-foreground">
-              <span className="text-destructive line-through">De R$97,00</span> por apenas
+              <span className="text-destructive line-through">De R$ 67,90</span> por apenas
             </p>
-            <p className="text-center text-6xl font-black text-brand">R$10</p>
+            <p className="text-center text-6xl font-black text-brand">R$ 19,90</p>
 
             <div className="mt-6">
               <Cta href={CHECKOUT_BASIC}>Quero as 200 receitas</Cta>
