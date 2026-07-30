@@ -519,19 +519,63 @@ function Landing() {
             </p>
 
             <div className="mt-8 grid gap-6 md:grid-cols-2">
-              <div className="flex flex-col rounded-2xl bg-card p-6 shadow-soft">
+              {/* CARD BÁSICO - R$ 14,90 */}
+              <div className="order-2 flex flex-col rounded-2xl bg-card p-6 shadow-soft md:order-1">
                 <p className="text-center text-sm font-black uppercase text-muted-foreground">
                   ⚡ Oferta Básica
+                </p>
+                <h3 className="mt-1 text-center text-xl font-black text-brand-dark">
+                  Guia de Tempo e Temperatura + 50 Receitas Fit
+                </h3>
+                <ul className="mt-5 flex-1 space-y-2.5 text-sm font-semibold">
+                  {[
+                    "Guia de tempo e temperatura para 120 alimentos",
+                    "Ponto seguro para carnes, frangos e outros alimentos",
+                    "50 receitas fit para preparar na Air Fryer",
+                    "Consulta rápida e prática durante o preparo",
+                    "Conteúdo digital de fácil acesso",
+                  ].map((t) => (
+                    <li key={t} className="flex gap-2">
+                      <Check className="h-5 w-5 shrink-0 text-brand" strokeWidth={3} />
+                      {t}
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-6 text-center text-sm font-black text-destructive line-through">
+                  De R$ 49,90
+                </p>
+                <p className="text-center text-5xl font-black text-brand-dark">R$ 14,90</p>
+                <p className="mt-1 text-center text-xs font-black uppercase text-orange">70% OFF</p>
+                <div className="mt-5">
+                  <Cta href={CHECKOUT_BASIC}>Quero o guia + 50 receitas</Cta>
+                </div>
+                <p className="mt-2 text-center text-xs font-semibold text-muted-foreground">
+                  Disponível como oferta adicional no checkout
+                </p>
+              </div>
+
+              {/* CARD PRINCIPAL - R$ 19,90 */}
+              <div className="relative order-1 flex flex-col rounded-2xl border-4 border-orange bg-card p-6 shadow-strong md:order-2">
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-orange px-3 py-1 text-[11px] font-black uppercase text-primary-foreground">
+                  Mais Vendida
+                </span>
+                <p className="text-center text-sm font-black uppercase text-orange">
+                  🔥 Mais Vendida
                 </p>
                 <h3 className="mt-1 text-center text-xl font-black text-brand-dark">
                   +200 Receitas na Air Fryer
                 </h3>
                 <ul className="mt-5 flex-1 space-y-2.5 text-sm font-semibold">
                   {[
-                    "200 Receitas Deliciosas na Air Fryer",
-                    "Receitas que não sujam a Air Fryer",
-                    "Acesso Vitalício",
-                    "Entrega Imediata por E-mail",
+                    "Mais de 200 receitas para preparar na Air Fryer",
+                    "Opções para café da manhã, almoço e jantar",
+                    "Carnes, frangos, peixes e acompanhamentos",
+                    "Lanches, petiscos e receitas para compartilhar",
+                    "Bolos, doces e sobremesas",
+                    "Preparos rápidos para o dia a dia",
+                    "Receitas que ajudam a evitar sujeira na Air Fryer",
+                    "Acesso vitalício ao conteúdo",
+                    "Entrega digital imediata por e-mail",
                   ].map((t) => (
                     <li key={t} className="flex gap-2">
                       <Check className="h-5 w-5 shrink-0 text-brand" strokeWidth={3} />
@@ -540,59 +584,18 @@ function Landing() {
                   ))}
                 </ul>
                 <p className="mt-6 text-center text-sm font-black text-destructive line-through">
-                  De R$ 67,90 por apenas
+                  De R$ 67,90
                 </p>
                 <p className="text-center text-5xl font-black text-brand-dark">R$ 19,90</p>
+                <p className="mt-1 text-center text-xs font-semibold text-muted-foreground">
+                  ou 4x de R$ 5,57
+                </p>
                 <div className="mt-5">
-                  <Cta href={CHECKOUT_BASIC}>Comprar agora</Cta>
-                </div>
-              </div>
-
-              <div className="relative flex flex-col rounded-2xl border-4 border-orange bg-card p-6 shadow-soft">
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-orange px-3 py-1 text-[11px] font-black uppercase text-primary-foreground">
-                  Mais Vendida
-                </span>
-                <p className="text-center text-sm font-black uppercase text-orange">
-                  🔥 Super Oferta
-                </p>
-                <h3 className="mt-1 text-center text-xl font-black text-brand-dark">
-                  +365 Receitas Premium na Air Fryer
-                </h3>
-                <ul className="mt-5 space-y-2.5 text-sm font-semibold">
-                  {[
-                    "365 Receitas Deliciosas na Air Fryer",
-                    "Café, almoço, jantar e sobremesas",
-                    "Receitas para toda a família",
-                    "Receitas que não sujam a Air Fryer",
-                    "Acesso Vitalício",
-                    "Entrega Imediata por E-mail",
-                  ].map((t) => (
-                    <li key={t} className="flex gap-2">
-                      <Check className="h-5 w-5 shrink-0 text-brand" strokeWidth={3} />
-                      {t}
-                    </li>
-                  ))}
-                </ul>
-                <p className="mt-5 text-center text-sm font-black uppercase text-orange">
-                  Bônus exclusivos!
-                </p>
-                <ul className="mt-2 flex-1 space-y-2 text-sm font-bold">
-                  {bonuses.map((b) => (
-                    <li key={b.n} className="flex gap-2">
-                      <span>🎁</span>
-                      {b.title}
-                    </li>
-                  ))}
-                </ul>
-                <p className="mt-6 text-center text-sm font-black text-destructive line-through">
-                  De R$ 197,00 por apenas
-                </p>
-                <p className="text-center text-5xl font-black text-brand-dark">R$ 14,90</p>
-                <div className="mt-5">
-                  <Cta href={CHECKOUT_PREMIUM}>Comprar agora</Cta>
+                  <Cta href={CHECKOUT_PREMIUM}>Quero as +200 receitas</Cta>
                 </div>
               </div>
             </div>
+
 
             <div className="mx-auto mt-8 max-w-md rounded-2xl bg-brand p-5 text-center text-primary-foreground">
               <p className="text-2xl">📲</p>
