@@ -45,8 +45,10 @@ import reviewCoxinha from "@/assets/review-coxinha.png.asset.json";
 import reviewBrigadeiro from "@/assets/zGqQ3BH.png.asset.json";
 import selo from "@/assets/JkRnpY1.png.asset.json";
 
-const CHECKOUT_BASIC = "https://pay.cakto.com.br/v8ezh8p_1006418";
-const CHECKOUT_PREMIUM = "https://pay.cakto.com.br/v8ezh8p_1006418";
+// Checkout das +200 Receitas (R$ 19,90). O guia de R$ 14,90 e oferta adicional dentro deste checkout.
+const CHECKOUT_200 = "https://pay.cakto.com.br/v8ezh8p_1006418";
+const CHECKOUT_BASIC = CHECKOUT_200;
+const CHECKOUT_PREMIUM = CHECKOUT_200;
 
 // Os parametros vindos do quiz sao dados nao confiaveis (o usuario pode
 // edita-los na URL). Aqui eles sao normalizados para um conjunto fechado de
