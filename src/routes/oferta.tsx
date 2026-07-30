@@ -555,7 +555,7 @@ function Landing() {
               </div>
 
               {/* CARD PRINCIPAL - R$ 19,90 */}
-              <div className="relative order-1 flex flex-col rounded-2xl border-4 border-orange bg-card p-6 shadow-strong md:order-2">
+              <div className="relative order-1 flex flex-col rounded-2xl border-4 border-orange bg-card p-6 shadow-soft ring-4 ring-orange/20 md:order-2">
                 <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-orange px-3 py-1 text-[11px] font-black uppercase text-primary-foreground">
                   Mais Vendida
                 </span>
