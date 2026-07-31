@@ -28,6 +28,10 @@ export const Route = createFileRoute("/upsell")({
         children: `gtag('event', 'conversion', {
   'send_to': 'AW-18347477174/SheICP-LitgcELaR4axE',
   'transaction_id': ''
+});
+gtag('event', 'conversion', {
+  'send_to': 'AW-18297620218/MgEoCPaI1NEcEPqN_pRE',
+  'transaction_id': ''
 });`,
       },
     ],
