@@ -46,7 +46,7 @@ import reviewBrigadeiro from "@/assets/zGqQ3BH.png.asset.json";
 import selo from "@/assets/JkRnpY1.png.asset.json";
 
 // Checkout das +200 Receitas (R$ 19,90). O guia de R$ 14,90 e oferta adicional dentro deste checkout.
-const CHECKOUT_200 = "https://pay.cakto.com.br/v8ezh8p_1006418";
+const CHECKOUT_200 = "https://checkout.applyfy.com.br/checkout/cmsaa3bi4053x01pv4at8mxow?offer=RO0JAAO";
 const CHECKOUT_BASIC = CHECKOUT_200;
 const CHECKOUT_PREMIUM = CHECKOUT_200;
 
