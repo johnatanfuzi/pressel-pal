@@ -26,7 +26,7 @@ export const Route = createFileRoute("/")({
       { name: "description", content: DESCRIPTION },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
-      { property: "og:url", content: "https://meuairfryer.shop/" },
+      { property: "og:url", content: "https://pressel-pal.lovable.app/" },
       { property: "og:image", content: OG_ABSOLUTE },
       { name: "twitter:title", content: TITLE },
       { name: "twitter:description", content: DESCRIPTION },
@@ -179,7 +179,7 @@ function PresellPage() {
               </div>
 
               {/* ESPACO PARA IMAGEM / MOCKUP REAL DO SISTEMA */}
-              <div className="reveal rounded-3xl border border-white/15 bg-white/5 p-4 backdrop-blur-sm">
+              <div className="reveal rounded-3xl border border-white/15 bg-white/5 p-4">
                 <div className="grid gap-3">
                   <div className="rounded-2xl border border-white/10 bg-navy/60 p-5">
                     <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/50">
@@ -335,7 +335,7 @@ function PresellPage() {
                 </h3>
                 <ul className="mt-5 space-y-3">
                   {DEPOIS.map((item) => (
-                    <li key={item} className="flex gap-3 text-sm font-medium text-primary">
+                    <li key={item} className="flex gap-3 text-sm font-semibold text-primary">
                       <Check className="text-green" />
                       {item}
                     </li>
