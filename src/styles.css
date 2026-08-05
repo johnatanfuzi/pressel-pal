@@ -120,9 +120,7 @@
 
 /* Evita o "flash" do quiz para quem ja respondeu:
    um script inline no <head> marca o documento antes da hidratacao. */
-html[data-quiz-done="1"] #initial-quiz {
-  display: none !important;
-}
+/* (a regra de ocultacao e injetada pelo script inline em __root.tsx) */
 
 @media (prefers-reduced-motion: reduce) {
   *,
