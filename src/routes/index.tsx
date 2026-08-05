@@ -7,7 +7,7 @@ import { useTrackedUrl } from "@/lib/use-tracked-url";
 import ogImage from "@/assets/og-uniclinic.jpg";
 
 
-const SITE = "https://uniclinic.cloud";
+const SITE = "https://staging.uniclinic.cloud";
 const WPP_HERO =
   "https://wa.me/5548991242304?text=Ol%C3%A1%2C%20quero%20conhecer%20o%20UniClinic%20e%20solicitar%20o%20teste%20de%205%20dias.";
 const WPP_TESTE =
@@ -424,7 +424,7 @@ function PresellPage() {
             <p>
               Site:{" "}
               <a className="font-semibold text-primary underline" href={siteUrl}>
-                https://uniclinic.cloud
+                staging.uniclinic.cloud
               </a>
             </p>
             <p>
@@ -450,7 +450,7 @@ function PresellPage() {
             <p>
               Site:{" "}
               <a className="underline" href={siteUrl}>
-                https://uniclinic.cloud
+                staging.uniclinic.cloud
               </a>
             </p>
             <p>
