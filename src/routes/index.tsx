@@ -213,7 +213,7 @@ function PresellPage() {
         </section>
 
         {/* 2. IDENTIFICACAO */}
-        <section className="mx-auto max-w-3xl px-5 py-16 sm:px-8 md:py-24">
+        <section className="defer-paint mx-auto max-w-3xl px-5 py-16 sm:px-8 md:py-24">
           <h2 className="text-2xl font-extrabold leading-tight tracking-tight text-primary sm:text-4xl">
             Uma clínica movimentada também pode operar no escuro.
           </h2>
@@ -231,7 +231,7 @@ function PresellPage() {
         </section>
 
         {/* 3. SINAIS */}
-        <section className="border-y border-border bg-secondary/60 py-16 md:py-24">
+        <section className="defer-paint border-y border-border bg-secondary/60 py-16 md:py-24">
           <div className="mx-auto max-w-5xl px-5 sm:px-8">
             <h2 className="text-2xl font-extrabold tracking-tight text-primary sm:text-4xl">
               Você reconhece alguma destas situações?
@@ -257,7 +257,7 @@ function PresellPage() {
         </section>
 
         {/* 4. APRESENTACAO */}
-        <section className="bg-navy py-16 text-navy-foreground md:py-24">
+        <section className="defer-paint bg-navy py-16 text-navy-foreground md:py-24">
           <div className="mx-auto max-w-5xl px-5 sm:px-8">
             <h2 className="max-w-2xl text-2xl font-extrabold tracking-tight sm:text-4xl">
               Primeiro, sua clínica precisa enxergar.
@@ -294,7 +294,7 @@ function PresellPage() {
         </section>
 
         {/* 5. BENEFICIOS */}
-        <section className="mx-auto max-w-5xl px-5 py-16 sm:px-8 md:py-24">
+        <section className="defer-paint mx-auto max-w-5xl px-5 py-16 sm:px-8 md:py-24">
           <h2 className="max-w-2xl text-2xl font-extrabold tracking-tight text-primary sm:text-4xl">
             Uma operação mais organizada muda toda a clínica.
           </h2>
@@ -310,7 +310,7 @@ function PresellPage() {
         </section>
 
         {/* 6. COMPARACAO */}
-        <section className="border-y border-border bg-secondary/60 py-16 md:py-24">
+        <section className="defer-paint border-y border-border bg-secondary/60 py-16 md:py-24">
           <div className="mx-auto max-w-5xl px-5 sm:px-8">
             <h2 className="max-w-3xl text-2xl font-extrabold tracking-tight text-primary sm:text-4xl">
               O objetivo não é digitalizar a bagunça. É organizar a operação.
@@ -351,7 +351,7 @@ function PresellPage() {
         </section>
 
         {/* 7. TESTE DE 5 DIAS */}
-        <section className="bg-navy-deep py-16 text-navy-foreground md:py-24">
+        <section className="defer-paint bg-navy-deep py-16 text-navy-foreground md:py-24">
           <div className="mx-auto grid max-w-5xl items-center gap-10 px-5 sm:px-8 md:grid-cols-[auto_1fr]">
             <div className="flex items-center gap-4">
               <span className="text-[5.5rem] font-extrabold leading-none text-green md:text-[8rem]">
@@ -391,7 +391,7 @@ function PresellPage() {
         </section>
 
         {/* 8. CTA FINAL */}
-        <section className="mx-auto max-w-3xl px-5 py-16 text-center sm:px-8 md:py-24">
+        <section className="defer-paint mx-auto max-w-3xl px-5 py-16 text-center sm:px-8 md:py-24">
           <h2 className="text-2xl font-extrabold leading-tight tracking-tight text-primary sm:text-4xl">
             Sua clínica vai continuar administrando sintomas ou começar a tratar a causa?
           </h2>
@@ -443,7 +443,7 @@ function PresellPage() {
         </section>
 
         {/* RODAPE */}
-        <footer className="border-t border-border bg-secondary/60 py-10">
+        <footer className="defer-paint border-t border-border bg-secondary/60 py-10">
           <div className="mx-auto flex max-w-5xl flex-col gap-3 px-5 text-sm text-muted-foreground sm:px-8">
             <UniclinicLogo />
             <p className="font-semibold text-primary">UniClinic - Gestão para Clínicas</p>
@@ -464,7 +464,7 @@ function PresellPage() {
       </main>
 
       {/* CTA FIXO MOBILE */}
-      <div className="fixed inset-x-0 bottom-0 z-50 border-t border-white/10 bg-navy-deep/95 p-3 backdrop-blur md:hidden">
+      <div className="fixed inset-x-0 bottom-0 z-50 border-t border-white/10 bg-navy-deep p-3 md:hidden">
         <div className="flex items-center gap-2">
           <a
             href={siteUrl}
