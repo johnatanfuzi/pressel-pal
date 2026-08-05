@@ -110,3 +110,25 @@
 #lovable-badge {
   display: none !important;
 }
+
+/* --- Performance de renderizacao ---------------------------------------- */
+/* Secoes fora da primeira dobra sao pintadas apenas quando entram em cena. */
+@utility defer-paint {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 640px;
+}
+
+/* Evita o "flash" do quiz para quem ja respondeu:
+   um script inline no <head> marca o documento antes da hidratacao. */
+/* (a regra de ocultacao e injetada pelo script inline em __root.tsx) */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

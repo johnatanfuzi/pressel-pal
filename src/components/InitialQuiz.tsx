@@ -84,7 +84,7 @@ export function InitialQuiz({ onSkip }: { onSkip: () => void }) {
   const progress = done ? 100 : Math.round((step / QUESTIONS.length) * 100);
 
   return (
-    <div className="fixed inset-0 z-[60] flex flex-col bg-navy-deep text-navy-foreground">
+    <div id="initial-quiz" className="fixed inset-0 z-[60] flex flex-col bg-navy-deep text-navy-foreground">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 opacity-70"
