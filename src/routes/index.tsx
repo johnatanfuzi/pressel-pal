@@ -1,8 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 
+import { InitialQuiz } from "@/components/InitialQuiz";
 import { UniclinicLogo } from "@/components/UniclinicLogo";
 import { useTrackedUrl } from "@/lib/use-tracked-url";
 import ogImage from "@/assets/og-uniclinic.jpg";
+
 
 const SITE = "https://uniclinic.cloud";
 const WPP_HERO =
@@ -109,9 +112,21 @@ function WhatsIcon() {
 
 function PresellPage() {
   const siteUrl = useTrackedUrl(SITE);
+  const [showQuiz, setShowQuiz] = useState(true);
+
+  useEffect(() => {
+    try {
+      if (localStorage.getItem("quizUniclinic")) setShowQuiz(false);
+    } catch {
+      /* localStorage indisponivel */
+    }
+  }, []);
+
 
   return (
     <>
+      {showQuiz && <InitialQuiz onSkip={() => setShowQuiz(false)} />}
+
       <main className="pb-24 md:pb-0">
         {/* 1. PRIMEIRA DOBRA */}
         <section className="relative overflow-hidden bg-navy-deep text-navy-foreground">
