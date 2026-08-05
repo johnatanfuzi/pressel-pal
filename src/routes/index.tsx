@@ -125,6 +125,8 @@ function PresellPage() {
 
   return (
     <>
+      {showQuiz && <InitialQuiz onSkip={() => setShowQuiz(false)} />}
+
       <main className="pb-24 md:pb-0">
         {/* 1. PRIMEIRA DOBRA */}
         <section className="relative overflow-hidden bg-navy-deep text-navy-foreground">
