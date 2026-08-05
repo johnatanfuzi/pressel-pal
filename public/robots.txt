@@ -1,5 +1,2 @@
 User-agent: *
 Allow: /
-Disallow: /upsell
-
-Sitemap: https://meuairfryer.shop/sitemap.xml
