@@ -99,10 +99,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     scripts: [
       {
-        // Marca o documento antes da hidratacao para quem ja respondeu o quiz,
-        // evitando o flash do overlay sobre a pagina de apresentacao.
+        // Esconde o overlay do quiz antes da primeira pintura para quem ja
+        // respondeu, sem tocar nos atributos do HTML (evita mismatch de hidratacao).
         children:
-          "try{if(localStorage.getItem('quizUniclinic'))document.documentElement.dataset.quizDone='1'}catch(e){}",
+          "try{if(localStorage.getItem('quizUniclinic')){var s=document.createElement('style');s.id='quiz-done-style';s.textContent='#initial-quiz{display:none!important}';document.head.appendChild(s)}}catch(e){}",
       },
     ],
     // ------------------------------------------------------------------
