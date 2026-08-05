@@ -424,7 +424,7 @@ function PresellPage() {
             <p>
               Site:{" "}
               <a className="font-semibold text-primary underline" href={siteUrl}>
-                https://uniclinic.cloud
+                staging.uniclinic.cloud
               </a>
             </p>
             <p>
@@ -450,7 +450,7 @@ function PresellPage() {
             <p>
               Site:{" "}
               <a className="underline" href={siteUrl}>
-                https://uniclinic.cloud
+                staging.uniclinic.cloud
               </a>
             </p>
             <p>
