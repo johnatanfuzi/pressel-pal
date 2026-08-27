@@ -462,25 +462,42 @@ function PresellPage() {
         </section>
 
         {/* 11. CTA FINAL */}
-        <section className="defer-paint mx-auto max-w-3xl px-5 pb-16 text-center sm:px-8 md:pb-24">
-          <h2 className="text-2xl font-extrabold leading-tight tracking-tight text-primary sm:text-4xl">
-            Comece hoje a enxergar o que a sua clínica não está vendo.
-          </h2>
-          <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Crie sua conta grátis e organize agenda, pacientes e financeiro em um só lugar.
-          </p>
-          <div className="mt-8">
-            <a href={signupUrl} className="btn btn-primary-solid w-full sm:w-auto">
-              Criar minha conta grátis
-            </a>
+        <section className="defer-paint relative isolate overflow-hidden bg-navy-deep text-navy-foreground">
+          <img
+            src={medicoImg}
+            alt="Médico de jaleco branco em pé no corredor claro de uma clínica moderna"
+            width={1600}
+            height={912}
+            loading="lazy"
+            decoding="async"
+            sizes="100vw"
+            className="absolute inset-0 -z-10 size-full object-cover object-center"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 -z-10 bg-navy-deep/85 md:bg-gradient-to-r md:from-navy-deep md:via-navy-deep/90 md:to-navy-deep/70"
+          />
+          <div className="mx-auto max-w-3xl px-5 py-20 text-center sm:px-8 md:py-28">
+            <h2 className="text-2xl font-extrabold leading-tight tracking-tight sm:text-4xl">
+              Comece hoje a enxergar o que a sua clínica não está vendo.
+            </h2>
+            <p className="mt-5 text-base leading-relaxed text-white/85 sm:text-lg">
+              Crie sua conta grátis e organize agenda, pacientes e financeiro em um só lugar.
+            </p>
+            <div className="mt-8">
+              <a href={signupUrl} className="btn btn-green w-full sm:w-auto">
+                Criar minha conta grátis
+              </a>
+            </div>
+            <p className="mt-4 text-sm text-white/80">
+              5 dias grátis · Sem cartão de crédito · Conta criada em 2 minutos
+            </p>
+            <p className="mt-8 text-lg font-bold text-green sm:text-xl">
+              Clareza para gerir. Organização para crescer.
+            </p>
           </div>
-          <p className="mt-4 text-sm text-muted-foreground">
-            5 dias grátis · Sem cartão de crédito · Conta criada em 2 minutos
-          </p>
-          <p className="mt-8 text-lg font-bold text-green sm:text-xl">
-            Clareza para gerir. Organização para crescer.
-          </p>
         </section>
+
 
         {/* RODAPE */}
         <footer className="defer-paint border-t border-border bg-secondary/60 py-12">
