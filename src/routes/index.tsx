@@ -6,6 +6,10 @@ import { UniclinicLogo } from "@/components/UniclinicLogo";
 import { MockAgenda, MockAtendimentos, MockFinanceiro } from "@/components/Mockups";
 import { useTrackedUrl } from "@/lib/use-tracked-url";
 import ogImage from "@/assets/og-uniclinic.jpg";
+import heroImg from "@/assets/hero-medica.jpg";
+import recepcaoImg from "@/assets/recepcao-desorganizada.jpg";
+import passosImg from "@/assets/recepcionista-tablet.jpg";
+import medicoImg from "@/assets/medico-corredor.jpg";
 
 const SIGNUP =
   "https://uniclinic.cloud/?utm_source=pressel&utm_medium=site&utm_campaign=uniclinic_space";
