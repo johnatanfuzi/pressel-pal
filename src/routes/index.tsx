@@ -253,19 +253,34 @@ function PresellPage() {
         </section>
 
         {/* 2. IDENTIFICACAO (texto reduzido) */}
-        <section className="defer-paint mx-auto max-w-3xl px-5 py-14 sm:px-8 md:py-20">
-          <h2 className="text-2xl font-extrabold leading-tight tracking-tight text-primary sm:text-4xl">
-            Uma clínica movimentada também pode operar no escuro.
-          </h2>
-          <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Quando agenda, pacientes, atendimentos e finanças ficam em lugares diferentes, a equipe
-            passa a depender de memória, mensagens e planilhas — e pequenas falhas viram tempo
-            perdido.
-          </p>
-          <blockquote className="mt-8 border-l-4 border-green pl-5 text-lg font-bold text-primary sm:text-2xl">
-            Onde a informação se espalha, o controle desaparece.
-          </blockquote>
+        <section className="defer-paint mx-auto max-w-5xl px-5 py-14 sm:px-8 md:py-20">
+          <div className="grid items-center gap-10 md:grid-cols-2">
+            <div>
+              <h2 className="text-2xl font-extrabold leading-tight tracking-tight text-primary sm:text-4xl">
+                Uma clínica movimentada também pode operar no escuro.
+              </h2>
+              <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
+                Quando agenda, pacientes, atendimentos e finanças ficam em lugares diferentes, a
+                equipe passa a depender de memória, mensagens e planilhas — e pequenas falhas viram
+                tempo perdido.
+              </p>
+              <blockquote className="mt-8 border-l-4 border-green pl-5 text-lg font-bold text-primary sm:text-2xl">
+                Onde a informação se espalha, o controle desaparece.
+              </blockquote>
+            </div>
+            <img
+              src={recepcaoImg}
+              alt="Balcão de recepção de clínica no fim do expediente com pilhas de fichas de papel, agenda aberta e telefone fora do gancho"
+              width={1280}
+              height={864}
+              loading="lazy"
+              decoding="async"
+              sizes="(min-width: 768px) 480px, 100vw"
+              className="aspect-[4/3] w-full rounded-2xl object-cover shadow-soft"
+            />
+          </div>
         </section>
+
 
         {/* 3. SINAIS */}
         <section className="defer-paint border-y border-border bg-secondary/60 py-16 md:py-24">
