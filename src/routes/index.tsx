@@ -398,42 +398,33 @@ function PresellPage() {
             eficiência.
           </p>
           <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
-            <a
-              href={siteUrl}
-              className="inline-flex items-center justify-center rounded-xl bg-primary px-7 py-4 text-sm font-extrabold uppercase tracking-wide text-primary-foreground shadow-soft transition-transform hover:-translate-y-0.5"
-            >
+            <a href={siteUrl} className="btn btn-primary-solid">
               Conhecer o Uniclinic
             </a>
-            <a
-              href={WPP_SIMPLE}
-              className="inline-flex items-center justify-center gap-2 rounded-xl border border-primary/25 px-7 py-4 text-sm font-bold uppercase tracking-wide text-primary transition-colors hover:bg-secondary"
-            >
+            <a href={WPP_SIMPLE} className="btn btn-outline-primary">
               <WhatsIcon />
               Chamar no WhatsApp
             </a>
           </div>
-          <div className="mt-9 space-y-1 text-sm text-muted-foreground">
-            <p>
-              WhatsApp:{" "}
-              <a className="font-semibold text-primary underline" href={WPP_SIMPLE}>
-                (48) 99124-2304
-              </a>
-            </p>
-            <p>
-              Site:{" "}
-              <a className="font-semibold text-primary underline" href={siteUrl}>
-                uniclinic.cloud
-              </a>
-            </p>
-            <p>
-              Instagram:{" "}
-              <a
-                className="font-semibold text-primary underline"
-                href="https://instagram.com/sistema.uniclinic"
-              >
-                @sistema.uniclinic
-              </a>
-            </p>
+          <div className="mx-auto mt-10 grid max-w-lg gap-2 text-sm sm:grid-cols-3">
+            <a
+              className="card-lift rounded-xl border border-border bg-card px-4 py-3 font-semibold text-primary"
+              href={WPP_SIMPLE}
+            >
+              (48) 99124-2304
+            </a>
+            <a
+              className="card-lift rounded-xl border border-border bg-card px-4 py-3 font-semibold text-primary"
+              href={siteUrl}
+            >
+              uniclinic.cloud
+            </a>
+            <a
+              className="card-lift rounded-xl border border-border bg-card px-4 py-3 font-semibold text-primary"
+              href="https://instagram.com/sistema.uniclinic"
+            >
+              @sistema.uniclinic
+            </a>
           </div>
           <p className="mt-8 text-lg font-bold text-green sm:text-xl">
             Clareza para gerir. Organização para crescer.
@@ -441,40 +432,50 @@ function PresellPage() {
         </section>
 
         {/* RODAPE */}
-        <footer className="defer-paint border-t border-border bg-secondary/60 py-10">
-          <div className="mx-auto flex max-w-5xl flex-col gap-3 px-5 text-sm text-muted-foreground sm:px-8">
-            <UniclinicLogo />
-            <p className="font-semibold text-primary">Uniclinic - Gestão para Clínicas</p>
-            <p>
-              Site:{" "}
-              <a className="underline" href={siteUrl}>
+        <footer className="defer-paint border-t border-border bg-secondary/60 py-12">
+          <div className="mx-auto flex max-w-5xl flex-col gap-6 px-5 sm:px-8 md:flex-row md:items-center md:justify-between">
+            <div>
+              <UniclinicLogo />
+              <p className="mt-3 text-sm text-muted-foreground">
+                Uniclinic — Gestão para Clínicas
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
+              <a className="font-semibold text-primary hover:underline" href={siteUrl}>
                 uniclinic.cloud
               </a>
-            </p>
-            <p>
-              Instagram:{" "}
-              <a className="underline" href="https://instagram.com/sistema.uniclinic">
+              <a
+                className="font-semibold text-primary hover:underline"
+                href="https://instagram.com/sistema.uniclinic"
+              >
                 @sistema.uniclinic
               </a>
-            </p>
+              <a className="font-semibold text-primary hover:underline" href={WPP_SIMPLE}>
+                (48) 99124-2304
+              </a>
+            </div>
           </div>
         </footer>
       </main>
 
       {/* CTA FIXO MOBILE */}
-      <div className="fixed inset-x-0 bottom-0 z-50 border-t border-white/10 bg-navy-deep p-3 md:hidden">
+      <div
+        className="fixed inset-x-0 bottom-0 z-50 border-t border-white/10 bg-navy-deep px-3 pt-3 md:hidden"
+        style={{ paddingBottom: "calc(0.75rem + env(safe-area-inset-bottom))" }}
+      >
         <div className="flex items-center gap-2">
           <a
             href={siteUrl}
-            className="flex-1 rounded-xl bg-green px-4 py-3.5 text-center text-sm font-extrabold uppercase tracking-wide text-navy-deep"
+            className="flex-1 rounded-xl bg-green px-4 py-3.5 text-center text-sm font-extrabold uppercase tracking-wide text-navy-deep transition-transform active:scale-[0.98]"
           >
             Testar por 5 dias
           </a>
           <a
             href={WPP_TESTE}
             aria-label="Falar pelo WhatsApp"
-            className="grid size-12 shrink-0 place-items-center rounded-xl border border-white/25 text-white"
+            className="grid size-12 shrink-0 place-items-center rounded-xl border border-white/25 text-white transition-colors active:bg-white/10"
           >
+
             <WhatsIcon />
           </a>
         </div>
