@@ -237,7 +237,7 @@ function PresellPage() {
               {SINAIS.map((item) => (
                 <li
                   key={item}
-                  className="flex items-start gap-3 rounded-2xl border border-border bg-card p-5 text-base text-foreground"
+                  className="card-lift flex items-start gap-3 rounded-2xl border border-border bg-card p-5 text-base leading-relaxed text-foreground"
                 >
                   <span
                     aria-hidden="true"
