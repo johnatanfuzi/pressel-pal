@@ -143,40 +143,37 @@ function PresellPage() {
 
             <div className="mt-12 grid items-center gap-12 md:mt-16 md:grid-cols-[1.05fr_0.95fr]">
               <div className="reveal">
-                <p className="text-xs font-bold uppercase tracking-[0.22em] text-green">
+                <p className="inline-flex items-center gap-2 rounded-full border border-green/30 bg-green/10 px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-green">
+                  <span aria-hidden="true" className="size-1.5 rounded-full bg-green" />
                   O gasto invisível da clínica
                 </p>
-                <h1 className="mt-5 text-[2.1rem] font-extrabold leading-[1.08] tracking-tight sm:text-5xl md:text-[3.4rem]">
+                <h1 className="mt-6 text-[2.15rem] font-extrabold leading-[1.06] tracking-[-0.02em] text-balance sm:text-5xl md:text-[3.4rem]">
                   Quanto dinheiro sua clínica perde sem perceber?
                 </h1>
-                <p className="mt-6 max-w-xl text-base leading-relaxed text-white/80 sm:text-lg">
+                <p className="mt-6 max-w-xl text-base leading-[1.7] text-white/75 sm:text-lg">
                   Nem toda perda aparece como uma despesa. Ela pode estar em um horário vazio, em
                   uma consulta não confirmada, em uma cobrança esquecida ou em horas de retrabalho.
                 </p>
-                <p className="mt-4 max-w-xl text-base leading-relaxed text-white/80 sm:text-lg">
+                <p className="mt-4 max-w-xl text-base leading-[1.7] text-white/75 sm:text-lg">
                   O Uniclinic ajuda sua clínica a organizar a operação e enxergar melhor o que
                   acontece todos os dias.
                 </p>
 
                 <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                  <a
-                    href={siteUrl}
-                    className="inline-flex items-center justify-center rounded-xl bg-green px-7 py-4 text-sm font-extrabold uppercase tracking-wide text-navy-deep shadow-cta transition-transform hover:-translate-y-0.5"
-                  >
+                  <a href={siteUrl} className="btn btn-green">
                     Conhecer o Uniclinic
                   </a>
-                  <a
-                    href={WPP_HERO}
-                    className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/30 px-7 py-4 text-sm font-bold uppercase tracking-wide text-white transition-colors hover:bg-white/10"
-                  >
+                  <a href={WPP_HERO} className="btn btn-outline-light">
                     <WhatsIcon />
                     Falar pelo WhatsApp
                   </a>
                 </div>
-                <p className="mt-4 text-sm text-white/70">
+                <p className="mt-5 flex items-center gap-2 text-sm text-white/65">
+                  <Check className="size-4 text-green" />
                   Teste o Uniclinic por 5 dias antes de decidir.
                 </p>
               </div>
+
 
               {/* ESPACO PARA IMAGEM / MOCKUP REAL DO SISTEMA */}
               <div className="reveal rounded-3xl border border-white/15 bg-white/5 p-4">
