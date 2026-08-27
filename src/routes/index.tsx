@@ -200,15 +200,30 @@ function PresellPage() {
 
       <main className="pb-24 md:pb-0">
         {/* 1. HERO */}
-        <section className="relative overflow-hidden bg-navy-deep text-navy-foreground">
+        <section className="relative isolate overflow-hidden bg-navy-deep text-navy-foreground">
+          <img
+            src={heroImg}
+            alt="Médica de jaleco branco em consultório moderno analisando a agenda da clínica no notebook"
+            width={1600}
+            height={912}
+            fetchPriority="high"
+            decoding="async"
+            sizes="100vw"
+            className="absolute inset-0 -z-10 size-full object-cover object-right"
+          />
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 opacity-70"
+            className="absolute inset-0 -z-10 bg-navy-deep/90 md:bg-gradient-to-r md:from-navy-deep md:via-navy-deep/92 md:to-navy-deep/70"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 -z-10 opacity-60"
             style={{
               background:
                 "radial-gradient(900px 480px at 15% -10%, color-mix(in oklab, var(--blue) 45%, transparent), transparent 70%), radial-gradient(700px 420px at 95% 20%, color-mix(in oklab, var(--green) 30%, transparent), transparent 70%)",
             }}
           />
+
           <div className="relative mx-auto max-w-6xl px-5 pb-16 pt-8 sm:px-8 md:pb-24 md:pt-10">
             <UniclinicLogo tone="light" />
 
