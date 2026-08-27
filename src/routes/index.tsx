@@ -213,8 +213,9 @@ function PresellPage() {
           />
           <div
             aria-hidden="true"
-            className="absolute inset-0 -z-10 bg-navy-deep/90 md:bg-gradient-to-r md:from-navy-deep md:via-navy-deep/92 md:to-navy-deep/70"
+            className="absolute inset-0 -z-10 bg-navy-deep/82 md:bg-gradient-to-r md:from-navy-deep md:via-navy-deep/88 md:to-navy-deep/55"
           />
+
           <div
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 -z-10 opacity-60"
