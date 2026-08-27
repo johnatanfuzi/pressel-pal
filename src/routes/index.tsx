@@ -295,15 +295,21 @@ function PresellPage() {
           <h2 className="max-w-2xl text-2xl font-extrabold tracking-tight text-primary sm:text-4xl">
             Uma operação mais organizada muda toda a clínica.
           </h2>
-          <div className="mt-10 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {BENEFICIOS.map(([title, text]) => (
-              <div key={title}>
-                <Check className="text-green" />
-                <h3 className="mt-3 text-lg font-bold text-primary">{title}</h3>
+              <div
+                key={title}
+                className="card-lift rounded-2xl border border-border bg-card p-6"
+              >
+                <span className="grid size-10 place-items-center rounded-xl bg-green-soft text-green">
+                  <Check />
+                </span>
+                <h3 className="mt-4 text-lg font-bold leading-snug text-primary">{title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{text}</p>
               </div>
             ))}
           </div>
+
         </section>
 
         {/* 6. COMPARACAO */}
