@@ -3,7 +3,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { UniclinicLogo } from "@/components/UniclinicLogo";
 import { useTrackedUrl } from "@/lib/use-tracked-url";
 
-const STAGING_URL = "https://staging.uniclinic.cloud";
+const STAGING_URL = "https://uniclinic.cloud";
 const STORAGE_KEY = "quizUniclinic";
 
 const QUESTIONS = [
