@@ -3,21 +3,19 @@ import { useEffect, useState } from "react";
 
 import { InitialQuiz } from "@/components/InitialQuiz";
 import { UniclinicLogo } from "@/components/UniclinicLogo";
+import { MockAgenda, MockAtendimentos, MockFinanceiro } from "@/components/Mockups";
 import { useTrackedUrl } from "@/lib/use-tracked-url";
 import ogImage from "@/assets/og-uniclinic.jpg";
 
-
-const SITE = "https://uniclinic.cloud";
-const WPP_HERO =
-  "https://wa.me/5548991242304?text=Ol%C3%A1%2C%20quero%20conhecer%20o%20Uniclinic%20e%20solicitar%20o%20teste%20de%205%20dias.";
-const WPP_TESTE =
-  "https://wa.me/5548991242304?text=Ol%C3%A1%2C%20quero%20solicitar%20o%20teste%20de%205%20dias%20do%20Uniclinic.";
-const WPP_SIMPLE = "https://wa.me/5548991242304";
+const SIGNUP =
+  "https://uniclinic.cloud/?utm_source=pressel&utm_medium=site&utm_campaign=uniclinic_space";
+const WPP_SIMPLE =
+  "https://wa.me/5548991242304?text=Ol%C3%A1%2C%20quero%20tirar%20uma%20d%C3%BAvida%20sobre%20o%20Uniclinic.";
 const OG_ABSOLUTE = `https://pressel-pal.lovable.app${ogImage}`;
 
-const TITLE = "Uniclinic | Descubra o gasto invisível da sua clínica";
+const TITLE = "Uniclinic | Crie sua conta e organize a clínica em 5 minutos";
 const DESCRIPTION =
-  "Agenda ociosa, retrabalho e informações espalhadas podem dificultar a gestão. Conheça o Uniclinic e teste a plataforma por 5 dias.";
+  "Agenda, pacientes, prontuários, contratos e financeiro em um só lugar. Teste o Uniclinic por 5 dias grátis, sem cartão de crédito.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -26,8 +24,10 @@ export const Route = createFileRoute("/")({
       { name: "description", content: DESCRIPTION },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
-      { property: "og:url", content: "https://pressel-pal.lovable.app/" },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://uniclinic.space/" },
       { property: "og:image", content: OG_ABSOLUTE },
+      { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: TITLE },
       { name: "twitter:description", content: DESCRIPTION },
       { name: "twitter:image", content: OG_ABSOLUTE },
@@ -46,24 +46,30 @@ const SINAIS = [
   "Dificuldade para enxergar a operação como um todo.",
 ];
 
-const BENEFICIOS = [
-  ["Mais organização", "Informações importantes reunidas em um ambiente único."],
-  ["Menos retrabalho", "Menor dependência de controles paralelos e tarefas repetidas."],
+const BENEFICIOS: [string, string][] = [
   [
-    "Mais clareza",
-    "Visão mais organizada sobre atendimentos, contratos, finanças e pendências.",
+    "Enxergue os horários vazios da semana",
+    "Você abre o sistema e vê os buracos da agenda antes que eles virem prejuízo.",
   ],
   [
-    "Mais segurança operacional",
-    "Processos mais claros, usuários, funções e histórico das atividades.",
+    "Saiba quem ainda não confirmou",
+    "A agenda mostra o que está confirmado e o que está pendente, sem depender de memória.",
   ],
   [
-    "Rotina mais fluida",
-    "Menos tempo procurando informações e mais foco no que precisa ser feito.",
+    "Encontre o histórico do paciente em segundos",
+    "Consultas, prontuários, prescrições e exames ficam na ficha do paciente, não em pastas soltas.",
   ],
   [
-    "Decisões mais conscientes",
-    "Dados organizados para apoiar médicos donos de clínica e gestores.",
+    "Acompanhe o que entrou e o que ficou em aberto",
+    "Recebimentos e pendências ficam listados, então você para de conferir planilha por planilha.",
+  ],
+  [
+    "Pare de refazer o mesmo trabalho",
+    "A equipe lança a informação uma vez e ela aparece na agenda, no atendimento e no financeiro.",
+  ],
+  [
+    "Decida com dados da própria clínica",
+    "Relatórios de atendimentos, faturamento e comparecimento no lugar do 'eu acho'.",
   ],
 ];
 
@@ -85,6 +91,50 @@ const DEPOIS = [
   "Mais controle para a gestão.",
 ];
 
+const PASSOS: [string, string][] = [
+  ["Crie sua conta", "Só nome da clínica, e-mail e senha."],
+  ["Entre no painel já configurado", "Você cai direto na área de trabalho, sem instalação."],
+  [
+    "Cadastre seu primeiro paciente",
+    "E monte a agenda da semana para ver a operação organizada.",
+  ],
+];
+
+const CONFIANCA: [string, string][] = [
+  ["Acesso por login individual", "Cada pessoa da equipe entra com o próprio usuário e senha."],
+  ["Níveis de permissão por função", "Você define o que cada função pode ver e editar."],
+  ["Histórico de atividades", "As ações realizadas ficam registradas no sistema."],
+  ["Dados hospedados em servidor com criptografia", "O acesso à plataforma é feito por conexão criptografada."],
+];
+
+const FAQ: [string, string][] = [
+  [
+    "Preciso cadastrar cartão de crédito?",
+    "Não. A conta de teste é criada com nome da clínica, e-mail e senha. Nenhum dado de pagamento é pedido para começar.",
+  ],
+  [
+    "O que acontece quando os 5 dias acabam?",
+    "O acesso de teste é encerrado e seus dados ficam guardados. Se decidir seguir, você ativa o plano e continua de onde parou.",
+  ],
+  [
+    // PREENCHER: valores oficiais dos planos do Uniclinic.
+    "Quanto custa depois?",
+    "O valor depende do tamanho da clínica e do número de usuários. A equipe apresenta os planos durante o teste, sem compromisso.",
+  ],
+  [
+    "Consigo migrar meus pacientes que estão em planilha?",
+    "Sim, é possível levar sua base de pacientes para o sistema. Fale com a equipe durante o teste para combinar como enviar seu arquivo.",
+  ],
+  [
+    "Minha equipe vai conseguir usar sem treinamento?",
+    "O painel foi feito para o uso do dia a dia da recepção e do consultório. Você e a equipe conseguem cadastrar paciente e montar agenda no primeiro acesso, e a equipe do Uniclinic ajuda pelo WhatsApp se travar em algo.",
+  ],
+  [
+    "E se eu não gostar?",
+    "Você simplesmente não continua depois do teste. Não há cobrança automática nem contrato assinado para experimentar.",
+  ],
+];
+
 function Check({ className = "" }: { className?: string }) {
   return (
     <svg
@@ -102,16 +152,34 @@ function Check({ className = "" }: { className?: string }) {
   );
 }
 
-function WhatsIcon() {
+function WhatsIcon({ className = "size-5" }: { className?: string }) {
   return (
-    <svg aria-hidden="true" viewBox="0 0 24 24" className="size-5" fill="currentColor">
+    <svg aria-hidden="true" viewBox="0 0 24 24" className={className} fill="currentColor">
       <path d="M12.04 2C6.6 2 2.2 6.4 2.2 11.84c0 1.9.53 3.68 1.46 5.2L2 22l5.1-1.6a9.9 9.9 0 0 0 4.94 1.3c5.44 0 9.84-4.4 9.84-9.84S17.48 2 12.04 2Zm0 17.8c-1.6 0-3.1-.44-4.38-1.2l-.32-.2-3.02.95.95-2.94-.2-.32a7.94 7.94 0 0 1-1.24-4.25c0-4.42 3.6-8.02 8.03-8.02 4.43 0 8.03 3.6 8.03 8.02 0 4.43-3.6 8.02-8.03 8.02Zm4.5-5.9c-.24-.12-1.44-.7-1.66-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.42-1.34-1.66-.14-.24-.02-.38.1-.5.12-.12.26-.3.4-.46.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.32-.74-1.8-.2-.48-.4-.4-.54-.4h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2 0 1.18.86 2.32.98 2.48.12.16 1.7 2.7 4.12 3.68 2.42.98 2.42.66 2.86.62.44-.04 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28Z" />
     </svg>
   );
 }
 
+function WhatsLink({ tone = "light" }: { tone?: "light" | "dark" }) {
+  return (
+    <p
+      className={`mt-5 text-sm ${tone === "light" ? "text-white/60" : "text-muted-foreground"}`}
+    >
+      Prefere tirar uma dúvida antes?{" "}
+      <a
+        href={WPP_SIMPLE}
+        className={`font-semibold underline underline-offset-4 ${
+          tone === "light" ? "text-white hover:text-green" : "text-primary hover:text-green"
+        }`}
+      >
+        Fale com a equipe no WhatsApp
+      </a>
+    </p>
+  );
+}
+
 function PresellPage() {
-  const siteUrl = useTrackedUrl(SITE);
+  const signupUrl = useTrackedUrl(SIGNUP);
   const [showQuiz, setShowQuiz] = useState(true);
 
   useEffect(() => {
@@ -122,13 +190,12 @@ function PresellPage() {
     }
   }, []);
 
-
   return (
     <>
       {showQuiz && <InitialQuiz onSkip={() => setShowQuiz(false)} />}
 
       <main className="pb-24 md:pb-0">
-        {/* 1. PRIMEIRA DOBRA */}
+        {/* 1. HERO */}
         <section className="relative overflow-hidden bg-navy-deep text-navy-foreground">
           <div
             aria-hidden="true"
@@ -145,84 +212,53 @@ function PresellPage() {
               <div className="reveal">
                 <p className="inline-flex items-center gap-2 rounded-full border border-green/30 bg-green/10 px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-green">
                   <span aria-hidden="true" className="size-1.5 rounded-full bg-green" />
-                  O gasto invisível da clínica
+                  Gestão para clínicas
                 </p>
                 <h1 className="mt-6 text-[2.15rem] font-extrabold leading-[1.06] tracking-[-0.02em] text-balance sm:text-5xl md:text-[3.4rem]">
-                  Quanto dinheiro sua clínica perde sem perceber?
+                  Sua clínica pode estar perdendo dinheiro em lugares que você não vê.
                 </h1>
                 <p className="mt-6 max-w-xl text-base leading-[1.7] text-white/75 sm:text-lg">
-                  Nem toda perda aparece como uma despesa. Ela pode estar em um horário vazio, em
-                  uma consulta não confirmada, em uma cobrança esquecida ou em horas de retrabalho.
-                </p>
-                <p className="mt-4 max-w-xl text-base leading-[1.7] text-white/75 sm:text-lg">
-                  O Uniclinic ajuda sua clínica a organizar a operação e enxergar melhor o que
-                  acontece todos os dias.
+                  Horário vazio, paciente que não confirma, cobrança esquecida, retrabalho da
+                  equipe. O Uniclinic reúne agenda, pacientes, prontuários, contratos e financeiro
+                  em um só lugar — e você começa a enxergar tudo em 5 minutos.
                 </p>
 
-                <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                  <a href={siteUrl} className="btn btn-green">
-                    Conhecer o Uniclinic
-                  </a>
-                  <a href={WPP_HERO} className="btn btn-outline-light">
-                    <WhatsIcon />
-                    Falar pelo WhatsApp
+                <div className="mt-9">
+                  <a href={signupUrl} className="btn btn-green w-full sm:w-auto">
+                    Criar minha conta grátis
                   </a>
                 </div>
-                <p className="mt-5 flex items-center gap-2 text-sm text-white/65">
-                  <Check className="size-4 text-green" />
-                  Teste o Uniclinic por 5 dias antes de decidir.
-                </p>
+                <ul className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-white/70">
+                  {["5 dias grátis", "Sem cartão de crédito", "Conta criada em 2 minutos"].map(
+                    (item) => (
+                      <li key={item} className="flex items-center gap-1.5">
+                        <Check className="size-4 text-green" />
+                        {item}
+                      </li>
+                    ),
+                  )}
+                </ul>
+                <WhatsLink />
               </div>
 
-
-              {/* ESPACO PARA IMAGEM / MOCKUP REAL DO SISTEMA */}
-              <div className="reveal rounded-3xl border border-white/15 bg-white/5 p-4">
-                <div className="grid gap-3">
-                  <div className="rounded-2xl border border-white/10 bg-navy/60 p-5">
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/50">
-                      Rotina fragmentada
-                    </p>
-                    <div className="mt-3 space-y-2">
-                      {["Papel", "WhatsApp", "Planilha", "Memória"].map((item) => (
-                        <div
-                          key={item}
-                          className="flex items-center justify-between rounded-lg bg-white/5 px-3 py-2 text-sm text-white/70"
-                        >
-                          <span>{item}</span>
-                          <span className="h-1 w-16 rounded bg-white/15" />
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="rounded-2xl border border-green/30 bg-green/10 p-5">
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-green">
-                      Operação organizada
-                    </p>
-                    <p className="mt-3 text-sm text-white/80">
-                      Espaço reservado para imagem ou mockup real do sistema (substituir por
-                      screenshot oficial).
-                    </p>
-                  </div>
-                </div>
+              <div className="reveal">
+                <MockAgenda />
               </div>
             </div>
           </div>
         </section>
 
-        {/* 2. IDENTIFICACAO */}
-        <section className="defer-paint mx-auto max-w-3xl px-5 py-16 sm:px-8 md:py-24">
+        {/* 2. IDENTIFICACAO (texto reduzido) */}
+        <section className="defer-paint mx-auto max-w-3xl px-5 py-14 sm:px-8 md:py-20">
           <h2 className="text-2xl font-extrabold leading-tight tracking-tight text-primary sm:text-4xl">
             Uma clínica movimentada também pode operar no escuro.
           </h2>
           <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Quando agenda, pacientes, atendimentos, contratos e finanças são controlados em lugares
-            diferentes, a equipe passa a depender de memória, mensagens, papéis e planilhas.
+            Quando agenda, pacientes, atendimentos e finanças ficam em lugares diferentes, a equipe
+            passa a depender de memória, mensagens e planilhas — e pequenas falhas viram tempo
+            perdido.
           </p>
-          <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
-            O resultado é uma rotina com pequenas falhas que consomem tempo, aumentam o retrabalho e
-            dificultam a gestão.
-          </p>
-          <blockquote className="mt-9 border-l-4 border-green pl-5 text-lg font-bold text-primary sm:text-2xl">
+          <blockquote className="mt-8 border-l-4 border-green pl-5 text-lg font-bold text-primary sm:text-2xl">
             Onde a informação se espalha, o controle desaparece.
           </blockquote>
         </section>
@@ -239,10 +275,7 @@ function PresellPage() {
                   key={item}
                   className="card-lift flex items-start gap-3 rounded-2xl border border-border bg-card p-5 text-base leading-relaxed text-foreground"
                 >
-                  <span
-                    aria-hidden="true"
-                    className="mt-1 size-2 shrink-0 rounded-full bg-blue"
-                  />
+                  <span aria-hidden="true" className="mt-1 size-2 shrink-0 rounded-full bg-blue" />
                   {item}
                 </li>
               ))}
@@ -253,54 +286,39 @@ function PresellPage() {
           </div>
         </section>
 
-        {/* 4. APRESENTACAO */}
+        {/* 4. APRESENTACAO + MOCKUPS */}
         <section className="defer-paint bg-navy py-16 text-navy-foreground md:py-24">
           <div className="mx-auto max-w-5xl px-5 sm:px-8">
             <h2 className="max-w-2xl text-2xl font-extrabold tracking-tight sm:text-4xl">
-              Primeiro, sua clínica precisa enxergar.
+              Veja como sua rotina fica dentro do sistema.
             </h2>
-            <p className="mt-6 max-w-3xl text-base leading-relaxed text-white/80 sm:text-lg">
-              O Uniclinic reúne os principais processos da clínica em um único ambiente.
-            </p>
-            <p className="mt-4 max-w-3xl text-base leading-relaxed text-white/80 sm:text-lg">
-              Agenda, pacientes, atendimentos, prontuários, prescrições, exames, procedimentos,
-              contratos, financeiro, relatórios e gestão operacional passam a fazer parte de uma
-              rotina mais organizada.
-            </p>
-            <p className="mt-8 text-lg font-bold text-green sm:text-2xl">
-              Clareza não é um detalhe da gestão. É o começo do controle.
+            <p className="mt-5 max-w-3xl text-base leading-relaxed text-white/80 sm:text-lg">
+              Agenda, pacientes, prontuários, prescrições, exames, contratos, financeiro e
+              relatórios em um único ambiente.
             </p>
 
-            {/* ESPACO PARA SCREENSHOTS REAIS DO SISTEMA (substituir os placeholders) */}
-            <div className="mt-12 grid gap-5 sm:grid-cols-3">
-              {["Agenda", "Atendimentos", "Relatórios"].map((label) => (
-                <figure
-                  key={label}
-                  className="flex aspect-[4/3] flex-col justify-end rounded-2xl border border-white/15 bg-white/5 p-5"
-                >
-                  <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/50">
-                    Screenshot
-                  </span>
-                  <figcaption className="mt-1 text-sm font-semibold text-white/85">
-                    {label} — espaço reservado
-                  </figcaption>
-                </figure>
-              ))}
+            <div className="mt-12 grid gap-8 md:grid-cols-2">
+              <MockAtendimentos />
+              <MockFinanceiro />
+            </div>
+
+            <div className="mt-12">
+              <a href={signupUrl} className="btn btn-green w-full sm:w-auto">
+                Criar minha conta grátis
+              </a>
+              <WhatsLink />
             </div>
           </div>
         </section>
 
-        {/* 5. BENEFICIOS */}
+        {/* 5. BENEFICIOS CONCRETOS */}
         <section className="defer-paint mx-auto max-w-5xl px-5 py-16 sm:px-8 md:py-24">
           <h2 className="max-w-2xl text-2xl font-extrabold tracking-tight text-primary sm:text-4xl">
-            Uma operação mais organizada muda toda a clínica.
+            O que muda na prática no seu dia a dia.
           </h2>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {BENEFICIOS.map(([title, text]) => (
-              <div
-                key={title}
-                className="card-lift rounded-2xl border border-border bg-card p-6"
-              >
+              <div key={title} className="card-lift rounded-2xl border border-border bg-card p-6">
                 <span className="grid size-10 place-items-center rounded-xl bg-green-soft text-green">
                   <Check />
                 </span>
@@ -309,7 +327,6 @@ function PresellPage() {
               </div>
             ))}
           </div>
-
         </section>
 
         {/* 6. COMPARACAO */}
@@ -346,10 +363,6 @@ function PresellPage() {
                 </ul>
               </div>
             </div>
-            <p className="mt-8 max-w-3xl text-sm text-muted-foreground">
-              Estes pontos representam objetivos e possibilidades de uma operação organizada, não
-              resultados garantidos.
-            </p>
           </div>
         </section>
 
@@ -371,61 +384,99 @@ function PresellPage() {
                 Não decida apenas pela apresentação. Use o sistema.
               </h2>
               <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg">
-                Teste o Uniclinic por 5 dias, navegue pelos módulos e avalie como a plataforma pode
-                contribuir para a organização da sua clínica.
+                Crie a conta, navegue pelos módulos e avalie com a sua própria rotina. Sem cartão de
+                crédito.
               </p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <a href={siteUrl} className="btn btn-green">
-                  Solicitar teste de 5 dias
-                </a>
-                <a href={WPP_TESTE} className="btn btn-outline-light">
-                  <WhatsIcon />
-                  Falar com a equipe
+              <div className="mt-8">
+                <a href={signupUrl} className="btn btn-green w-full sm:w-auto">
+                  Criar minha conta grátis
                 </a>
               </div>
-
+              <WhatsLink />
             </div>
           </div>
         </section>
 
-        {/* 8. CTA FINAL */}
-        <section className="defer-paint mx-auto max-w-3xl px-5 py-16 text-center sm:px-8 md:py-24">
-          <h2 className="text-2xl font-extrabold leading-tight tracking-tight text-primary sm:text-4xl">
-            Sua clínica vai continuar administrando sintomas ou começar a tratar a causa?
+        {/* 8. PASSO A PASSO */}
+        <section className="defer-paint mx-auto max-w-5xl px-5 py-16 sm:px-8 md:py-24">
+          <h2 className="max-w-2xl text-2xl font-extrabold tracking-tight text-primary sm:text-4xl">
+            Do cadastro ao primeiro paciente em 5 minutos.
           </h2>
-          <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Organize a operação antes que pequenos vazamentos se transformem em grandes perdas de
-            eficiência.
+          <ol className="mt-10 grid gap-4 md:grid-cols-3">
+            {PASSOS.map(([title, text], index) => (
+              <li key={title} className="card-lift rounded-2xl border border-border bg-card p-6">
+                <span className="grid size-10 place-items-center rounded-xl bg-navy text-sm font-extrabold text-navy-foreground">
+                  {index + 1}
+                </span>
+                <h3 className="mt-4 text-lg font-bold leading-snug text-primary">{title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{text}</p>
+              </li>
+            ))}
+          </ol>
+          <div className="mt-10">
+            <a href={signupUrl} className="btn btn-primary-solid w-full sm:w-auto">
+              Criar minha conta grátis
+            </a>
+            <WhatsLink tone="dark" />
+          </div>
+        </section>
+
+        {/* 9. CONFIANCA */}
+        <section className="defer-paint border-y border-border bg-secondary/60 py-16 md:py-24">
+          <div className="mx-auto max-w-5xl px-5 sm:px-8">
+            <h2 className="max-w-2xl text-2xl font-extrabold tracking-tight text-primary sm:text-4xl">
+              Seus dados e os dos seus pacientes.
+            </h2>
+            <div className="mt-10 grid gap-4 sm:grid-cols-2">
+              {CONFIANCA.map(([title, text]) => (
+                <div key={title} className="rounded-2xl border border-border bg-card p-6">
+                  <h3 className="text-base font-bold leading-snug text-primary">{title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* 10. FAQ */}
+        <section className="defer-paint mx-auto max-w-3xl px-5 py-16 sm:px-8 md:py-24">
+          <h2 className="text-2xl font-extrabold tracking-tight text-primary sm:text-4xl">
+            Perguntas frequentes
+          </h2>
+          <div className="mt-8 divide-y divide-border overflow-hidden rounded-2xl border border-border bg-card">
+            {FAQ.map(([question, answer]) => (
+              <details key={question} className="group px-5 py-4">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-bold text-primary">
+                  {question}
+                  <span
+                    aria-hidden="true"
+                    className="grid size-7 shrink-0 place-items-center rounded-lg bg-secondary text-primary transition-transform group-open:rotate-45"
+                  >
+                    +
+                  </span>
+                </summary>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{answer}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+
+        {/* 11. CTA FINAL */}
+        <section className="defer-paint mx-auto max-w-3xl px-5 pb-16 text-center sm:px-8 md:pb-24">
+          <h2 className="text-2xl font-extrabold leading-tight tracking-tight text-primary sm:text-4xl">
+            Comece hoje a enxergar o que a sua clínica não está vendo.
+          </h2>
+          <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
+            Crie sua conta grátis e organize agenda, pacientes e financeiro em um só lugar.
           </p>
-          <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
-            <a href={siteUrl} className="btn btn-primary-solid">
-              Conhecer o Uniclinic
-            </a>
-            <a href={WPP_SIMPLE} className="btn btn-outline-primary">
-              <WhatsIcon />
-              Chamar no WhatsApp
+          <div className="mt-8">
+            <a href={signupUrl} className="btn btn-primary-solid w-full sm:w-auto">
+              Criar minha conta grátis
             </a>
           </div>
-          <div className="mx-auto mt-10 grid max-w-lg gap-2 text-sm sm:grid-cols-3">
-            <a
-              className="card-lift rounded-xl border border-border bg-card px-4 py-3 font-semibold text-primary"
-              href={WPP_SIMPLE}
-            >
-              (48) 99124-2304
-            </a>
-            <a
-              className="card-lift rounded-xl border border-border bg-card px-4 py-3 font-semibold text-primary"
-              href={siteUrl}
-            >
-              uniclinic.cloud
-            </a>
-            <a
-              className="card-lift rounded-xl border border-border bg-card px-4 py-3 font-semibold text-primary"
-              href="https://instagram.com/sistema.uniclinic"
-            >
-              @sistema.uniclinic
-            </a>
-          </div>
+          <p className="mt-4 text-sm text-muted-foreground">
+            5 dias grátis · Sem cartão de crédito · Conta criada em 2 minutos
+          </p>
           <p className="mt-8 text-lg font-bold text-green sm:text-xl">
             Clareza para gerir. Organização para crescer.
           </p>
@@ -436,12 +487,10 @@ function PresellPage() {
           <div className="mx-auto flex max-w-5xl flex-col gap-6 px-5 sm:px-8 md:flex-row md:items-center md:justify-between">
             <div>
               <UniclinicLogo />
-              <p className="mt-3 text-sm text-muted-foreground">
-                Uniclinic — Gestão para Clínicas
-              </p>
+              <p className="mt-3 text-sm text-muted-foreground">Uniclinic — Gestão para Clínicas</p>
             </div>
             <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
-              <a className="font-semibold text-primary hover:underline" href={siteUrl}>
+              <a className="font-semibold text-primary hover:underline" href={signupUrl}>
                 uniclinic.cloud
               </a>
               <a
@@ -458,27 +507,26 @@ function PresellPage() {
         </footer>
       </main>
 
+      {/* WHATSAPP FLUTUANTE */}
+      <a
+        href={WPP_SIMPLE}
+        aria-label="Falar com a equipe no WhatsApp"
+        className="fixed right-4 bottom-24 z-50 grid size-13 place-items-center rounded-full bg-green text-navy-deep shadow-cta transition-transform hover:-translate-y-0.5 active:scale-95 md:bottom-6"
+      >
+        <WhatsIcon className="size-7" />
+      </a>
+
       {/* CTA FIXO MOBILE */}
       <div
-        className="fixed inset-x-0 bottom-0 z-50 border-t border-white/10 bg-navy-deep px-3 pt-3 md:hidden"
+        className="fixed inset-x-0 bottom-0 z-40 border-t border-white/10 bg-navy-deep px-3 pt-3 md:hidden"
         style={{ paddingBottom: "calc(0.75rem + env(safe-area-inset-bottom))" }}
       >
-        <div className="flex items-center gap-2">
-          <a
-            href={siteUrl}
-            className="flex-1 rounded-xl bg-green px-4 py-3.5 text-center text-sm font-extrabold uppercase tracking-wide text-navy-deep transition-transform active:scale-[0.98]"
-          >
-            Testar por 5 dias
-          </a>
-          <a
-            href={WPP_TESTE}
-            aria-label="Falar pelo WhatsApp"
-            className="grid size-12 shrink-0 place-items-center rounded-xl border border-white/25 text-white transition-colors active:bg-white/10"
-          >
-
-            <WhatsIcon />
-          </a>
-        </div>
+        <a
+          href={signupUrl}
+          className="block rounded-xl bg-green px-4 py-3.5 text-center text-sm font-extrabold uppercase tracking-wide text-navy-deep transition-transform active:scale-[0.98]"
+        >
+          Criar conta grátis
+        </a>
       </div>
     </>
   );
