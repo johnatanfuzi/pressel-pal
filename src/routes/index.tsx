@@ -14,7 +14,7 @@ import medicoImg from "@/assets/medico-corredor.jpg";
 const SIGNUP =
   "https://uniclinic.cloud/?utm_source=pressel&utm_medium=site&utm_campaign=uniclinic_space";
 const WPP_SIMPLE =
-  "https://wa.me/5548991242304?text=Ol%C3%A1%2C%20quero%20tirar%20uma%20d%C3%BAvida%20sobre%20o%20Uniclinic.";
+  "https://wa.me/5548912522304?text=Ol%C3%A1%2C%20quero%20tirar%20uma%20d%C3%BAvida%20sobre%20o%20Uniclinic.";
 const OG_ABSOLUTE = `https://pressel-pal.lovable.app${ogImage}`;
 
 const TITLE = "Uniclinic | Crie sua conta e organize a clínica em 5 minutos";
@@ -563,7 +563,7 @@ function PresellPage() {
                 @sistema.uniclinic
               </a>
               <a className="font-semibold text-primary hover:underline" href={WPP_SIMPLE}>
-                (48) 99124-2304
+                (48) 9125-2304
               </a>
             </div>
           </div>
