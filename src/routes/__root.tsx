@@ -92,8 +92,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap",
       },
       // Destinos externos: resolve DNS/TLS antes do clique nos CTAs.
-      { rel: "preconnect", href: "https://staging.uniclinic.cloud", crossOrigin: "anonymous" },
-      { rel: "dns-prefetch", href: "https://staging.uniclinic.cloud" },
+      { rel: "preconnect", href: "https://uniclinic.cloud", crossOrigin: "anonymous" },
+      { rel: "dns-prefetch", href: "https://uniclinic.cloud" },
       { rel: "dns-prefetch", href: "https://wa.me" },
       // FAVICON: substituir por /favicon.svg com a identidade oficial quando o arquivo estiver disponivel.
     ],
