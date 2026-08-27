@@ -116,13 +116,15 @@ export function InitialQuiz({ onSkip }: { onSkip: () => void }) {
         <div className="mx-auto w-full max-w-2xl">
           {!done ? (
             <div key={question.id} className="reveal">
-              <p className="text-xs font-bold uppercase tracking-[0.22em] text-green">
+              <p className="inline-flex items-center gap-2 rounded-full border border-green/30 bg-green/10 px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-green">
                 Pergunta {step + 1} de {QUESTIONS.length}
               </p>
-              <h1 className="mt-4 text-2xl font-extrabold leading-tight tracking-tight sm:text-4xl">
+              <h1 className="mt-5 text-2xl font-extrabold leading-[1.12] tracking-[-0.02em] text-balance sm:text-4xl">
                 {question.title}
               </h1>
-              <p className="mt-3 text-sm text-white/70 sm:text-base">{question.subtitle}</p>
+              <p className="mt-3 text-sm leading-relaxed text-white/65 sm:text-base">
+                {question.subtitle}
+              </p>
 
               <div className="mt-8 space-y-3">
                 {question.options.map((option, index) => (
@@ -131,13 +133,23 @@ export function InitialQuiz({ onSkip }: { onSkip: () => void }) {
                     type="button"
                     onClick={() => handleSelect(index)}
                     aria-pressed={selected === index}
-                    className={`w-full rounded-2xl border px-5 py-5 text-left text-base font-semibold transition-all ${
+                    className={`flex w-full items-center gap-4 rounded-2xl border px-5 py-5 text-left text-base font-semibold transition-all duration-200 active:scale-[0.99] ${
                       selected === index
                         ? "border-green bg-green/20 text-white"
-                        : "border-white/15 bg-white/5 text-white/90 hover:border-green/50 hover:bg-white/10"
+                        : "border-white/15 bg-white/5 text-white/90 hover:-translate-y-0.5 hover:border-green/50 hover:bg-white/10"
                     }`}
                   >
-                    {option}
+                    <span
+                      aria-hidden="true"
+                      className={`grid size-8 shrink-0 place-items-center rounded-lg text-xs font-extrabold transition-colors ${
+                        selected === index
+                          ? "bg-green text-navy-deep"
+                          : "bg-white/10 text-white/60"
+                      }`}
+                    >
+                      {String.fromCharCode(65 + index)}
+                    </span>
+                    <span className="leading-snug">{option}</span>
                   </button>
                 ))}
               </div>
@@ -147,32 +159,30 @@ export function InitialQuiz({ onSkip }: { onSkip: () => void }) {
               <p className="text-xs font-bold uppercase tracking-[0.22em] text-green">
                 Diagnóstico inicial
               </p>
-              <h1 className="mt-4 text-2xl font-extrabold leading-tight tracking-tight sm:text-4xl">
+              <h1 className="mt-4 text-2xl font-extrabold leading-[1.12] tracking-[-0.02em] text-balance sm:text-4xl">
                 Sua clínica tem pontos de operação que merecem mais clareza.
               </h1>
-              <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-white/80">
+              <p className="mx-auto mt-5 max-w-xl text-base leading-[1.7] text-white/75">
                 Pelo que você respondeu, parte da rotina ainda depende de controles espalhados. O
-                UniClinic reúne agenda, pacientes, atendimentos, financeiro e relatórios em um único
+                Uniclinic reúne agenda, pacientes, atendimentos, financeiro e relatórios em um único
                 ambiente para facilitar o acompanhamento do dia a dia.
               </p>
 
-              <div className="mt-9 flex flex-col items-center gap-3">
-                <a
-                  href={ctaUrl}
-                  className="w-full max-w-sm rounded-xl bg-green px-7 py-4 text-sm font-extrabold uppercase tracking-wide text-navy-deep shadow-cta transition-transform hover:-translate-y-0.5"
-                >
-                  Acessar o UniClinic
+              <div className="mt-9 flex flex-col items-center gap-4">
+                <a href={ctaUrl} className="btn btn-green w-full max-w-sm">
+                  Acessar o Uniclinic
                 </a>
                 <button
                   type="button"
                   onClick={onSkip}
-                  className="text-sm font-semibold text-white/70 underline transition-colors hover:text-white"
+                  className="text-sm font-semibold text-white/65 underline decoration-white/30 underline-offset-4 transition-colors hover:text-white"
                 >
-                  Ver antes como o UniClinic funciona
+                  Ver antes como o Uniclinic funciona
                 </button>
               </div>
             </div>
           )}
+
         </div>
       </div>
     </div>

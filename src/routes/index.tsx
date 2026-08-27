@@ -9,15 +9,15 @@ import ogImage from "@/assets/og-uniclinic.jpg";
 
 const SITE = "https://uniclinic.cloud";
 const WPP_HERO =
-  "https://wa.me/5548991242304?text=Ol%C3%A1%2C%20quero%20conhecer%20o%20UniClinic%20e%20solicitar%20o%20teste%20de%205%20dias.";
+  "https://wa.me/5548991242304?text=Ol%C3%A1%2C%20quero%20conhecer%20o%20Uniclinic%20e%20solicitar%20o%20teste%20de%205%20dias.";
 const WPP_TESTE =
-  "https://wa.me/5548991242304?text=Ol%C3%A1%2C%20quero%20solicitar%20o%20teste%20de%205%20dias%20do%20UniClinic.";
+  "https://wa.me/5548991242304?text=Ol%C3%A1%2C%20quero%20solicitar%20o%20teste%20de%205%20dias%20do%20Uniclinic.";
 const WPP_SIMPLE = "https://wa.me/5548991242304";
 const OG_ABSOLUTE = `https://pressel-pal.lovable.app${ogImage}`;
 
-const TITLE = "UniClinic | Descubra o gasto invisível da sua clínica";
+const TITLE = "Uniclinic | Descubra o gasto invisível da sua clínica";
 const DESCRIPTION =
-  "Agenda ociosa, retrabalho e informações espalhadas podem dificultar a gestão. Conheça o UniClinic e teste a plataforma por 5 dias.";
+  "Agenda ociosa, retrabalho e informações espalhadas podem dificultar a gestão. Conheça o Uniclinic e teste a plataforma por 5 dias.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -143,40 +143,37 @@ function PresellPage() {
 
             <div className="mt-12 grid items-center gap-12 md:mt-16 md:grid-cols-[1.05fr_0.95fr]">
               <div className="reveal">
-                <p className="text-xs font-bold uppercase tracking-[0.22em] text-green">
+                <p className="inline-flex items-center gap-2 rounded-full border border-green/30 bg-green/10 px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-green">
+                  <span aria-hidden="true" className="size-1.5 rounded-full bg-green" />
                   O gasto invisível da clínica
                 </p>
-                <h1 className="mt-5 text-[2.1rem] font-extrabold leading-[1.08] tracking-tight sm:text-5xl md:text-[3.4rem]">
+                <h1 className="mt-6 text-[2.15rem] font-extrabold leading-[1.06] tracking-[-0.02em] text-balance sm:text-5xl md:text-[3.4rem]">
                   Quanto dinheiro sua clínica perde sem perceber?
                 </h1>
-                <p className="mt-6 max-w-xl text-base leading-relaxed text-white/80 sm:text-lg">
+                <p className="mt-6 max-w-xl text-base leading-[1.7] text-white/75 sm:text-lg">
                   Nem toda perda aparece como uma despesa. Ela pode estar em um horário vazio, em
                   uma consulta não confirmada, em uma cobrança esquecida ou em horas de retrabalho.
                 </p>
-                <p className="mt-4 max-w-xl text-base leading-relaxed text-white/80 sm:text-lg">
-                  O UniClinic ajuda sua clínica a organizar a operação e enxergar melhor o que
+                <p className="mt-4 max-w-xl text-base leading-[1.7] text-white/75 sm:text-lg">
+                  O Uniclinic ajuda sua clínica a organizar a operação e enxergar melhor o que
                   acontece todos os dias.
                 </p>
 
                 <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                  <a
-                    href={siteUrl}
-                    className="inline-flex items-center justify-center rounded-xl bg-green px-7 py-4 text-sm font-extrabold uppercase tracking-wide text-navy-deep shadow-cta transition-transform hover:-translate-y-0.5"
-                  >
-                    Conhecer o UniClinic
+                  <a href={siteUrl} className="btn btn-green">
+                    Conhecer o Uniclinic
                   </a>
-                  <a
-                    href={WPP_HERO}
-                    className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/30 px-7 py-4 text-sm font-bold uppercase tracking-wide text-white transition-colors hover:bg-white/10"
-                  >
+                  <a href={WPP_HERO} className="btn btn-outline-light">
                     <WhatsIcon />
                     Falar pelo WhatsApp
                   </a>
                 </div>
-                <p className="mt-4 text-sm text-white/70">
-                  Teste o UniClinic por 5 dias antes de decidir.
+                <p className="mt-5 flex items-center gap-2 text-sm text-white/65">
+                  <Check className="size-4 text-green" />
+                  Teste o Uniclinic por 5 dias antes de decidir.
                 </p>
               </div>
+
 
               {/* ESPACO PARA IMAGEM / MOCKUP REAL DO SISTEMA */}
               <div className="reveal rounded-3xl border border-white/15 bg-white/5 p-4">
@@ -240,7 +237,7 @@ function PresellPage() {
               {SINAIS.map((item) => (
                 <li
                   key={item}
-                  className="flex items-start gap-3 rounded-2xl border border-border bg-card p-5 text-base text-foreground"
+                  className="card-lift flex items-start gap-3 rounded-2xl border border-border bg-card p-5 text-base leading-relaxed text-foreground"
                 >
                   <span
                     aria-hidden="true"
@@ -263,7 +260,7 @@ function PresellPage() {
               Primeiro, sua clínica precisa enxergar.
             </h2>
             <p className="mt-6 max-w-3xl text-base leading-relaxed text-white/80 sm:text-lg">
-              O UniClinic reúne os principais processos da clínica em um único ambiente.
+              O Uniclinic reúne os principais processos da clínica em um único ambiente.
             </p>
             <p className="mt-4 max-w-3xl text-base leading-relaxed text-white/80 sm:text-lg">
               Agenda, pacientes, atendimentos, prontuários, prescrições, exames, procedimentos,
@@ -298,15 +295,21 @@ function PresellPage() {
           <h2 className="max-w-2xl text-2xl font-extrabold tracking-tight text-primary sm:text-4xl">
             Uma operação mais organizada muda toda a clínica.
           </h2>
-          <div className="mt-10 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {BENEFICIOS.map(([title, text]) => (
-              <div key={title}>
-                <Check className="text-green" />
-                <h3 className="mt-3 text-lg font-bold text-primary">{title}</h3>
+              <div
+                key={title}
+                className="card-lift rounded-2xl border border-border bg-card p-6"
+              >
+                <span className="grid size-10 place-items-center rounded-xl bg-green-soft text-green">
+                  <Check />
+                </span>
+                <h3 className="mt-4 text-lg font-bold leading-snug text-primary">{title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{text}</p>
               </div>
             ))}
           </div>
+
         </section>
 
         {/* 6. COMPARACAO */}
@@ -331,7 +334,7 @@ function PresellPage() {
               </div>
               <div className="rounded-3xl border border-green/40 bg-green-soft p-7 shadow-soft">
                 <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-primary">
-                  Com UniClinic
+                  Com Uniclinic
                 </h3>
                 <ul className="mt-5 space-y-3">
                   {DEPOIS.map((item) => (
@@ -368,24 +371,19 @@ function PresellPage() {
                 Não decida apenas pela apresentação. Use o sistema.
               </h2>
               <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg">
-                Teste o UniClinic por 5 dias, navegue pelos módulos e avalie como a plataforma pode
+                Teste o Uniclinic por 5 dias, navegue pelos módulos e avalie como a plataforma pode
                 contribuir para a organização da sua clínica.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <a
-                  href={siteUrl}
-                  className="inline-flex items-center justify-center rounded-xl bg-green px-7 py-4 text-sm font-extrabold uppercase tracking-wide text-navy-deep shadow-cta transition-transform hover:-translate-y-0.5"
-                >
+                <a href={siteUrl} className="btn btn-green">
                   Solicitar teste de 5 dias
                 </a>
-                <a
-                  href={WPP_TESTE}
-                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/30 px-7 py-4 text-sm font-bold uppercase tracking-wide text-white transition-colors hover:bg-white/10"
-                >
+                <a href={WPP_TESTE} className="btn btn-outline-light">
                   <WhatsIcon />
                   Falar com a equipe
                 </a>
               </div>
+
             </div>
           </div>
         </section>
@@ -400,42 +398,33 @@ function PresellPage() {
             eficiência.
           </p>
           <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
-            <a
-              href={siteUrl}
-              className="inline-flex items-center justify-center rounded-xl bg-primary px-7 py-4 text-sm font-extrabold uppercase tracking-wide text-primary-foreground shadow-soft transition-transform hover:-translate-y-0.5"
-            >
-              Conhecer o UniClinic
+            <a href={siteUrl} className="btn btn-primary-solid">
+              Conhecer o Uniclinic
             </a>
-            <a
-              href={WPP_SIMPLE}
-              className="inline-flex items-center justify-center gap-2 rounded-xl border border-primary/25 px-7 py-4 text-sm font-bold uppercase tracking-wide text-primary transition-colors hover:bg-secondary"
-            >
+            <a href={WPP_SIMPLE} className="btn btn-outline-primary">
               <WhatsIcon />
               Chamar no WhatsApp
             </a>
           </div>
-          <div className="mt-9 space-y-1 text-sm text-muted-foreground">
-            <p>
-              WhatsApp:{" "}
-              <a className="font-semibold text-primary underline" href={WPP_SIMPLE}>
-                (48) 99124-2304
-              </a>
-            </p>
-            <p>
-              Site:{" "}
-              <a className="font-semibold text-primary underline" href={siteUrl}>
-                uniclinic.cloud
-              </a>
-            </p>
-            <p>
-              Instagram:{" "}
-              <a
-                className="font-semibold text-primary underline"
-                href="https://instagram.com/sistema.uniclinic"
-              >
-                @sistema.uniclinic
-              </a>
-            </p>
+          <div className="mx-auto mt-10 grid max-w-lg gap-2 text-sm sm:grid-cols-3">
+            <a
+              className="card-lift rounded-xl border border-border bg-card px-4 py-3 font-semibold text-primary"
+              href={WPP_SIMPLE}
+            >
+              (48) 99124-2304
+            </a>
+            <a
+              className="card-lift rounded-xl border border-border bg-card px-4 py-3 font-semibold text-primary"
+              href={siteUrl}
+            >
+              uniclinic.cloud
+            </a>
+            <a
+              className="card-lift rounded-xl border border-border bg-card px-4 py-3 font-semibold text-primary"
+              href="https://instagram.com/sistema.uniclinic"
+            >
+              @sistema.uniclinic
+            </a>
           </div>
           <p className="mt-8 text-lg font-bold text-green sm:text-xl">
             Clareza para gerir. Organização para crescer.
@@ -443,40 +432,50 @@ function PresellPage() {
         </section>
 
         {/* RODAPE */}
-        <footer className="defer-paint border-t border-border bg-secondary/60 py-10">
-          <div className="mx-auto flex max-w-5xl flex-col gap-3 px-5 text-sm text-muted-foreground sm:px-8">
-            <UniclinicLogo />
-            <p className="font-semibold text-primary">UniClinic - Gestão para Clínicas</p>
-            <p>
-              Site:{" "}
-              <a className="underline" href={siteUrl}>
+        <footer className="defer-paint border-t border-border bg-secondary/60 py-12">
+          <div className="mx-auto flex max-w-5xl flex-col gap-6 px-5 sm:px-8 md:flex-row md:items-center md:justify-between">
+            <div>
+              <UniclinicLogo />
+              <p className="mt-3 text-sm text-muted-foreground">
+                Uniclinic — Gestão para Clínicas
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
+              <a className="font-semibold text-primary hover:underline" href={siteUrl}>
                 uniclinic.cloud
               </a>
-            </p>
-            <p>
-              Instagram:{" "}
-              <a className="underline" href="https://instagram.com/sistema.uniclinic">
+              <a
+                className="font-semibold text-primary hover:underline"
+                href="https://instagram.com/sistema.uniclinic"
+              >
                 @sistema.uniclinic
               </a>
-            </p>
+              <a className="font-semibold text-primary hover:underline" href={WPP_SIMPLE}>
+                (48) 99124-2304
+              </a>
+            </div>
           </div>
         </footer>
       </main>
 
       {/* CTA FIXO MOBILE */}
-      <div className="fixed inset-x-0 bottom-0 z-50 border-t border-white/10 bg-navy-deep p-3 md:hidden">
+      <div
+        className="fixed inset-x-0 bottom-0 z-50 border-t border-white/10 bg-navy-deep px-3 pt-3 md:hidden"
+        style={{ paddingBottom: "calc(0.75rem + env(safe-area-inset-bottom))" }}
+      >
         <div className="flex items-center gap-2">
           <a
             href={siteUrl}
-            className="flex-1 rounded-xl bg-green px-4 py-3.5 text-center text-sm font-extrabold uppercase tracking-wide text-navy-deep"
+            className="flex-1 rounded-xl bg-green px-4 py-3.5 text-center text-sm font-extrabold uppercase tracking-wide text-navy-deep transition-transform active:scale-[0.98]"
           >
             Testar por 5 dias
           </a>
           <a
             href={WPP_TESTE}
             aria-label="Falar pelo WhatsApp"
-            className="grid size-12 shrink-0 place-items-center rounded-xl border border-white/25 text-white"
+            className="grid size-12 shrink-0 place-items-center rounded-xl border border-white/25 text-white transition-colors active:bg-white/10"
           >
+
             <WhatsIcon />
           </a>
         </div>
