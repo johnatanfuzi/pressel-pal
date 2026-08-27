@@ -406,7 +406,18 @@ function PresellPage() {
           <h2 className="max-w-2xl text-2xl font-extrabold tracking-tight text-primary sm:text-4xl">
             Do cadastro ao primeiro paciente em 5 minutos.
           </h2>
+          <img
+            src={passosImg}
+            alt="Recepcionista de uniforme claro usando um tablet no balcão de uma clínica bem iluminada"
+            width={1280}
+            height={864}
+            loading="lazy"
+            decoding="async"
+            sizes="(min-width: 1024px) 960px, 100vw"
+            className="mt-8 aspect-[16/9] w-full rounded-2xl object-cover shadow-soft"
+          />
           <ol className="mt-10 grid gap-4 md:grid-cols-3">
+
             {PASSOS.map(([title, text], index) => (
               <li key={title} className="card-lift rounded-2xl border border-border bg-card p-6">
                 <span className="grid size-10 place-items-center rounded-xl bg-navy text-sm font-extrabold text-navy-foreground">
