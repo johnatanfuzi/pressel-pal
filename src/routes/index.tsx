@@ -6,6 +6,10 @@ import { UniclinicLogo } from "@/components/UniclinicLogo";
 import { MockAgenda, MockAtendimentos, MockFinanceiro } from "@/components/Mockups";
 import { useTrackedUrl } from "@/lib/use-tracked-url";
 import ogImage from "@/assets/og-uniclinic.jpg";
+import heroImg from "@/assets/hero-medica.jpg";
+import recepcaoImg from "@/assets/recepcao-desorganizada.jpg";
+import passosImg from "@/assets/recepcionista-tablet.jpg";
+import medicoImg from "@/assets/medico-corredor.jpg";
 
 const SIGNUP =
   "https://uniclinic.cloud/?utm_source=pressel&utm_medium=site&utm_campaign=uniclinic_space";
@@ -196,15 +200,31 @@ function PresellPage() {
 
       <main className="pb-24 md:pb-0">
         {/* 1. HERO */}
-        <section className="relative overflow-hidden bg-navy-deep text-navy-foreground">
+        <section className="relative isolate overflow-hidden bg-navy-deep text-navy-foreground">
+          <img
+            src={heroImg}
+            alt="Médica de jaleco branco em consultório moderno analisando a agenda da clínica no notebook"
+            width={1600}
+            height={912}
+            fetchPriority="high"
+            decoding="async"
+            sizes="100vw"
+            className="absolute inset-0 -z-10 size-full object-cover object-right"
+          />
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 opacity-70"
+            className="absolute inset-0 -z-10 bg-navy-deep/82 md:bg-gradient-to-r md:from-navy-deep md:via-navy-deep/88 md:to-navy-deep/55"
+          />
+
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 -z-10 opacity-60"
             style={{
               background:
                 "radial-gradient(900px 480px at 15% -10%, color-mix(in oklab, var(--blue) 45%, transparent), transparent 70%), radial-gradient(700px 420px at 95% 20%, color-mix(in oklab, var(--green) 30%, transparent), transparent 70%)",
             }}
           />
+
           <div className="relative mx-auto max-w-6xl px-5 pb-16 pt-8 sm:px-8 md:pb-24 md:pt-10">
             <UniclinicLogo tone="light" />
 
@@ -249,19 +269,34 @@ function PresellPage() {
         </section>
 
         {/* 2. IDENTIFICACAO (texto reduzido) */}
-        <section className="defer-paint mx-auto max-w-3xl px-5 py-14 sm:px-8 md:py-20">
-          <h2 className="text-2xl font-extrabold leading-tight tracking-tight text-primary sm:text-4xl">
-            Uma clínica movimentada também pode operar no escuro.
-          </h2>
-          <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Quando agenda, pacientes, atendimentos e finanças ficam em lugares diferentes, a equipe
-            passa a depender de memória, mensagens e planilhas — e pequenas falhas viram tempo
-            perdido.
-          </p>
-          <blockquote className="mt-8 border-l-4 border-green pl-5 text-lg font-bold text-primary sm:text-2xl">
-            Onde a informação se espalha, o controle desaparece.
-          </blockquote>
+        <section className="defer-paint mx-auto max-w-5xl px-5 py-14 sm:px-8 md:py-20">
+          <div className="grid items-center gap-10 md:grid-cols-2">
+            <div>
+              <h2 className="text-2xl font-extrabold leading-tight tracking-tight text-primary sm:text-4xl">
+                Uma clínica movimentada também pode operar no escuro.
+              </h2>
+              <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
+                Quando agenda, pacientes, atendimentos e finanças ficam em lugares diferentes, a
+                equipe passa a depender de memória, mensagens e planilhas — e pequenas falhas viram
+                tempo perdido.
+              </p>
+              <blockquote className="mt-8 border-l-4 border-green pl-5 text-lg font-bold text-primary sm:text-2xl">
+                Onde a informação se espalha, o controle desaparece.
+              </blockquote>
+            </div>
+            <img
+              src={recepcaoImg}
+              alt="Balcão de recepção de clínica no fim do expediente com pilhas de fichas de papel, agenda aberta e telefone fora do gancho"
+              width={1280}
+              height={864}
+              loading="lazy"
+              decoding="async"
+              sizes="(min-width: 768px) 480px, 100vw"
+              className="aspect-[4/3] w-full rounded-2xl object-cover shadow-soft"
+            />
+          </div>
         </section>
+
 
         {/* 3. SINAIS */}
         <section className="defer-paint border-y border-border bg-secondary/60 py-16 md:py-24">
@@ -402,7 +437,18 @@ function PresellPage() {
           <h2 className="max-w-2xl text-2xl font-extrabold tracking-tight text-primary sm:text-4xl">
             Do cadastro ao primeiro paciente em 5 minutos.
           </h2>
+          <img
+            src={passosImg}
+            alt="Recepcionista de uniforme claro usando um tablet no balcão de uma clínica bem iluminada"
+            width={1280}
+            height={864}
+            loading="lazy"
+            decoding="async"
+            sizes="(min-width: 1024px) 960px, 100vw"
+            className="mt-8 aspect-[16/9] w-full rounded-2xl object-cover shadow-soft"
+          />
           <ol className="mt-10 grid gap-4 md:grid-cols-3">
+
             {PASSOS.map(([title, text], index) => (
               <li key={title} className="card-lift rounded-2xl border border-border bg-card p-6">
                 <span className="grid size-10 place-items-center rounded-xl bg-navy text-sm font-extrabold text-navy-foreground">
@@ -462,25 +508,42 @@ function PresellPage() {
         </section>
 
         {/* 11. CTA FINAL */}
-        <section className="defer-paint mx-auto max-w-3xl px-5 pb-16 text-center sm:px-8 md:pb-24">
-          <h2 className="text-2xl font-extrabold leading-tight tracking-tight text-primary sm:text-4xl">
-            Comece hoje a enxergar o que a sua clínica não está vendo.
-          </h2>
-          <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Crie sua conta grátis e organize agenda, pacientes e financeiro em um só lugar.
-          </p>
-          <div className="mt-8">
-            <a href={signupUrl} className="btn btn-primary-solid w-full sm:w-auto">
-              Criar minha conta grátis
-            </a>
+        <section className="defer-paint relative isolate overflow-hidden bg-navy-deep text-navy-foreground">
+          <img
+            src={medicoImg}
+            alt="Médico de jaleco branco em pé no corredor claro de uma clínica moderna"
+            width={1600}
+            height={912}
+            loading="lazy"
+            decoding="async"
+            sizes="100vw"
+            className="absolute inset-0 -z-10 size-full object-cover object-center"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 -z-10 bg-navy-deep/88"
+          />
+          <div className="mx-auto max-w-3xl px-5 py-20 text-center sm:px-8 md:py-28">
+            <h2 className="text-2xl font-extrabold leading-tight tracking-tight sm:text-4xl">
+              Comece hoje a enxergar o que a sua clínica não está vendo.
+            </h2>
+            <p className="mt-5 text-base leading-relaxed text-white/85 sm:text-lg">
+              Crie sua conta grátis e organize agenda, pacientes e financeiro em um só lugar.
+            </p>
+            <div className="mt-8">
+              <a href={signupUrl} className="btn btn-green w-full sm:w-auto">
+                Criar minha conta grátis
+              </a>
+            </div>
+            <p className="mt-4 text-sm text-white/80">
+              5 dias grátis · Sem cartão de crédito · Conta criada em 2 minutos
+            </p>
+            <p className="mt-8 text-lg font-bold text-green sm:text-xl">
+              Clareza para gerir. Organização para crescer.
+            </p>
           </div>
-          <p className="mt-4 text-sm text-muted-foreground">
-            5 dias grátis · Sem cartão de crédito · Conta criada em 2 minutos
-          </p>
-          <p className="mt-8 text-lg font-bold text-green sm:text-xl">
-            Clareza para gerir. Organização para crescer.
-          </p>
         </section>
+
 
         {/* RODAPE */}
         <footer className="defer-paint border-t border-border bg-secondary/60 py-12">
