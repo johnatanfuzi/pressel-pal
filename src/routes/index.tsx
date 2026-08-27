@@ -521,7 +521,7 @@ function PresellPage() {
           />
           <div
             aria-hidden="true"
-            className="absolute inset-0 -z-10 bg-navy-deep/80 md:bg-gradient-to-l md:from-navy-deep/55 md:via-navy-deep/85 md:to-navy-deep"
+            className="absolute inset-0 -z-10 bg-navy-deep/75"
           />
           <div className="mx-auto max-w-3xl px-5 py-20 text-center sm:px-8 md:py-28">
             <h2 className="text-2xl font-extrabold leading-tight tracking-tight sm:text-4xl">
