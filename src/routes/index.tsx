@@ -9,15 +9,15 @@ import ogImage from "@/assets/og-uniclinic.jpg";
 
 const SITE = "https://uniclinic.cloud";
 const WPP_HERO =
-  "https://wa.me/5548991242304?text=Ol%C3%A1%2C%20quero%20conhecer%20o%20UniClinic%20e%20solicitar%20o%20teste%20de%205%20dias.";
+  "https://wa.me/5548991242304?text=Ol%C3%A1%2C%20quero%20conhecer%20o%20Uniclinic%20e%20solicitar%20o%20teste%20de%205%20dias.";
 const WPP_TESTE =
-  "https://wa.me/5548991242304?text=Ol%C3%A1%2C%20quero%20solicitar%20o%20teste%20de%205%20dias%20do%20UniClinic.";
+  "https://wa.me/5548991242304?text=Ol%C3%A1%2C%20quero%20solicitar%20o%20teste%20de%205%20dias%20do%20Uniclinic.";
 const WPP_SIMPLE = "https://wa.me/5548991242304";
 const OG_ABSOLUTE = `https://pressel-pal.lovable.app${ogImage}`;
 
-const TITLE = "UniClinic | Descubra o gasto invisível da sua clínica";
+const TITLE = "Uniclinic | Descubra o gasto invisível da sua clínica";
 const DESCRIPTION =
-  "Agenda ociosa, retrabalho e informações espalhadas podem dificultar a gestão. Conheça o UniClinic e teste a plataforma por 5 dias.";
+  "Agenda ociosa, retrabalho e informações espalhadas podem dificultar a gestão. Conheça o Uniclinic e teste a plataforma por 5 dias.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -154,7 +154,7 @@ function PresellPage() {
                   uma consulta não confirmada, em uma cobrança esquecida ou em horas de retrabalho.
                 </p>
                 <p className="mt-4 max-w-xl text-base leading-relaxed text-white/80 sm:text-lg">
-                  O UniClinic ajuda sua clínica a organizar a operação e enxergar melhor o que
+                  O Uniclinic ajuda sua clínica a organizar a operação e enxergar melhor o que
                   acontece todos os dias.
                 </p>
 
@@ -163,7 +163,7 @@ function PresellPage() {
                     href={siteUrl}
                     className="inline-flex items-center justify-center rounded-xl bg-green px-7 py-4 text-sm font-extrabold uppercase tracking-wide text-navy-deep shadow-cta transition-transform hover:-translate-y-0.5"
                   >
-                    Conhecer o UniClinic
+                    Conhecer o Uniclinic
                   </a>
                   <a
                     href={WPP_HERO}
@@ -174,7 +174,7 @@ function PresellPage() {
                   </a>
                 </div>
                 <p className="mt-4 text-sm text-white/70">
-                  Teste o UniClinic por 5 dias antes de decidir.
+                  Teste o Uniclinic por 5 dias antes de decidir.
                 </p>
               </div>
 
@@ -263,7 +263,7 @@ function PresellPage() {
               Primeiro, sua clínica precisa enxergar.
             </h2>
             <p className="mt-6 max-w-3xl text-base leading-relaxed text-white/80 sm:text-lg">
-              O UniClinic reúne os principais processos da clínica em um único ambiente.
+              O Uniclinic reúne os principais processos da clínica em um único ambiente.
             </p>
             <p className="mt-4 max-w-3xl text-base leading-relaxed text-white/80 sm:text-lg">
               Agenda, pacientes, atendimentos, prontuários, prescrições, exames, procedimentos,
@@ -331,7 +331,7 @@ function PresellPage() {
               </div>
               <div className="rounded-3xl border border-green/40 bg-green-soft p-7 shadow-soft">
                 <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-primary">
-                  Com UniClinic
+                  Com Uniclinic
                 </h3>
                 <ul className="mt-5 space-y-3">
                   {DEPOIS.map((item) => (
@@ -368,7 +368,7 @@ function PresellPage() {
                 Não decida apenas pela apresentação. Use o sistema.
               </h2>
               <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg">
-                Teste o UniClinic por 5 dias, navegue pelos módulos e avalie como a plataforma pode
+                Teste o Uniclinic por 5 dias, navegue pelos módulos e avalie como a plataforma pode
                 contribuir para a organização da sua clínica.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -404,7 +404,7 @@ function PresellPage() {
               href={siteUrl}
               className="inline-flex items-center justify-center rounded-xl bg-primary px-7 py-4 text-sm font-extrabold uppercase tracking-wide text-primary-foreground shadow-soft transition-transform hover:-translate-y-0.5"
             >
-              Conhecer o UniClinic
+              Conhecer o Uniclinic
             </a>
             <a
               href={WPP_SIMPLE}
@@ -446,7 +446,7 @@ function PresellPage() {
         <footer className="defer-paint border-t border-border bg-secondary/60 py-10">
           <div className="mx-auto flex max-w-5xl flex-col gap-3 px-5 text-sm text-muted-foreground sm:px-8">
             <UniclinicLogo />
-            <p className="font-semibold text-primary">UniClinic - Gestão para Clínicas</p>
+            <p className="font-semibold text-primary">Uniclinic - Gestão para Clínicas</p>
             <p>
               Site:{" "}
               <a className="underline" href={siteUrl}>

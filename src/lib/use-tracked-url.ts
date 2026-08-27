@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 /**
  * Preserva os parametros UTM (e afins) recebidos na URL desta pagina
- * e repassa para os links do site do UniClinic.
+ * e repassa para os links do site do Uniclinic.
  *
  * Os parametros da URL sao lidos uma unica vez por sessao de pagina
  * (cache em modulo), e as URLs finais tambem sao memorizadas, evitando

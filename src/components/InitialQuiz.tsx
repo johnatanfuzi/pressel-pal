@@ -152,7 +152,7 @@ export function InitialQuiz({ onSkip }: { onSkip: () => void }) {
               </h1>
               <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-white/80">
                 Pelo que você respondeu, parte da rotina ainda depende de controles espalhados. O
-                UniClinic reúne agenda, pacientes, atendimentos, financeiro e relatórios em um único
+                Uniclinic reúne agenda, pacientes, atendimentos, financeiro e relatórios em um único
                 ambiente para facilitar o acompanhamento do dia a dia.
               </p>
 
@@ -161,14 +161,14 @@ export function InitialQuiz({ onSkip }: { onSkip: () => void }) {
                   href={ctaUrl}
                   className="w-full max-w-sm rounded-xl bg-green px-7 py-4 text-sm font-extrabold uppercase tracking-wide text-navy-deep shadow-cta transition-transform hover:-translate-y-0.5"
                 >
-                  Acessar o UniClinic
+                  Acessar o Uniclinic
                 </a>
                 <button
                   type="button"
                   onClick={onSkip}
                   className="text-sm font-semibold text-white/70 underline transition-colors hover:text-white"
                 >
-                  Ver antes como o UniClinic funciona
+                  Ver antes como o Uniclinic funciona
                 </button>
               </div>
             </div>
