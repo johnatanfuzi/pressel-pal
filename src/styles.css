@@ -86,9 +86,106 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--green) 30%, transparent);
+}
+
+/* --- Sistema de botoes (consistencia entre todas as secoes) -------------- */
+@utility btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 3.25rem;
+  border-radius: 0.85rem;
+  padding: 0.9rem 1.75rem;
+  font-size: 0.875rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition:
+    transform 0.18s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.18s ease,
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease;
+  will-change: transform;
+}
+
+@utility btn-green {
+  background-color: var(--green);
+  color: var(--navy-deep);
+  box-shadow: var(--shadow-cta);
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px -16px color-mix(in oklab, var(--green) 65%, transparent);
+  }
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+@utility btn-outline-light {
+  border: 1px solid color-mix(in oklab, white 32%, transparent);
+  color: white;
+  &:hover {
+    background-color: color-mix(in oklab, white 12%, transparent);
+    border-color: color-mix(in oklab, white 55%, transparent);
+    transform: translateY(-2px);
+  }
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+@utility btn-primary-solid {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  box-shadow: var(--shadow-soft);
+  &:hover {
+    transform: translateY(-2px);
+    background-color: color-mix(in oklab, var(--primary) 88%, white);
+  }
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+@utility btn-outline-primary {
+  border: 1px solid color-mix(in oklab, var(--primary) 25%, transparent);
+  color: var(--primary);
+  &:hover {
+    background-color: var(--secondary);
+    border-color: color-mix(in oklab, var(--primary) 45%, transparent);
+    transform: translateY(-2px);
+  }
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+/* Cards com feedback suave ao passar o mouse */
+@utility card-lift {
+  transition:
+    transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-soft);
+    border-color: color-mix(in oklab, var(--blue) 35%, transparent);
+  }
+}
+
 @utility reveal {
   animation: reveal-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
+
 
 @keyframes reveal-up {
   from {
