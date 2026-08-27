@@ -375,20 +375,15 @@ function PresellPage() {
                 contribuir para a organização da sua clínica.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <a
-                  href={siteUrl}
-                  className="inline-flex items-center justify-center rounded-xl bg-green px-7 py-4 text-sm font-extrabold uppercase tracking-wide text-navy-deep shadow-cta transition-transform hover:-translate-y-0.5"
-                >
+                <a href={siteUrl} className="btn btn-green">
                   Solicitar teste de 5 dias
                 </a>
-                <a
-                  href={WPP_TESTE}
-                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/30 px-7 py-4 text-sm font-bold uppercase tracking-wide text-white transition-colors hover:bg-white/10"
-                >
+                <a href={WPP_TESTE} className="btn btn-outline-light">
                   <WhatsIcon />
                   Falar com a equipe
                 </a>
               </div>
+
             </div>
           </div>
         </section>
