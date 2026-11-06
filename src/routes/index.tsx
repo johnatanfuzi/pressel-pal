@@ -33,7 +33,7 @@ const SIGNUP =
 const WPP = "https://wa.me/5548912522304?text=Ol%C3%A1%2C%20quero%20conhecer%20o%20Uniclinic.";
 const WPP_PLANOS =
   "https://wa.me/5548912522304?text=Ol%C3%A1%2C%20quero%20conhecer%20os%20planos%20do%20Uniclinic.";
-const OG_ABSOLUTE = `https://pressel-pal.lovable.app${ogImage}`;
+const OG_ABSOLUTE = `https://uniclinic.space${ogImage}`;
 
 const TITLE = "Uniclinic | Sistema de gestão para clínicas de alto padrão";
 const DESCRIPTION =

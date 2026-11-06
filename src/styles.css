@@ -211,10 +211,6 @@ html {
   }
 }
 
-#lovable-badge {
-  display: none !important;
-}
-
 /* --- Performance de renderizacao ---------------------------------------- */
 /* Secoes fora da primeira dobra sao pintadas apenas quando entram em cena. */
 @utility defer-paint {
