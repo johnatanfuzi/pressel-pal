@@ -1,8 +1,26 @@
 import { createFileRoute } from "@tanstack/react-router";
+import {
+  Boxes,
+  Building2,
+  CalendarDays,
+  ClipboardList,
+  FileSignature,
+  FileText,
+  FlaskConical,
+  History,
+  KeyRound,
+  Lock,
+  LineChart,
+  ServerCog,
+  ShieldCheck,
+  UserCheck,
+  Wallet,
+  type LucideIcon,
+} from "lucide-react";
 
 import { Reveal } from "@/components/Reveal";
 import { UniclinicLogo } from "@/components/UniclinicLogo";
-import { MockAgenda, MockAtendimentos, MockFinanceiro } from "@/components/Mockups";
+import { MockAgenda, MockAtendimentos, MockFinanceiro, MockPainel } from "@/components/Mockups";
 import { useTrackedUrl } from "@/lib/use-tracked-url";
 import ogImage from "@/assets/og-uniclinic.jpg";
 import heroImg from "@/assets/hero-medica.jpg";
@@ -12,13 +30,14 @@ import medicoImg from "@/assets/medico-corredor.jpg";
 
 const SIGNUP =
   "https://uniclinic.cloud/?utm_source=pressel&utm_medium=site&utm_campaign=uniclinic_space";
-const WPP =
-  "https://wa.me/5548912522304?text=Ol%C3%A1%2C%20quero%20conhecer%20o%20Uniclinic.";
+const WPP = "https://wa.me/5548912522304?text=Ol%C3%A1%2C%20quero%20conhecer%20o%20Uniclinic.";
+const WPP_PLANOS =
+  "https://wa.me/5548912522304?text=Ol%C3%A1%2C%20quero%20conhecer%20os%20planos%20do%20Uniclinic.";
 const OG_ABSOLUTE = `https://pressel-pal.lovable.app${ogImage}`;
 
 const TITLE = "Uniclinic | Sistema de gestão para clínicas de alto padrão";
 const DESCRIPTION =
-  "Agenda, pacientes, prontuários, contratos, financeiro e relatórios em uma única plataforma. Gestão clínica sóbria, segura e precisa.";
+  "Agenda, prontuário eletrônico, prescrições, exames TUSS e SIGTAP, contratos, financeiro, estoque e relatórios em uma única plataforma para clínicas.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -40,32 +59,68 @@ export const Route = createFileRoute("/")({
   component: ProductPage,
 });
 
-const MODULOS: [string, string, string][] = [
-  ["01", "Agenda", "Visão semanal por profissional, status de confirmação e horários livres à vista."],
-  ["02", "Pacientes", "Cadastro completo com histórico de consultas, documentos e observações."],
-  ["03", "Prontuário", "Evolução clínica, prescrições e exames organizados na ficha de cada paciente."],
-  ["04", "Contratos", "Planos de tratamento e contratos vinculados ao paciente, sempre localizáveis."],
-  ["05", "Financeiro", "Recebimentos, pendências e fluxo do mês acompanhados em um só painel."],
-  ["06", "Relatórios", "Atendimentos, faturamento e comparecimento para decisões fundamentadas."],
+const MENU: [string, string][] = [
+  ["#recursos", "Recursos"],
+  ["#como-funciona", "Como funciona"],
+  ["#seguranca", "Segurança"],
+  ["#planos", "Planos"],
+  ["#faq", "FAQ"],
 ];
 
-const PRINCIPIOS: [string, string][] = [
-  ["Uma única fonte de verdade", "A informação é lançada uma vez e aparece na agenda, no atendimento e no financeiro."],
-  ["Visibilidade da operação", "Horários ociosos, confirmações pendentes e cobranças em aberto deixam de ser invisíveis."],
-  ["Rotina sem retrabalho", "A equipe deixa de conferir papéis, mensagens e planilhas paralelas."],
+const SELOS = ["5 dias grátis", "Sem cartão de crédito", "Conta em 2 minutos"];
+
+const MODULOS: [LucideIcon, string, string][] = [
+  [CalendarDays, "Agenda inteligente", "Visão por profissional, status de confirmação e horários livres à vista."],
+  [ClipboardList, "Pacientes e Prontuário Eletrônico", "Histórico clínico, evolução e documentos na ficha de cada paciente."],
+  [FileText, "Prescrições", "Receitas emitidas e registradas no histórico do atendimento."],
+  [FlaskConical, "Exames com TUSS e SIGTAP", "Solicitação de exames com as tabelas oficiais já integradas."],
+  [FileSignature, "Contratos com geração de PDF", "Planos de tratamento e contratos gerados em PDF, prontos para assinar."],
+  [Wallet, "Financeiro e contas a receber", "Recebimentos, pendências e fluxo do mês em um único painel."],
+  [Boxes, "Compras e Estoque", "Controle de insumos, entradas e alertas de estoque baixo."],
+  [LineChart, "Relatórios gerenciais", "Atendimentos, faturamento e comparecimento para decisões fundamentadas."],
+  [History, "Auditoria de ações", "Registro de quem fez o quê, e quando, dentro da plataforma."],
+  [Building2, "Multiclínica", "Gerencie mais de uma unidade a partir do mesmo acesso."],
+];
+
+const DIFERENCIAIS: [string, string, string][] = [
+  ["Cobrança", "Por profissional cadastrado", "Por clínica — a equipe pode crescer sem multiplicar a mensalidade"],
+  ["Módulos", "Sistemas separados e integrações avulsas", "Todos os módulos em um único sistema"],
+  ["Migração", "Planilhas importadas por conta própria", "Migração assistida da base de pacientes"],
+  ["Suporte", "Atendimento automatizado ou terceirizado", "Suporte humano, em português"],
 ];
 
 const PASSOS: [string, string][] = [
-  ["Crie a conta", "Nome da clínica, e-mail e senha. Sem instalação."],
-  ["Acesse o painel", "O ambiente já vem estruturado para a rotina clínica."],
-  ["Comece a operar", "Cadastre os primeiros pacientes e organize a agenda da semana."],
+  ["Crie sua conta", "Nome da clínica, e-mail e senha. Sem instalação."],
+  ["Entre no painel já configurado", "O ambiente já vem estruturado para a rotina clínica."],
+  ["Cadastre o primeiro paciente", "E monte a agenda da semana para ver a operação organizada."],
 ];
 
-const SEGURANCA: [string, string][] = [
-  ["Acesso individual", "Cada membro da equipe utiliza o próprio usuário e senha."],
-  ["Permissões por função", "Defina o que recepção, profissionais e gestão podem ver e editar."],
-  ["Histórico de atividades", "As ações realizadas na plataforma ficam registradas."],
-  ["Conexão criptografada", "Dados hospedados em servidor com tráfego criptografado."],
+const SEGURANCA: [LucideIcon, string, string][] = [
+  [UserCheck, "Login individual", "Cada membro da equipe acessa com o próprio usuário e senha."],
+  [KeyRound, "Permissões por função", "Recepção, profissionais e gestão veem apenas o que lhes cabe."],
+  [History, "Histórico auditado", "As atividades realizadas ficam registradas e rastreáveis."],
+  [Lock, "Conexão criptografada", "Todo o tráfego entre você e a plataforma é criptografado."],
+  [ServerCog, "Hospedagem segura", "Dados hospedados em servidores com controles de segurança."],
+];
+
+// PREENCHER: valores oficiais de cada plano. Nao inventar precos.
+const PLANOS: { nome: string; perfil: string; itens: string[]; destaque?: boolean }[] = [
+  {
+    nome: "Essencial",
+    perfil: "Consultórios e clínicas em início de estruturação.",
+    itens: ["Agenda e pacientes", "Prontuário eletrônico", "Prescrições e exames", "Suporte em português"],
+  },
+  {
+    nome: "Clínica",
+    perfil: "Clínicas com equipe e rotina financeira consolidada.",
+    itens: ["Tudo do Essencial", "Contratos com PDF", "Financeiro e estoque", "Relatórios gerenciais"],
+    destaque: true,
+  },
+  {
+    nome: "Multiclínica",
+    perfil: "Grupos com mais de uma unidade.",
+    itens: ["Tudo do plano Clínica", "Gestão de várias unidades", "Auditoria de ações", "Migração assistida"],
+  },
 ];
 
 const FAQ: [string, string][] = [
@@ -74,9 +129,8 @@ const FAQ: [string, string][] = [
     "Você cria a conta e utiliza a plataforma por 5 dias, sem cadastrar cartão de crédito. Ao final, decide se deseja continuar.",
   ],
   [
-    // PREENCHER: valores oficiais dos planos do Uniclinic.
     "Qual é o investimento depois?",
-    "O valor depende do porte da clínica e do número de usuários. A equipe apresenta os planos durante a avaliação.",
+    "O valor depende do porte da clínica e do número de unidades. A equipe apresenta os planos durante a avaliação.",
   ],
   [
     "É possível migrar uma base de pacientes existente?",
@@ -107,7 +161,7 @@ function SectionTitle({
 }) {
   return (
     <Reveal className={center ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}>
-      <p className={`eyebrow ${dark ? "text-gold" : "text-gold"}`}>{eyebrow}</p>
+      <p className="eyebrow text-gold">{eyebrow}</p>
       <h2
         className={`mt-5 font-serif text-4xl font-semibold leading-[1.08] tracking-[-0.01em] text-balance sm:text-5xl ${
           dark ? "text-navy-foreground" : "text-primary"
@@ -133,26 +187,30 @@ function ProductPage() {
 
   return (
     <>
-      {/* NAVEGACAO */}
-      <header className="absolute inset-x-0 top-0 z-30">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6 sm:px-8">
-          <UniclinicLogo tone="light" />
-          <nav className="hidden items-center gap-9 text-sm font-medium text-navy-foreground/75 md:flex">
-            <a href="#plataforma" className="transition-colors hover:text-navy-foreground">Plataforma</a>
-            <a href="#seguranca" className="transition-colors hover:text-navy-foreground">Segurança</a>
-            <a href="#faq" className="transition-colors hover:text-navy-foreground">Dúvidas</a>
-            <a
-              href={signupUrl}
-              className="rounded-full border border-gold/50 px-5 py-2.5 text-navy-foreground transition-colors hover:bg-gold/10"
-            >
-              Criar conta
-            </a>
+      {/* 1. HEADER FIXO */}
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-navy-foreground/10 bg-navy-deep/80 backdrop-blur-md">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-5 py-3.5 sm:px-8">
+          <a href="#topo" aria-label="Uniclinic — início">
+            <UniclinicLogo tone="light" />
+          </a>
+          <nav className="hidden items-center gap-7 text-sm font-medium text-navy-foreground/75 lg:flex">
+            {MENU.map(([href, label]) => (
+              <a key={href} href={href} className="transition-colors hover:text-navy-foreground">
+                {label}
+              </a>
+            ))}
           </nav>
+          <a
+            href={signupUrl}
+            className="rounded-full border border-gold/50 px-4 py-2 text-xs font-semibold text-navy-foreground transition-colors hover:bg-gold/10 sm:px-5 sm:text-sm"
+          >
+            Criar conta grátis
+          </a>
         </div>
       </header>
 
-      <main className="pb-24 md:pb-0">
-        {/* HERO */}
+      <main id="topo" className="pb-24 md:pb-0">
+        {/* 2. HERO */}
         <section className="relative isolate overflow-hidden bg-navy-deep text-navy-foreground">
           <img
             src={heroImg}
@@ -162,64 +220,53 @@ function ProductPage() {
             fetchPriority="high"
             decoding="async"
             sizes="100vw"
-            className="absolute inset-0 -z-10 size-full object-cover object-right opacity-60"
+            className="absolute inset-0 -z-10 size-full object-cover object-right opacity-40"
           />
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 -z-10 bg-navy-deep/85 md:bg-gradient-to-r md:from-navy-deep md:via-navy-deep/92 md:to-navy-deep/60"
-          />
+          <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-b from-navy-deep/90 via-navy-deep/85 to-navy-deep" />
 
-          <div className="mx-auto max-w-6xl px-6 pb-24 pt-36 sm:px-8 md:pb-32 md:pt-44">
-            <div className="grid items-center gap-16 lg:grid-cols-[1.05fr_0.95fr]">
-              <div className="reveal">
-                <p className="eyebrow text-gold">Gestão clínica</p>
-                <h1 className="mt-6 font-serif text-[2.75rem] font-semibold leading-[1.02] tracking-[-0.015em] text-balance sm:text-6xl md:text-[4.25rem]">
-                  A gestão da sua clínica, com a precisão que ela merece.
-                </h1>
-                <p className="mt-8 max-w-xl text-base leading-[1.85] text-navy-foreground/70 sm:text-lg">
-                  O Uniclinic reúne agenda, pacientes, prontuários, contratos e financeiro em uma
-                  plataforma única — para clínicas que tratam a operação com o mesmo rigor que
-                  tratam seus pacientes.
-                </p>
-                <div className="mt-11 flex flex-col gap-4 sm:flex-row sm:items-center">
-                  <a href={signupUrl} className="btn btn-light">
-                    Criar conta
-                  </a>
-                  <a href="#plataforma" className="btn btn-outline-light">
-                    Conhecer a plataforma
-                  </a>
-                </div>
-                <p className="mt-6 text-sm text-navy-foreground/55">
-                  Avaliação de 5 dias · Sem cartão de crédito
-                </p>
+          <div className="mx-auto max-w-6xl px-5 pb-20 pt-32 sm:px-8 md:pb-28 md:pt-40">
+            <div className="reveal mx-auto max-w-3xl text-center">
+              <p className="eyebrow text-gold">Sistema de gestão para clínicas</p>
+              <h1 className="mt-6 font-serif text-[2.6rem] font-semibold leading-[1.04] tracking-[-0.015em] text-balance sm:text-6xl md:text-[4.25rem]">
+                A gestão da sua clínica, com a precisão que ela merece.
+              </h1>
+              <p className="mx-auto mt-7 max-w-2xl text-base leading-[1.85] text-navy-foreground/70 sm:text-lg">
+                Agenda, prontuário, financeiro, estoque e relatórios em uma plataforma única — para
+                clínicas que tratam a operação com o mesmo rigor que tratam seus pacientes.
+              </p>
+              <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
+                <a href={signupUrl} className="btn btn-light">
+                  Criar conta grátis
+                </a>
+                <a href={WPP} className="btn btn-outline-light">
+                  Falar no WhatsApp
+                </a>
               </div>
-              <div className="reveal hidden sm:block" style={{ animationDelay: "150ms" }}>
-                <MockAgenda />
-              </div>
+              <ul className="mt-7 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-navy-foreground/60">
+                {SELOS.map((s) => (
+                  <li key={s} className="flex items-center gap-2">
+                    <span aria-hidden="true" className="size-1 rounded-full bg-gold" />
+                    {s}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="reveal mx-auto mt-16 max-w-5xl" style={{ animationDelay: "180ms" }}>
+              <MockPainel />
             </div>
           </div>
           <div aria-hidden="true" className="h-px w-full bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
         </section>
 
-        {/* MODULOS EM LINHA */}
-        <section className="border-b border-border bg-offwhite">
-          <ul className="mx-auto grid max-w-6xl grid-cols-2 gap-y-4 px-6 py-8 text-center text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground sm:grid-cols-3 sm:px-8 md:grid-cols-6">
-            {MODULOS.map(([, name]) => (
-              <li key={name}>{name}</li>
-            ))}
-          </ul>
-        </section>
-
-        {/* CONTEXTO */}
-        <section className="defer-paint bg-offwhite py-24 md:py-36">
-          <div className="mx-auto grid max-w-6xl items-center gap-16 px-6 sm:px-8 md:grid-cols-2">
-            <div>
-              <SectionTitle
-                eyebrow="O contexto"
-                title="Clínicas excelentes ainda operam com informação dispersa."
-                text="Agenda em um lugar, histórico em outro, cobranças em planilhas. A qualidade do atendimento não acompanha a fragmentação dos bastidores — e a gestão passa a depender de memória."
-              />
-            </div>
+        {/* 3. O PROBLEMA */}
+        <section className="defer-paint bg-offwhite py-24 md:py-32">
+          <div className="mx-auto grid max-w-6xl items-center gap-14 px-5 sm:px-8 md:grid-cols-2">
+            <SectionTitle
+              eyebrow="O problema"
+              title="Clínicas excelentes ainda operam no escuro."
+              text="Agenda em um lugar, histórico em outro, cobranças em planilhas. Quando a informação se espalha, a gestão passa a depender de memória — e o que não é visto não é corrigido."
+            />
             <Reveal delay={120}>
               <img
                 src={recepcaoImg}
@@ -235,51 +282,84 @@ function ProductPage() {
           </div>
         </section>
 
-        {/* PRINCIPIOS */}
-        <section className="defer-paint bg-background py-24 md:py-32">
-          <div className="mx-auto max-w-6xl px-6 sm:px-8">
-            <SectionTitle eyebrow="A proposta" title="Uma operação clara, do agendamento ao fechamento do mês." />
-            <div className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-3">
-              {PRINCIPIOS.map(([title, text], i) => (
-                <Reveal key={title} delay={i * 100} className="bg-card p-9">
-                  <span aria-hidden="true" className="block h-px w-8 bg-gold" />
-                  <h3 className="mt-6 font-serif text-2xl font-semibold text-primary">{title}</h3>
-                  <p className="mt-3 text-[0.95rem] leading-[1.8] text-muted-foreground">{text}</p>
+        {/* 4. MODULOS */}
+        <section id="recursos" className="defer-paint scroll-mt-20 bg-background py-24 md:py-32">
+          <div className="mx-auto max-w-6xl px-5 sm:px-8">
+            <SectionTitle
+              eyebrow="Recursos"
+              title="Tudo o que a clínica precisa, em um único sistema."
+              text="Dez módulos que conversam entre si: a informação é lançada uma vez e aparece onde precisa."
+            />
+            <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+              {MODULOS.map(([Icon, title, text], i) => (
+                <Reveal
+                  key={title}
+                  delay={(i % 5) * 70}
+                  className="card-lift rounded-2xl border border-border bg-card p-6"
+                >
+                  <span className="grid size-11 place-items-center rounded-xl bg-navy-deep text-gold">
+                    <Icon className="size-5" strokeWidth={1.6} aria-hidden="true" />
+                  </span>
+                  <h3 className="mt-5 text-[0.95rem] font-semibold leading-snug text-primary">{title}</h3>
+                  <p className="mt-2 text-sm leading-[1.7] text-muted-foreground">{text}</p>
                 </Reveal>
               ))}
             </div>
           </div>
         </section>
 
-        {/* PLATAFORMA */}
-        <section id="plataforma" className="defer-paint scroll-mt-8 bg-navy-deep py-24 text-navy-foreground md:py-36">
-          <div className="mx-auto max-w-6xl px-6 sm:px-8">
+        {/* 5. DEMONSTRACAO */}
+        <section className="defer-paint bg-navy-deep py-24 text-navy-foreground md:py-32">
+          <div className="mx-auto max-w-6xl px-5 sm:px-8">
             <SectionTitle
               dark
-              eyebrow="A plataforma"
-              title="Seis módulos. Um único ambiente."
-              text="Cada área da clínica conversa com as demais, sem integrações improvisadas."
+              eyebrow="Demonstração"
+              title="Veja a rotina da clínica dentro da plataforma."
+              text="Agenda, prontuário e financeiro como a sua equipe vai utilizar no dia a dia."
             />
-            <div className="mt-16 grid gap-x-12 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
-              {MODULOS.map(([num, name, text], i) => (
-                <Reveal key={name} delay={(i % 3) * 90} className="border-t border-navy-foreground/15 pt-7">
-                  <p className="font-serif text-lg text-gold">{num}</p>
-                  <h3 className="mt-3 font-serif text-2xl font-semibold">{name}</h3>
-                  <p className="mt-3 text-[0.95rem] leading-[1.8] text-navy-foreground/65">{text}</p>
-                </Reveal>
-              ))}
-            </div>
-
-            <div className="mt-24 grid gap-10 md:grid-cols-2">
-              <Reveal><MockAtendimentos /></Reveal>
-              <Reveal delay={120}><MockFinanceiro /></Reveal>
+            <div className="mt-14 grid gap-10 lg:grid-cols-3">
+              <Reveal><MockAgenda /></Reveal>
+              <Reveal delay={100}><MockAtendimentos /></Reveal>
+              <Reveal delay={200}><MockFinanceiro /></Reveal>
             </div>
           </div>
         </section>
 
-        {/* IMPLANTACAO */}
-        <section className="defer-paint bg-offwhite py-24 md:py-36">
-          <div className="mx-auto grid max-w-6xl items-center gap-16 px-6 sm:px-8 md:grid-cols-[0.95fr_1.05fr]">
+        {/* 6. DIFERENCIAIS */}
+        <section className="defer-paint bg-offwhite py-24 md:py-32">
+          <div className="mx-auto max-w-5xl px-5 sm:px-8">
+            <SectionTitle
+              center
+              eyebrow="Diferenciais"
+              title="Pensado para clínicas que querem crescer sem complicar."
+            />
+            <Reveal className="mt-14 overflow-hidden rounded-2xl border border-border bg-card shadow-soft">
+              <div className="hidden grid-cols-[0.7fr_1fr_1.2fr] border-b border-border bg-secondary/60 text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground md:grid">
+                <span className="px-6 py-4" />
+                <span className="px-6 py-4">O mais comum no mercado</span>
+                <span className="border-l border-gold/30 px-6 py-4 text-primary">Com Uniclinic</span>
+              </div>
+              <ul className="divide-y divide-border">
+                {DIFERENCIAIS.map(([tema, comum, uni]) => (
+                  <li key={tema} className="grid gap-2 px-6 py-6 md:grid-cols-[0.7fr_1fr_1.2fr] md:gap-0 md:p-0">
+                    <span className="font-serif text-xl font-semibold text-primary md:px-6 md:py-6">{tema}</span>
+                    <span className="text-sm leading-relaxed text-muted-foreground line-through decoration-border md:px-6 md:py-6 md:no-underline">
+                      {comum}
+                    </span>
+                    <span className="flex gap-3 text-sm font-semibold leading-relaxed text-primary md:border-l md:border-gold/30 md:px-6 md:py-6">
+                      <span aria-hidden="true" className="mt-2 size-1.5 shrink-0 rounded-full bg-gold" />
+                      {uni}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* 7. COMO FUNCIONA */}
+        <section id="como-funciona" className="defer-paint scroll-mt-20 bg-background py-24 md:py-32">
+          <div className="mx-auto grid max-w-6xl items-center gap-14 px-5 sm:px-8 md:grid-cols-[0.95fr_1.05fr]">
             <Reveal>
               <img
                 src={passosImg}
@@ -294,9 +374,9 @@ function ProductPage() {
             </Reveal>
             <div>
               <SectionTitle
-                eyebrow="Implantação"
-                title="Pronto para uso no primeiro acesso."
-                text="Sem instalação, sem projeto de implantação longo. A clínica começa a operar no mesmo dia."
+                eyebrow="Como funciona"
+                title="Do cadastro ao primeiro paciente em 5 minutos."
+                text="Sem instalação e sem projeto de implantação longo."
               />
               <ol className="mt-12 space-y-8">
                 {PASSOS.map(([title, text], i) => (
@@ -313,45 +393,102 @@ function ProductPage() {
               </ol>
               <Reveal className="mt-12">
                 <a href={signupUrl} className="btn btn-primary-solid w-full sm:w-auto">
-                  Criar conta
+                  Criar conta grátis
                 </a>
               </Reveal>
             </div>
           </div>
         </section>
 
-        {/* SEGURANCA */}
-        <section id="seguranca" className="defer-paint scroll-mt-8 bg-background py-24 md:py-32">
-          <div className="mx-auto max-w-6xl px-6 sm:px-8">
+        {/* 8. SEGURANCA E LGPD */}
+        <section id="seguranca" className="defer-paint scroll-mt-20 bg-navy-deep py-24 text-navy-foreground md:py-32">
+          <div className="mx-auto max-w-6xl px-5 sm:px-8">
             <SectionTitle
-              eyebrow="Segurança"
-              title="Dados clínicos tratados com seriedade."
+              dark
+              eyebrow="Segurança e LGPD"
+              title="Dados clínicos tratados com a seriedade que exigem."
               text="Controle de acesso e rastreabilidade para proteger a clínica e seus pacientes."
             />
-            <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {SEGURANCA.map(([title, text], i) => (
+            <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+              {SEGURANCA.map(([Icon, title, text], i) => (
                 <Reveal
                   key={title}
-                  delay={i * 80}
-                  className="rounded-2xl border border-border bg-card p-7 shadow-[0_1px_2px_color-mix(in_oklab,var(--navy)_6%,transparent)]"
+                  delay={i * 70}
+                  className="rounded-2xl border border-navy-foreground/10 bg-navy-foreground/[0.04] p-6"
                 >
-                  <span aria-hidden="true" className="grid size-10 place-items-center rounded-full border border-gold/40 text-gold">
-                    <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth={1.8}>
-                      <path d="M12 3 5 6v6c0 4.5 3 7.8 7 9 4-1.2 7-4.5 7-9V6z" strokeLinejoin="round" />
-                    </svg>
+                  <span className="grid size-10 place-items-center rounded-full border border-gold/40 text-gold">
+                    <Icon className="size-4" strokeWidth={1.8} aria-hidden="true" />
                   </span>
-                  <h3 className="mt-6 text-base font-semibold text-primary">{title}</h3>
-                  <p className="mt-2 text-sm leading-[1.75] text-muted-foreground">{text}</p>
+                  <h3 className="mt-5 text-base font-semibold">{title}</h3>
+                  <p className="mt-2 text-sm leading-[1.7] text-navy-foreground/65">{text}</p>
                 </Reveal>
               ))}
             </div>
           </div>
         </section>
 
-        {/* FAQ */}
-        <section id="faq" className="defer-paint scroll-mt-8 bg-offwhite py-24 md:py-32">
-          <div className="mx-auto max-w-3xl px-6 sm:px-8">
-            <SectionTitle center eyebrow="Dúvidas" title="Perguntas frequentes" />
+        {/* 9. PLANOS */}
+        <section id="planos" className="defer-paint scroll-mt-20 bg-offwhite py-24 md:py-32">
+          <div className="mx-auto max-w-6xl px-5 sm:px-8">
+            <SectionTitle
+              center
+              eyebrow="Planos"
+              title="Um investimento proporcional ao tamanho da sua clínica."
+              text="A cobrança é por clínica, não por profissional. O valor varia conforme o porte e o número de unidades."
+            />
+            <div className="mt-14 grid gap-6 lg:grid-cols-3">
+              {PLANOS.map((p, i) => (
+                <Reveal
+                  key={p.nome}
+                  delay={i * 100}
+                  className={`flex flex-col rounded-2xl border p-8 ${
+                    p.destaque
+                      ? "border-gold/60 bg-navy-deep text-navy-foreground shadow-soft lg:-translate-y-3"
+                      : "border-border bg-card"
+                  }`}
+                >
+                  {p.destaque && (
+                    <p className="mb-4 self-start rounded-full border border-gold/50 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-gold">
+                      Mais escolhido
+                    </p>
+                  )}
+                  <h3 className={`font-serif text-3xl font-semibold ${p.destaque ? "" : "text-primary"}`}>{p.nome}</h3>
+                  <p className={`mt-2 text-sm leading-relaxed ${p.destaque ? "text-navy-foreground/65" : "text-muted-foreground"}`}>
+                    {p.perfil}
+                  </p>
+                  <p className={`mt-6 text-sm font-semibold ${p.destaque ? "text-gold" : "text-primary"}`}>
+                    Valor sob consulta
+                  </p>
+                  <ul className="mt-6 flex-1 space-y-3 text-sm">
+                    {p.itens.map((it) => (
+                      <li key={it} className="flex gap-3">
+                        <ShieldCheck className="size-4 shrink-0 text-gold" strokeWidth={1.8} aria-hidden="true" />
+                        <span className={p.destaque ? "text-navy-foreground/85" : "text-foreground"}>{it}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <a
+                    href={WPP_PLANOS}
+                    className={`btn mt-8 w-full ${p.destaque ? "btn-light" : "btn-outline-primary"}`}
+                  >
+                    Falar com a equipe
+                  </a>
+                </Reveal>
+              ))}
+            </div>
+            <p className="mt-10 text-center text-sm text-muted-foreground">
+              Todos os planos começam com 5 dias grátis, sem cartão de crédito.{" "}
+              <a href={signupUrl} className="font-semibold text-primary underline underline-offset-4">
+                Criar conta grátis
+              </a>
+            </p>
+          </div>
+        </section>
+
+        {/* 10. FAQ */}
+        <section id="faq" className="defer-paint scroll-mt-20 bg-background py-24 md:py-32">
+          <div className="mx-auto max-w-3xl px-5 sm:px-8">
+            <SectionTitle center eyebrow="FAQ" title="Perguntas frequentes" />
             <Reveal className="mt-14 divide-y divide-border border-y border-border">
               {FAQ.map(([q, a]) => (
                 <details key={q} className="group py-6">
@@ -371,7 +508,7 @@ function ProductPage() {
           </div>
         </section>
 
-        {/* CTA FINAL */}
+        {/* 11. CTA FINAL */}
         <section className="defer-paint relative isolate overflow-hidden bg-navy-deep text-navy-foreground">
           <img
             src={medicoImg}
@@ -383,41 +520,64 @@ function ProductPage() {
             sizes="100vw"
             className="absolute inset-0 -z-10 size-full object-cover object-center"
           />
-          <div aria-hidden="true" className="absolute inset-0 -z-10 bg-navy-deep/90" />
-          <Reveal className="mx-auto max-w-3xl px-6 py-28 text-center sm:px-8 md:py-36">
-            <p className="eyebrow text-gold">Uniclinic</p>
+          <div aria-hidden="true" className="absolute inset-0 -z-10 bg-navy-deep/85" />
+          <Reveal className="mx-auto max-w-3xl px-5 py-28 text-center sm:px-8 md:py-36">
+            <p className="eyebrow text-gold">Comece hoje</p>
             <h2 className="mt-6 font-serif text-4xl font-semibold leading-[1.08] text-balance sm:text-6xl">
-              Conheça a plataforma na rotina da sua clínica.
+              Sua clínica merece ser gerida com clareza.
             </h2>
-            <p className="mx-auto mt-6 max-w-xl text-base leading-[1.8] text-navy-foreground/70 sm:text-lg">
-              Crie a conta e avalie o Uniclinic por 5 dias, sem cartão de crédito.
+            <p className="mx-auto mt-6 max-w-xl text-base leading-[1.8] text-navy-foreground/75 sm:text-lg">
+              Crie a conta e avalie o Uniclinic na rotina real da sua clínica por 5 dias, sem cartão
+              de crédito.
             </p>
             <div className="mt-11 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a href={signupUrl} className="btn btn-light w-full sm:w-auto">
-                Criar conta
+                Criar conta grátis
               </a>
               <a href={WPP} className="btn btn-outline-light w-full sm:w-auto">
-                Falar com a equipe
+                Falar no WhatsApp
               </a>
             </div>
           </Reveal>
         </section>
 
-        {/* RODAPE */}
+        {/* 12. RODAPE */}
         <footer className="bg-navy-deep text-navy-foreground/60">
           <div aria-hidden="true" className="h-px w-full bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
-          <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-14 sm:px-8 md:flex-row md:items-center md:justify-between">
+          <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 sm:px-8 md:grid-cols-[1.4fr_1fr_1fr]">
             <div>
               <UniclinicLogo tone="light" />
-              <p className="mt-4 text-sm">Sistema de gestão para clínicas.</p>
+              <p className="mt-4 max-w-xs text-sm leading-relaxed">
+                Sistema de gestão para clínicas médicas e estéticas.
+              </p>
             </div>
-            <div className="flex flex-wrap gap-x-8 gap-y-3 text-sm">
-              <a className="transition-colors hover:text-navy-foreground" href={signupUrl}>uniclinic.cloud</a>
-              <a className="transition-colors hover:text-navy-foreground" href="https://instagram.com/sistema.uniclinic">
-                @sistema.uniclinic
-              </a>
-              <a className="transition-colors hover:text-navy-foreground" href={WPP}>(48) 9125-2304</a>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Navegação</p>
+              <ul className="mt-4 space-y-2.5 text-sm">
+                {MENU.map(([href, label]) => (
+                  <li key={href}>
+                    <a href={href} className="transition-colors hover:text-navy-foreground">{label}</a>
+                  </li>
+                ))}
+              </ul>
             </div>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Contato</p>
+              <ul className="mt-4 space-y-2.5 text-sm">
+                <li><a className="transition-colors hover:text-navy-foreground" href={WPP}>WhatsApp (48) 9125-2304</a></li>
+                <li>
+                  <a className="transition-colors hover:text-navy-foreground" href="https://instagram.com/sistema.uniclinic">
+                    Instagram @sistema.uniclinic
+                  </a>
+                </li>
+                <li><a className="transition-colors hover:text-navy-foreground" href={signupUrl}>uniclinic.cloud</a></li>
+              </ul>
+            </div>
+          </div>
+          <div className="border-t border-navy-foreground/10">
+            <p className="mx-auto max-w-6xl px-5 py-6 text-xs sm:px-8">
+              © {new Date().getFullYear()} Uniclinic. Todos os direitos reservados.
+            </p>
           </div>
         </footer>
       </main>
@@ -431,7 +591,7 @@ function ProductPage() {
           href={signupUrl}
           className="block rounded-xl bg-offwhite px-4 py-3.5 text-center text-sm font-semibold tracking-wide text-navy-deep active:scale-[0.98]"
         >
-          Criar conta
+          Criar conta grátis
         </a>
       </div>
     </>
