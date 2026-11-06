@@ -226,3 +226,61 @@ export function MockFinanceiro() {
     </Frame>
   );
 }
+
+const NAV = ["Painel", "Agenda", "Pacientes", "Prontuário", "Financeiro", "Estoque", "Relatórios"];
+const HOJE = [
+  ["08:00", "Ana Martins", "Consulta", "ok"],
+  ["09:00", "Bruno Souza", "Retorno", "ok"],
+  ["10:30", "Carla Ribeiro", "Procedimento", "pend"],
+  ["11:30", "Horário livre", "—", "livre"],
+  ["14:00", "Diego Lopes", "Avaliação", "ok"],
+] as const;
+
+export function MockPainel() {
+  return (
+    <Frame title="uniclinic.cloud — Painel da clínica">
+      <div className="grid gap-3 sm:grid-cols-[120px_1fr]">
+        <ul className="hidden space-y-1 rounded-lg bg-secondary p-2 sm:block">
+          {NAV.map((n, i) => (
+            <li
+              key={n}
+              className={`rounded-md px-2 py-1.5 text-[10px] font-semibold ${i === 0 ? "bg-primary text-primary-foreground" : "text-muted-foreground"}`}
+            >
+              {n}
+            </li>
+          ))}
+        </ul>
+        <div className="space-y-3">
+          <div className="grid grid-cols-2 gap-2 md:grid-cols-4">
+            {[
+              ["Atendimentos hoje", "14"],
+              ["Confirmados", "11"],
+              ["A receber no mês", "R$ 12.480"],
+              ["Itens em estoque baixo", "3"],
+            ].map(([l, v]) => (
+              <div key={l} className="rounded-lg border border-border bg-background p-2.5">
+                <p className="text-[9px] font-bold uppercase tracking-wide text-muted-foreground">{l}</p>
+                <p className="mt-1 text-sm font-extrabold text-primary">{v}</p>
+              </div>
+            ))}
+          </div>
+          <div className="rounded-lg border border-border bg-background p-3">
+            <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-muted-foreground">Agenda de hoje</p>
+            <ul className="mt-2 divide-y divide-border">
+              {HOJE.map(([h, n, t, s]) => (
+                <li key={h} className="flex items-center gap-3 py-1.5 text-[11px]">
+                  <span className="w-10 font-bold text-primary">{h}</span>
+                  <span className="flex-1 truncate font-semibold text-foreground">{n}</span>
+                  <span className="hidden text-muted-foreground sm:inline">{t}</span>
+                  <span className={`rounded-full border px-2 py-0.5 text-[9px] font-bold ${SLOT_STYLE[s]}`}>
+                    {s === "ok" ? "Confirmado" : s === "pend" ? "Pendente" : "Livre"}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </Frame>
+  );
+}
