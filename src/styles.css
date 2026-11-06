@@ -37,7 +37,11 @@
   --color-green-soft: var(--green-soft);
   --shadow-soft: 0 18px 48px -28px color-mix(in oklab, var(--navy) 60%, transparent);
   --shadow-cta: 0 14px 32px -14px color-mix(in oklab, var(--green) 55%, transparent);
-  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-offwhite: var(--offwhite);
+  --font-sans: "Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
 }
 
 :root {
@@ -46,7 +50,7 @@
   --foreground: oklch(0.24 0.04 250);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.24 0.04 250);
-  --primary: oklch(0.32 0.09 255);
+  --primary: oklch(0.22 0.065 262);
   --primary-foreground: oklch(0.99 0 0);
   --secondary: oklch(0.96 0.015 250);
   --secondary-foreground: oklch(0.32 0.09 255);
@@ -60,8 +64,11 @@
   --input: oklch(0.92 0.012 250);
   --ring: oklch(0.55 0.14 240);
 
-  --navy: oklch(0.28 0.08 258);
-  --navy-deep: oklch(0.21 0.06 258);
+  --navy: oklch(0.28 0.07 262);
+  --navy-deep: oklch(0.22 0.065 262); /* #0B1B3A */
+  --offwhite: oklch(0.98 0.003 260); /* #F7F8FA */
+  --gold: oklch(0.72 0.135 88); /* #C9A227 */
+  --gold-soft: oklch(0.95 0.035 90);
   --navy-foreground: oklch(0.98 0.005 250);
   --blue: oklch(0.58 0.15 245);
   --blue-soft: oklch(0.95 0.03 240);
@@ -215,9 +222,52 @@ html {
   contain-intrinsic-size: auto 640px;
 }
 
-/* Evita o "flash" do quiz para quem ja respondeu:
-   um script inline no <head> marca o documento antes da hidratacao. */
-/* (a regra de ocultacao e injetada pelo script inline em __root.tsx) */
+/* --- Linguagem premium ---------------------------------------------------- */
+@utility btn-light {
+  background-color: var(--offwhite);
+  color: var(--navy-deep);
+  box-shadow: 0 12px 30px -16px color-mix(in oklab, black 60%, transparent);
+  &:hover {
+    transform: translateY(-2px);
+    background-color: white;
+  }
+}
+
+@utility eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  &::before {
+    content: "";
+    width: 1.75rem;
+    height: 1px;
+    background: var(--gold);
+  }
+}
+
+/* Fade + slide ao rolar (ativado por IntersectionObserver em <Reveal>) */
+@utility scroll-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  &[data-visible="true"] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
   *,
